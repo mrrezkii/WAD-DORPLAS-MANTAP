@@ -11,10 +11,12 @@ class StatusFactory extends Factory
      *
      * @return array
      */
-    public function definition()
+    status = [''];
+     public function definition()
     {
         return [
-            //
+            'id' => mt_rand(1, 9),
+            'name_status'=>$this->faker->unique->randomElement($this->),
         ];
     }
 }
