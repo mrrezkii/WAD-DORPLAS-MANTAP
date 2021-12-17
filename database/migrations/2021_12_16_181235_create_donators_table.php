@@ -22,7 +22,7 @@ class CreateDonatorsTable extends Migration
             $table->string('blood_rhesus_donators');
             $table->string('contact_donators');
             $table->string('address_donators');
-            $table->string('profile_image_donators');
+            $table->string('profile_image_donators')->nullable();
             $table->boolean('verify_donators');
             $table->timestamps();
         });

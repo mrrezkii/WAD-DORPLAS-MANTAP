@@ -22,7 +22,7 @@ class CreateDonorNotesTable extends Migration
             $table->string('blood_type_donor_notes');
             $table->string('blood_rhesus_donor_notes');
             $table->string('schedule_donor_notes');
-            $table->string('certificate_donor_notes');
+            $table->string('certificate_donor_notes')->nullabble();
             $table->unsignedBigInteger('id_status');
             $table->foreign('id_status')->references('id')->on('status');
             $table->timestamps();
