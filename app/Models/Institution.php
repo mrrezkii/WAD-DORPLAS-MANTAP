@@ -10,4 +10,8 @@ class Institution extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
+
+    public function donorNote(){
+        return $this->hasMany(DonorNote::class);
+    }
 }

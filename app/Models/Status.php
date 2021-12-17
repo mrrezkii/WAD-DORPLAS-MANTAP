@@ -12,4 +12,8 @@ class Status extends Model
     public $table = 'status';
     public $timestamps = false;
     protected $guarded = ['id'];
+
+    public function donorNote(){
+        return $this->hasMany(DonorNote::class);
+    }
 }

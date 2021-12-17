@@ -18,10 +18,10 @@
             @foreach($arrays as $data)
                 <tr>
                     <th scope="row">{{ $count++ }}</th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>{{ $data->name_institutions }}</td>
+                    <td>{{ $data->email_institutions }}</td>
+                    <td>{{ $data->contact_institutions }}</td>
+                    <td>{{ $data->address_institutions }}</td>
                 </tr>
             @endforeach
             </tbody>

@@ -12,6 +12,6 @@ class Donator extends Model
     protected $guarded = ['id'];
 
     public function donorNote(){
-        return $this->belongsTo(DonorNote::class);
+        return $this->hasMany(DonorNote::class);
     }
 }

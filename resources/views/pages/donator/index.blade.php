@@ -20,12 +20,12 @@
             @foreach($arrays as $data)
                 <tr>
                     <th scope="row">{{ $count++ }}</th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td>{{ $data->name_donators }}</td>
+                    <td>{{ $data->email_donators }}</td>
+                    <td>{{ $data->blood_type_donators }}</td>
+                    <td>{{ $data->blood_rhesus_donators }}</td>
+                    <td>{{ $data->contact_donators }}</td>
+                    <td>{{ $data->address_donators }}</td>
                 </tr>
             @endforeach
             </tbody>
