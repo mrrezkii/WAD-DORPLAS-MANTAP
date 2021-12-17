@@ -38,3 +38,4 @@ class CreateDonatorsTable extends Migration
         Schema::dropIfExists('donators');
     }
 }
+

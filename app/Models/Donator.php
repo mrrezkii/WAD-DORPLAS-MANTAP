@@ -10,4 +10,8 @@ class Donator extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
+
+    public function donorNote(){
+        return $this->belongsTo(DonorNote::class);
+    }
 }
