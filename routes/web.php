@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\DonatorController;
+use App\Http\Controllers\DonorNoteController;
+use App\Http\Controllers\InstitutionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +17,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('pages.home.index', [
+        'title' => 'Home',
+        'active' => 'home',
+    ]);
 });
+
+Route::resource('/donator', DonatorController::class);
+Route::resource('/institution', InstitutionController::class);
+Route::resource('/donor-notes', DonorNoteController::class);
