@@ -14,12 +14,12 @@ class InstitutionFactory extends Factory
     public function definition()
     {
         return [
-            'name_institutions'=>$this-> faker->name(),
-            'email_institutions' =>$this-> faker->unique() ->safeEmail(),
-            'contact_institutions'=>$this-> faker->phoneNumber(),
-            'address_institutions'=>$this-> faker->address(),
-            'latitude_institutions'=>$this-> faker->name(),
-            'longitude_institutions'=>$this-> faker->name(),
+            'name_institutions'=> $this->faker->company(),
+            'email_institutions' => $this->faker->unique() ->safeEmail(),
+            'contact_institutions'=> $this->faker->phoneNumber(),
+            'address_institutions'=> $this->faker->address(),
+            'latitude_institutions'=> $this->faker->latitude(),
+            'longitude_institutions'=> $this->faker->longitude(),
         ];
     }
 }

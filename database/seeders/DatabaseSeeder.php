@@ -2,12 +2,12 @@
 
 namespace Database\Seeders;
 
+use App\Models\DonorNote;
+use App\Models\Institution;
+use App\Models\Status;
 use Illuminate\Database\Seeder;
 use App\Models\Donator;
-use app\Mosels\DonorNote;
-use app\Mosels\Institution;
-use app\Mosels\Status;
-use app\Mosels\User;
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,7 +18,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        Donator::factory(9)->create();
-        Institution::factor(10)->create();
+        Donator::factory(100)->create();
+        Institution::factory(25)->create();
+        Status::factory(6)->create();
+        DonorNote::factory(100)->create();
     }
 }

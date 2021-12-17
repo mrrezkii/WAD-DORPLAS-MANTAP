@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Institution;
 use Illuminate\Database\Seeder;
 
 class InstitutionSeeder extends Seeder
@@ -13,6 +14,6 @@ class InstitutionSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Institution::factory(25)->create();
     }
 }

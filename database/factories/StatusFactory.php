@@ -11,12 +11,11 @@ class StatusFactory extends Factory
      *
      * @return array
      */
-    status = [''];
+    private $status = ['waiting_confirmation', 'update_schedule', 'schedule_rejected', 'conditions_rejected', 'canceled', 'finished'];
      public function definition()
     {
         return [
-            'id' => mt_rand(1, 9),
-            'name_status'=>$this->faker->unique->randomElement($this->),
+            'name_status'=>$this->faker->unique->randomElement($this->status),
         ];
     }
 }

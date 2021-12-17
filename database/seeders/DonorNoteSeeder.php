@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\DonorNote;
 use Illuminate\Database\Seeder;
 
 class DonorNoteSeeder extends Seeder
@@ -13,6 +14,6 @@ class DonorNoteSeeder extends Seeder
      */
     public function run()
     {
-        
+        DonorNote::factory(100)->create();
     }
 }
