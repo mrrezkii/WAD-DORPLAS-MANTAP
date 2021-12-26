@@ -9,6 +9,10 @@
     background-color: #F8F8FB;
 }
 
+.bg-red {
+    background-color: #BA181B !important;
+}
+
 .text-red {
     color: #BA181B !important;
 }
@@ -17,6 +21,62 @@
     color: #0B090A;
 }
 
+.text-blue {
+    color: #2B2E4A;
+}
+
+.tile {
+    background-image: url('/images/tile.png');
+    min-height: 70px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
 .sidebar-dark .nav-item .nav-link[data-toggle="collapse"]::after {
     color: #BA181B !important;
+}
+
+img {
+    object-fit: cover;
+    user-drag: none;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+.box-event p {
+    line-height: 20px;
+}
+
+.text-title1 {
+    font-weight: 600;
+    font-size: 18px;
+    margin: 0;
+}
+
+.text-body1 {
+    font-weight: 600;
+    font-size: 14px;
+    margin: 0;
+}
+
+.text-subtitle1 {
+    font-weight: 400;
+    font-size: 10px;
+    margin: 0;
+}
+
+.text-title2 {
+    font-weight: 600;
+    font-size: 16px;
+    margin: 0;
+}
+
+.text-body2 {
+    font-weight: 600;
+    font-size: 12px;
+    margin: 0;
 }

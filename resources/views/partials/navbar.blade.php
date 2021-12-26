@@ -76,7 +76,7 @@
             <span class="text-grey">Setting</span></a>
     </li>
 
-    <li class="nav-item ml-2 mt-5 pt-5">
+    <li class="nav-item ml-2">
         <a class="nav-link" href="#">
             <img src="{{ url('images/icon/ic_logout.svg') }}" class="img-fluid" width="24px" alt="logout">
             <span class="text-grey">Logout</span></a>

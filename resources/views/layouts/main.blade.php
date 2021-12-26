@@ -14,6 +14,7 @@
     <title>Dorplas</title>
     <link href="{{ url('css/sb-admin-2.min.css') }}" rel="stylesheet">
     <link href="{{ url('css/dorplas.css') }}" rel="stylesheet">
+    @yield('custom-head')
 </head>
 
 <body id="page-top">
@@ -34,6 +35,7 @@
 <script src="{{ url('vendor/jquery-easing/jquery.easing.min.js') }}"></script>
 
 <script src="{{ url('js/sb-admin-2.min.js"') }}"></script>
+@yield('custom-script')
 </body>
 
 </html>

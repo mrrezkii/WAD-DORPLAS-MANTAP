@@ -4139,6 +4139,8 @@
     }
 
 
+
+
 // Multifunctional method to get and set values of a collection
 // The value/s can optionally be executed if it's a function
     var access = function (elems, fn, key, value, chainable, emptyGet, raw) {
@@ -7807,6 +7809,8 @@
     });
 
 
+
+
 // Return jQuery for attributes-only inclusion
 
 
@@ -8635,6 +8639,8 @@
     );
 
 
+
+
 // Support: Android <=4.0 only
 // Make sure we trim BOM and NBSP
     var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
@@ -8706,6 +8712,7 @@
             "" :
             (text + "").replace(rtrim, "");
     };
+
 
 
 // Register as a named AMD module, since jQuery can be concatenated with other

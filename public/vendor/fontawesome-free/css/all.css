@@ -7042,7 +7042,6 @@ readers do not read off random characters that represent icons */
     white-space: nowrap;
     border-width: 0;
 }
-
 :root, :host {
     --fa-font-brands: normal 400 1em/1 "Font Awesome 6 Brands";
 }
@@ -8932,7 +8931,6 @@ readers do not read off random characters that represent icons */
 .fa-zhihu:before {
     content: "\f63f";
 }
-
 :root, :host {
     --fa-font-regular: normal 400 1em/1 "Font Awesome 6 Free";
 }
@@ -8950,7 +8948,6 @@ readers do not read off random characters that represent icons */
     font-family: 'Font Awesome 6 Free';
     font-weight: 400;
 }
-
 :root, :host {
     --fa-font-solid: normal 900 1em/1 "Font Awesome 6 Free";
 }
@@ -8968,7 +8965,6 @@ readers do not read off random characters that represent icons */
     font-family: 'Font Awesome 6 Free';
     font-weight: 900;
 }
-
 @font-face {
     font-family: "Font Awesome 5 Brands";
     font-display: block;
@@ -8989,7 +8985,6 @@ readers do not read off random characters that represent icons */
     font-weight: 400;
     src: url("../webfonts/fa-regular-400.woff2") format("woff2"), url("../webfonts/fa-regular-400.ttf") format("truetype");
 }
-
 @font-face {
     font-family: "FontAwesome";
     font-display: block;

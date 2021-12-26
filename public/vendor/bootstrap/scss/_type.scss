@@ -48,19 +48,16 @@ h6, .h6 {
     font-weight: $display1-weight;
     line-height: $display-line-height;
 }
-
 .display-2 {
     @include font-size($display2-size);
     font-weight: $display2-weight;
     line-height: $display-line-height;
 }
-
 .display-3 {
     @include font-size($display3-size);
     font-weight: $display3-weight;
     line-height: $display-line-height;
 }
-
 .display-4 {
     @include font-size($display4-size);
     font-weight: $display4-weight;
@@ -109,7 +106,6 @@ mark,
 .list-inline {
     @include list-unstyled();
 }
-
 .list-inline-item {
     display: inline-block;
 
