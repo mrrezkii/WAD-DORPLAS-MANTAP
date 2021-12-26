@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap');
+
+* {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 550;
+}
+
+.bg-white {
+    background-color: #F8F8FB;
+}
+
+.text-red {
+    color: #BA181B !important;
+}
+
+.text-grey {
+    color: #0B090A;
+}
+
+.sidebar-dark .nav-item .nav-link[data-toggle="collapse"]::after {
+    color: #BA181B !important;
+}

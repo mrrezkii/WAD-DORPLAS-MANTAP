@@ -1,8 +1,5 @@
 <?php
 
-use App\Http\Controllers\DonatorController;
-use App\Http\Controllers\DonorNoteController;
-use App\Http\Controllers\InstitutionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,6 +20,6 @@ Route::get('/', function () {
     ]);
 });
 
-Route::resource('/donator', DonatorController::class);
-Route::resource('/institution', InstitutionController::class);
-Route::resource('/donor-notes', DonorNoteController::class);
+//Route::resource('/donator', DonatorController::class);
+//Route::resource('/institution', InstitutionController::class);
+//Route::resource('/donor-notes', DonorNoteController::class);

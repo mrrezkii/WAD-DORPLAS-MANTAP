@@ -1,26 +1,39 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-    <title>Dorplas - {{ $title }}</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Dorplas - Yuk Peduli Sesama">
+    <meta name="author" content="Kelompok Mantap">
+
+
+    <link href="{{ url('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
+    <title>Dorplas</title>
+    <link href="{{ url('css/sb-admin-2.min.css') }}" rel="stylesheet">
+    <link href="{{ url('css/dorplas.css') }}" rel="stylesheet">
 </head>
 
-<body class="d-flex flex-column min-vh-100">
-@include('partials.navbar')
-<main class="mt-5">
-    <div class="container">
-        @yield('container')
+<body id="page-top">
+<div id="wrapper">
+    @include('partials.navbar')
+    <div id="content-wrapper" class="d-flex flex-column">
+        <div id="content">
+            <div class="container-fluid">
+                @yield('container')
+            </div>
+        </div>
+        @include('partials.footer')
     </div>
-</main>
-@include('partials.footer')
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
-</script>
+</div>
+<script src="{{ url('vendor/jquery/jquery.min.js') }}"></script>
+<script src="{{ url('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+
+<script src="{{ url('vendor/jquery-easing/jquery.easing.min.js') }}"></script>
+
+<script src="{{ url('js/sb-admin-2.min.js"') }}></script>
 </body>
 
 </html>
