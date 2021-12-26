@@ -19,7 +19,3 @@ Route::get('/', function () {
         'active' => 'home',
     ]);
 });
-
-//Route::resource('/donator', DonatorController::class);
-//Route::resource('/institution', InstitutionController::class);
-//Route::resource('/donor-notes', DonorNoteController::class);
