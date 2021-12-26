@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('custom-head')
-    <link href="{{ url('vendor/powerful-calendar/style.css') }}" rel="stylesheet">
-    <link href="{{ url('vendor/powerful-calendar/theme.css') }}" rel="stylesheet">
+    <link href="{{ url('/vendor/powerful-calendar/style.css') }}" rel="stylesheet">
+    <link href="{{ url('/vendor/powerful-calendar/theme.css') }}" rel="stylesheet">
 @endsection
 @section('container')
     <div class="row">
@@ -10,12 +10,12 @@
                 <div class="col-4">
                     <div class="row">
                         <div class="col-3">
-                            <img src="images/avatar.jpg" class="rounded-circle" width="70px"
-                                 height="70px">
+                            <img src="{{ url('/images/avatar.jpg') }}" class="rounded-circle" width="70px"
+                                 height="70px" alt="avatar">
                         </div>
                         <div class="col-9">
                             <p class="text-title1 text-blue mb-1">Muhammad Diky Jaka</p>
-                            <img src="images/icon/ic_star.svg">
+                            <img src="{{ url('/images/icon/ic_star.svg') }}" alt="point">
                             <span class="text-body1 text-blue">255</span>
                         </div>
                     </div>
@@ -24,7 +24,7 @@
                 <div class="col-4">
                     <div class="row no-gutters">
                         <div class="col-3 m-0 p-0">
-                            <img src="images/icon/ic_drop_white.svg" height="60px">
+                            <img src="{{ url('/images/icon/ic_drop_white.svg') }}" height="60px" alt="blood">
                         </div>
                         <div class="col-9">
                             <p class="text-subtitle1 text-blue">Diperbarui 28/10/2021</p>
@@ -37,7 +37,7 @@
                     <div class="row">
                         <div class="col-6">
                             <p class="text-title1 text-red mt-2">Permintaan</p>
-                            <img src="images/icon/ic_search.svg">
+                            <img src="{{ url('/images/icon/ic_search.svg') }}" alt="search">
                             <span class="text-body1 text-blue">210</span>
                         </div>
                         <div class="col-6">
@@ -80,7 +80,7 @@
                                 <div class="col-2">
                                     <img class="rounded"
                                          src="https://d324bm9stwnv8c.cloudfront.net/7-penyebab-nyeri-dada-sebelah-kiri-halodoc.jpg"
-                                         width="80px" height="80px">
+                                         width="80px" height="80px" alt="article">
                                 </div>
                                 <div class="col-10">
                                     <p class="ml-2 p-0 text-title1 text-blue d-inline-block text-truncate"
@@ -99,7 +99,7 @@
                                 <div class="col-2">
                                     <img class="rounded"
                                          src="https://d324bm9stwnv8c.cloudfront.net/7-penyebab-nyeri-dada-sebelah-kiri-halodoc.jpg"
-                                         width="80px" height="80px">
+                                         width="80px" height="80px" alt="article">
                                 </div>
                                 <div class="col-10">
                                     <p class="ml-2 p-0 text-title1 text-blue d-inline-block text-truncate"
@@ -147,7 +147,8 @@
                                     </div>
                                 </div>
                                 <div class="col-2 d-flex">
-                                    <img class="img-fluid my-auto" src="images/icon/ic_arrow_right.svg">
+                                    <img class="img-fluid my-auto" src="{{ url('/images/icon/ic_arrow_right.svg') }}"
+                                         alt="next">
                                 </div>
                             </div>
                         </div>
@@ -167,7 +168,8 @@
                                     </div>
                                 </div>
                                 <div class="col-2 d-flex">
-                                    <img class="img-fluid my-auto" src="images/icon/ic_arrow_right.svg">
+                                    <img class="img-fluid my-auto" src="{{ url('/images/icon/ic_arrow_right.svg') }}"
+                                         alt="next">
                                 </div>
                             </div>
                         </div>
@@ -180,8 +182,8 @@
     </div>
 @endsection
 @section('custom-script')
-    <script src="{{ url('vendor/chart.js/Chart.min.js') }}"></script>
-    <script src="{{ url('js/chart-area-demo.js') }}"></script>
-    <script src="{{ url('vendor/powerful-calendar/calendar.min.js') }}"></script>
-    <script src="{{ url('js/calendar.js') }}"></script>
+    <script src="{{ url('/vendor/chart.js/Chart.min.js') }}"></script>
+    <script src="{{ url('/js/chart-area-demo.js') }}"></script>
+    <script src="{{ url('/vendor/powerful-calendar/calendar.min.js') }}"></script>
+    <script src="{{ url('/js/calendar.js') }}"></script>
 @endsection
