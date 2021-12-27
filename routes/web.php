@@ -15,7 +15,16 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('pages.home.index', [
-        'title' => 'Home',
+        'title' => 'Dashboard',
         'active' => 'home',
     ]);
 });
+
+Route::get('/location', function () {
+    return view('pages.location.index', [
+        'title' => 'Lokasi',
+        'active' => 'location',
+    ]);
+});
+
+

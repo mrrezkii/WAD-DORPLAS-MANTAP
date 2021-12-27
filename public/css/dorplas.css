@@ -28,8 +28,6 @@
 .tile {
     background-image: url('/images/tile.png');
     min-height: 70px;
-    background-size: cover;
-    background-repeat: no-repeat;
 }
 
 
@@ -79,4 +77,43 @@ img {
     font-weight: 600;
     font-size: 12px;
     margin: 0;
+}
+
+.input-wrapper {
+    position: relative;
+    width: 271px;
+}
+
+.input-search {
+    width: 465px;
+    font-weight: 600;
+    font-size: 18px;
+    color: #2B2E4A;
+    padding: 25px 20px 25px 60px;
+    background-color: #F1F3FA;
+    border: none;
+
+}
+
+.list-location {
+    width: 450px;
+}
+
+input[type=search]:focus {
+    outline: none;
+}
+
+.input-icon {
+    color: #919ABA;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.map {
+    width: 100%;
+    min-height: 600px;
 }
