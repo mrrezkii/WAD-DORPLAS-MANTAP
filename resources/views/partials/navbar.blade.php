@@ -26,7 +26,7 @@
     </li>
 
     <li class="nav-item ml-2">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{{ url('/event') }}">
             <img src="{{ url('/images/icon/ic_calender.svg') }}" class="img-fluid" width="18px"
                  style="margin-left: 2px;"
                  alt="acara">

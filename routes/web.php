@@ -27,4 +27,12 @@ Route::get('/location', function () {
     ]);
 });
 
+Route::get('/event', function () {
+    return view('pages.event.index', [
+        'title' => 'Acara',
+        'active' => 'event',
+    ]);
+});
+
+
 
