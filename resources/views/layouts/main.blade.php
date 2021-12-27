@@ -13,6 +13,7 @@
     <link href="{{ url('/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ url('/css/sb-admin-2.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ url('/css/dorplas.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url('/css/navigation.css') }}" rel="stylesheet" type="text/css">
     @yield('custom-head')
 </head>
 

@@ -5,7 +5,7 @@
 @section('container')
     <div class="container-fluid">
         <div class="row no-gutters">
-            <div class="col-5 mt-5">
+            <div class="col-6 mt-5">
                 <div class="input-wrapper">
                     <input type="search" class="input-search rounded" placeholder="Cari PMI Terdekat">
 
@@ -127,7 +127,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-7 mt-5">
+            <div class="col-6 mt-5">
                 <div id="map" class="map rounded"></div>
             </div>
         </div>
