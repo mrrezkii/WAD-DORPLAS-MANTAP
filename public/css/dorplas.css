@@ -5,6 +5,7 @@
     font-weight: 550;
 }
 
+
 .bg-white {
     background-color: #F8F8FB;
 }
@@ -19,6 +20,10 @@
 
 .text-grey {
     color: #0B090A;
+}
+
+.text-grey:hover {
+    color: #BA181B !important;
 }
 
 .text-blue {
@@ -116,4 +121,14 @@ input[type=search]:focus {
 .map {
     width: 100%;
     min-height: 600px;
+}
+
+.list-event p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    /* number of lines to show */
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
 }

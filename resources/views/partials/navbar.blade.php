@@ -51,13 +51,13 @@
 
 
     <li class="nav-item ml-2">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{{ url('/article') }}">
             <img src="{{ url('/images/icon/ic_document.svg') }}" class="img-fluid" width="24px" alt="artikel">
             <span
                 class="text-grey hover-underline-animation {{ ($active === "article") ? 'active' : '' }}">Artikel</span></a>
     </li>
 
-    <li class="nav-item ml-2">
+    <li class="nav-item ml-2 d-none">
         <a class="nav-link" href="#">
             <img src="{{ url('/images/icon/ic_notif.svg') }}" class="img-fluid" width="24px" alt="notifikasi">
             <span class="text-grey hover-underline-animation {{ ($active === "notification") ? 'active' : '' }}">Notifikasi</span></a>

@@ -34,5 +34,13 @@ Route::get('/event', function () {
     ]);
 });
 
+Route::get('/article', function () {
+    return view('pages.article.index', [
+        'title' => 'Artikel',
+        'active' => 'article',
+    ]);
+});
+
+
 
 
