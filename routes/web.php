@@ -48,3 +48,12 @@ Route::get('/donor', function () {
     ]);
 });
 
+Route::get('/request', function () {
+    return view('pages.donor.request', [
+        'title' => 'Request',
+        'active' => 'donor',
+    ]);
+});
+
+
+
