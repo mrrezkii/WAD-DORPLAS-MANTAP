@@ -41,6 +41,10 @@ Route::get('/article', function () {
     ]);
 });
 
-
-
+Route::get('/donor', function () {
+    return view('pages.donor.index', [
+        'title' => 'Donor',
+        'active' => 'donor',
+    ]);
+});
 

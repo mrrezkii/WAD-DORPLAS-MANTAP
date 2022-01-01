@@ -43,7 +43,7 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Jenis Layanan</h6>
-                <a class="collapse-item" href="#">Donor Plasma</a>
+                <a class="collapse-item" href="{{ url('/donor') }}">Donor Plasma</a>
                 <a class="collapse-item" href="#">Request Plasma</a>
             </div>
         </div>
