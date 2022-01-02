@@ -8,18 +8,19 @@
         <div class="col-12 mt-4 pb-4 border-bottom">
             <div class="row">
                 <div class="col-md-4 col-sm-12">
-                    <div class="row">
-                        <div class="col-md-3">
-                            <img src="{{ url('/images/avatar.jpg') }}" class="rounded-circle" width="70px"
-                                 height="70px" alt="avatar">
+                    <a href="#" class="text-decoration-none">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <img src="{{ url('/images/avatar.jpg') }}" class="rounded-circle" width="70px"
+                                     height="70px" alt="avatar">
+                            </div>
+                            <div class="col-md-9">
+                                <p class="text-title1 text-blue mb-1 ml-3">Muhammad Diky Jaka</p>
+                                <img src="{{ url('/images/icon/ic_star.svg') }}" alt="point" class="img-fluid ml-3">
+                                <span class="text-body1 text-blue">255</span>
+                            </div>
                         </div>
-                        <div class="col-md-9">
-                            <p class="text-title1 text-blue mb-1 ml-3">Muhammad Diky Jaka</p>
-                            <img src="{{ url('/images/icon/ic_star.svg') }}" alt="point" class="img-fluid ml-3">
-                            <span class="text-body1 text-blue">255</span>
-                        </div>
-                    </div>
-
+                    </a>
                 </div>
                 <div class="col-md-4 col-sm-12">
                     <div class="row no-gutters">

@@ -8,21 +8,23 @@
     <div class="row">
         <div class="col-12 mt-4 pb-4 border-bottom">
             <div class="row">
-                <div class="col-4">
-                    <div class="row">
-                        <div class="col-3">
-                            <img src="{{ url('/images/avatar.jpg') }}" class="rounded-circle" width="70px"
-                                 height="70px" alt="avatar">
+                <div class="col-md-4 col-sm-12">
+                    <a href="#" class="text-decoration-none">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <img src="{{ url('/images/avatar.jpg') }}" class="rounded-circle" width="70px"
+                                     height="70px" alt="avatar">
+                            </div>
+                            <div class="col-md-9">
+                                <p class="text-title1 text-blue mb-1 ml-3">Muhammad Diky Jaka</p>
+                                <img src="{{ url('/images/icon/ic_star.svg') }}" alt="point" class="img-fluid ml-3">
+                                <span class="text-body1 text-blue">255</span>
+                            </div>
                         </div>
-                        <div class="col-9">
-                            <p class="text-title1 text-blue mb-1">Muhammad Diky Jaka</p>
-                            <img src="{{ url('/images/icon/ic_star.svg') }}" alt="point">
-                            <span class="text-body1 text-blue">255</span>
-                        </div>
-                    </div>
+                    </a>
 
                 </div>
-                <div class="col-4">
+                <div class="col-md-4 col-sm-12">
                     <div class="row no-gutters">
                         <div class="col-3 m-0 p-0">
                             <img src="{{ url('/images/icon/ic_drop_white.svg') }}" height="60px" alt="blood">
@@ -34,28 +36,21 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-4">
-                    <div class="row">
-                        <div class="col-6">
-                            <p class="text-title1 text-red mt-2">Permintaan</p>
-                            <img src="{{ url('/images/icon/ic_search.svg') }}" alt="search">
-                            <span class="text-body1 text-blue">210</span>
-                        </div>
-                        <div class="col-6">
-
-                        </div>
-                    </div>
+                <div class="col-md-4 col-sm-12 ">
+                    <p class="text-title1 text-red mt-2">Permintaan</p>
+                    <img src="{{ url('/images/icon/ic_search.svg') }}" alt="search" width="17px">
+                    <span class="text-body1 text-blue">210</span>
                 </div>
             </div>
         </div>
-        <div class="col-6">
+        <div class="col-md-6 col-sm-12">
             <img class="img=fluid" src="{{ url('/images/woman.png') }}" alt="Woman">
             <p class="text-title1 text-blue mt-1"
-               style="font-size: 40px;line-height: 40px;font-family: 'Montserrat', sans-serif;">Ajukan Donor</p>
+               style="font-size: 30px;line-height: 30px;font-family: 'Montserrat', sans-serif;">Ajukan Donor</p>
             <p class="text-title2 text-blue mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Tristique
                 quis consequat feugiat luctus mauris enim mi.</p>
         </div>
-        <div class="col-6 d-flex flex-column my-auto">
+        <div class="col-md-6 col-sm-12 d-flex flex-column my-auto pt-5">
             <h3 class="text-blue font-bolder font-weight-bold mt-5">Form Permohonan Plasma</h3>
             <form action="#" METHOD="POST">
                 @csrf

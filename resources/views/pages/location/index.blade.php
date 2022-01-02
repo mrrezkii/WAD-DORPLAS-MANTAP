@@ -5,7 +5,7 @@
 @section('container')
     <div class="container-fluid">
         <div class="row no-gutters">
-            <div class="col-6 mt-5">
+            <div class="col-md-6 col-sm-12 mt-5">
                 <div class="input-wrapper">
                     <input type="search" class="input-search rounded" placeholder="Cari PMI Terdekat">
 
@@ -17,117 +17,71 @@
                     </svg>
                 </div>
                 <div class="list-location mt-5">
-                    <div class="row mb-3">
-                        <div class="col-1 d-flex">
-                            <img class="m-3 m-auto" src="images/icon/ic_pin_location.svg" alt="location"
-                                 height="32px">
+                    <a href="#" class="text-decoration-none">
+                        <div class="row mb-3">
+                            <div class="col-1 d-flex">
+                                <img class="m-3 m-auto" src="images/icon/ic_pin_location.svg" alt="location"
+                                     height="32px">
+                            </div>
+                            <div class="col-8">
+                                <p class="text-title1 text-blue" style="line-height: 20px;">Kantor PMI Kota
+                                    Kediri</p>
+                                <p class="text-body2 text-blue mt-1" style="line-height: 20px;">Jl. Mayor Bismo
+                                    No. 15 Mojoroto</p>
+                            </div>
+                            <div class="col-2 d-flex">
+                                <p class="m-auto text-body1 text-blue">0.5 KM</p>
+                            </div>
+                            <div class="col-12">
+                                <hr>
+                            </div>
                         </div>
-                        <div class="col-8">
-                            <p class="text-title1 text-blue" style="line-height: 20px;">Kantor PMI Kota
-                                Kediri</p>
-                            <p class="text-body2 text-blue mt-1" style="line-height: 20px;">Jl. Mayor Bismo
-                                No. 15 Mojoroto</p>
+                    </a>
+                    <a href="#" class="text-decoration-none">
+                        <div class="row mb-3">
+                            <div class="col-1 d-flex">
+                                <img class="m-3 m-auto" src="images/icon/ic_pin_location.svg" alt="location"
+                                     height="32px">
+                            </div>
+                            <div class="col-8">
+                                <p class="text-title1 text-blue" style="line-height: 20px;">Kantor PMI Kota
+                                    Kediri</p>
+                                <p class="text-body2 text-blue mt-1" style="line-height: 20px;">Jl. Mayor Bismo
+                                    No. 15 Mojoroto</p>
+                            </div>
+                            <div class="col-2 d-flex">
+                                <p class="m-auto text-body1 text-blue">0.5 KM</p>
+                            </div>
+                            <div class="col-12">
+                                <hr>
+                            </div>
                         </div>
-                        <div class="col-2 d-flex">
-                            <p class="m-auto text-body1 text-blue">0.5 KM</p>
+                    </a>
+                    <a href="#" class="text-decoration-none">
+                        <div class="row mb-3">
+                            <div class="col-1 d-flex">
+                                <img class="m-3 m-auto" src="images/icon/ic_pin_location.svg" alt="location"
+                                     height="32px">
+                            </div>
+                            <div class="col-8">
+                                <p class="text-title1 text-blue" style="line-height: 20px;">Kantor PMI Kota
+                                    Kediri</p>
+                                <p class="text-body2 text-blue mt-1" style="line-height: 20px;">Jl. Mayor Bismo
+                                    No. 15 Mojoroto</p>
+                            </div>
+                            <div class="col-2 d-flex">
+                                <p class="m-auto text-body1 text-blue">0.5 KM</p>
+                            </div>
+                            <div class="col-12">
+                                <hr>
+                            </div>
                         </div>
-                        <div class="col-12">
-                            <hr>
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <div class="col-1 d-flex">
-                            <img class="m-3 m-auto" src="images/icon/ic_pin_location.svg" alt="location"
-                                 height="32px">
-                        </div>
-                        <div class="col-8">
-                            <p class="text-title1 text-blue" style="line-height: 20px;">Kantor PMI Kota
-                                Kediri</p>
-                            <p class="text-body2 text-blue mt-1" style="line-height: 20px;">Jl. Mayor Bismo
-                                No. 15 Mojoroto</p>
-                        </div>
-                        <div class="col-2 d-flex">
-                            <p class="m-auto text-body1 text-blue">0.5 KM</p>
-                        </div>
-                        <div class="col-12">
-                            <hr>
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <div class="col-1 d-flex">
-                            <img class="m-3 m-auto" src="images/icon/ic_pin_location.svg" alt="location"
-                                 height="32px">
-                        </div>
-                        <div class="col-8">
-                            <p class="text-title1 text-blue" style="line-height: 20px;">Kantor PMI Kota
-                                Kediri</p>
-                            <p class="text-body2 text-blue mt-1" style="line-height: 20px;">Jl. Mayor Bismo
-                                No. 15 Mojoroto</p>
-                        </div>
-                        <div class="col-2 d-flex">
-                            <p class="m-auto text-body1 text-blue">0.5 KM</p>
-                        </div>
-                        <div class="col-12">
-                            <hr>
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <div class="col-1 d-flex">
-                            <img class="m-3 m-auto" src="images/icon/ic_pin_location.svg" alt="location"
-                                 height="32px">
-                        </div>
-                        <div class="col-8">
-                            <p class="text-title1 text-blue" style="line-height: 20px;">Kantor PMI Kota
-                                Kediri</p>
-                            <p class="text-body2 text-blue mt-1" style="line-height: 20px;">Jl. Mayor Bismo
-                                No. 15 Mojoroto</p>
-                        </div>
-                        <div class="col-2 d-flex">
-                            <p class="m-auto text-body1 text-blue">0.5 KM</p>
-                        </div>
-                        <div class="col-12">
-                            <hr>
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <div class="col-1 d-flex">
-                            <img class="m-3 m-auto" src="images/icon/ic_pin_location.svg" alt="location"
-                                 height="32px">
-                        </div>
-                        <div class="col-8">
-                            <p class="text-title1 text-blue" style="line-height: 20px;">Kantor PMI Kota
-                                Kediri</p>
-                            <p class="text-body2 text-blue mt-1" style="line-height: 20px;">Jl. Mayor Bismo
-                                No. 15 Mojoroto</p>
-                        </div>
-                        <div class="col-2 d-flex">
-                            <p class="m-auto text-body1 text-blue">0.5 KM</p>
-                        </div>
-                        <div class="col-12">
-                            <hr>
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <div class="col-1 d-flex">
-                            <img class="m-3 m-auto" src="images/icon/ic_pin_location.svg" alt="location"
-                                 height="32px">
-                        </div>
-                        <div class="col-8">
-                            <p class="text-title1 text-blue" style="line-height: 20px;">Kantor PMI Kota
-                                Kediri</p>
-                            <p class="text-body2 text-blue mt-1" style="line-height: 20px;">Jl. Mayor Bismo
-                                No. 15 Mojoroto</p>
-                        </div>
-                        <div class="col-2 d-flex">
-                            <p class="m-auto text-body1 text-blue">0.5 KM</p>
-                        </div>
-                        <div class="col-12">
-                            <hr>
-                        </div>
-                    </div>
+                    </a>
+
+
                 </div>
             </div>
-            <div class="col-6 mt-5">
+            <div class="col-md-6 col-sm-12 mt-5">
                 <div id="map" class="map rounded"></div>
             </div>
         </div>

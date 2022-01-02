@@ -92,7 +92,7 @@ img {
 }
 
 .input-search {
-    width: 465px;
+    max-width: 465px;
     font-weight: 600;
     font-size: 18px;
     color: #2B2E4A;
@@ -103,7 +103,7 @@ img {
 }
 
 .list-location {
-    width: 450px;
+    max-width: 450px;
 }
 
 input[type=search]:focus {
