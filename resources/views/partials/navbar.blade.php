@@ -89,9 +89,30 @@
     </li>
 
     <li class="nav-item ml-2">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="#" data-toggle="modal" data-target="#logoutModal">
             <img src="{{ url('/images/icon/ic_logout.svg') }}" class="img-fluid" width="24px" alt="logout">
-            <span class="text-grey hover-underline-animation {{ ($active === "logout") ? 'active' : '' }}">Logout</span></a>
+            <span class="text-grey hover-underline-animation {{ ($active === "logout") ? 'active' : '' }}">Keluar</span></a>
     </li>
+
+    <!-- Modal -->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="logoutModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-title1 text-blue" id="exampleModalLabel">Anda yakin ingin logout ?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary text-body1 mx-2" data-dismiss="modal">Close</button>
+                    <a href="{{ url('/login') }}" class="text-decoration-none">
+                        <button type="button" class="btn btn-danger text-body1 mx-2">Keluar</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </ul>
