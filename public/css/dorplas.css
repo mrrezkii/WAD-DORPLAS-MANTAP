@@ -33,6 +33,8 @@
 .tile {
     background-image: url('/images/tile.png');
     min-height: 70px;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 
@@ -132,3 +134,14 @@ input[type=search]:focus {
     line-clamp: 2;
     -webkit-box-orient: vertical;
 }
+
+.list-article p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    /* number of lines to show */
+    line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
