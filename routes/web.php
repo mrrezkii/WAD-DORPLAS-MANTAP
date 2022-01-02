@@ -55,5 +55,17 @@ Route::get('/request', function () {
     ]);
 });
 
+Route::get('/login', function () {
+    return view('pages.login.index', [
+        'title' => 'Masuk',
+        'active' => 'login',
+    ]);
+});
 
+Route::get('/register', function () {
+    return view('pages.register.index', [
+        'title' => 'Daftar',
+        'active' => 'register',
+    ]);
+});
 
