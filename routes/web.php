@@ -62,6 +62,13 @@ Route::get('/account', function () {
     ]);
 });
 
+Route::get('/faq', function () {
+    return view('pages.faq.index', [
+        'title' => 'FAQ',
+        'active' => 'faq',
+    ]);
+});
+
 Route::get('/login', function () {
     return view('pages.login.index', [
         'title' => 'Masuk',

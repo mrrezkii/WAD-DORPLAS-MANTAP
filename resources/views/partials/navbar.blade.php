@@ -75,6 +75,12 @@
             <span class="text-grey hover-underline-animation {{ ($active === "account") ? 'active' : '' }}">Akun</span></a>
     </li>
 
+    <li class="nav-item ml-2">
+        <a class="nav-link" href="{{ url('/faq') }}">
+            <img src="{{ url('/images/icon/ic_question.svg') }}" class="img-fluid" width="22px" alt="faq">
+            <span class="text-grey hover-underline-animation {{ ($active === "faq") ? 'active' : '' }}">FAQ</span></a>
+    </li>
+
     <li class="nav-item ml-2 d-none">
         <a class="nav-link" href="#">
             <img src="{{ url('/images/icon/ic_setting.svg') }}" class="img-fluid" width="24px" alt="setting">
