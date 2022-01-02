@@ -17,7 +17,7 @@
                     </svg>
                 </div>
                 <div class="list-location mt-5">
-                    <a href="#" class="text-decoration-none">
+                    <a class="text-decoration-none" data-toggle="modal" data-target="#exampleModal" href="#">
                         <div class="row mb-3">
                             <div class="col-1 d-flex">
                                 <img class="m-3 m-auto" src="images/icon/ic_pin_location.svg" alt="location"
@@ -37,7 +37,7 @@
                             </div>
                         </div>
                     </a>
-                    <a href="#" class="text-decoration-none">
+                    <a class="text-decoration-none" data-toggle="modal" data-target="#exampleModal" href="#">
                         <div class="row mb-3">
                             <div class="col-1 d-flex">
                                 <img class="m-3 m-auto" src="images/icon/ic_pin_location.svg" alt="location"
@@ -57,7 +57,7 @@
                             </div>
                         </div>
                     </a>
-                    <a href="#" class="text-decoration-none">
+                    <a class="text-decoration-none" data-toggle="modal" data-target="#exampleModal" href="#">
                         <div class="row mb-3">
                             <div class="col-1 d-flex">
                                 <img class="m-3 m-auto" src="images/icon/ic_pin_location.svg" alt="location"
@@ -82,12 +82,151 @@
                 </div>
             </div>
             <div class="col-md-6 col-sm-12 mt-5">
-                <div id="map" class="map rounded"></div>
+                <div id="map" class="map rounded vh-100"></div>
             </div>
         </div>
     </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-title1 text-blue text-truncate" id="exampleModalLabel">Informasi
+                        Detail</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="d-flex flex-column">
+                        <small class="text-center mx-auto text-grey">Informasi Bank Darah</small>
+                        <div class="container">
+                            <div class="row w-75 mx-auto mt-2">
+                                <div class="col-md-6 col-sm-12 mb-3">
+                                    <div class="bg-red bank-blood">
+                                        <div class="row">
+                                            <div class="col-4 m-auto">
+                                                <p class="text-center text-white text-title1 pl-2">A</p>
+                                            </div>
+                                            <div class="col-8">
+                                                <div class="row">
+                                                    <div class="col-12 bg-red-2 bank-blood-rhesus-top text-white pt-3">
+                                                        <p class="text-truncate">
+                                                            <i class="fas fa-plus-circle"></i>
+                                                            <span class="">1202190044</span>
+                                                        </p>
+                                                    </div>
+                                                    <div
+                                                        class="col-12 col-12 bg-red-2 bank-blood-rhesus-bottom text-white text-white pt-3">
+                                                        <p class="text-truncate">
+                                                            <i class="fas fa-minus-circle"></i>
+                                                            <span>12021</span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-12 mb-3">
+                                    <div class="bg-red bank-blood">
+                                        <div class="row">
+                                            <div class="col-4 m-auto">
+                                                <p class="text-center text-white text-title1 pl-2">AB</p>
+                                            </div>
+                                            <div class="col-8">
+                                                <div class="row">
+                                                    <div class="col-12 bg-red-2 bank-blood-rhesus-top text-white pt-3">
+                                                        <p class="text-truncate">
+                                                            <i class="fas fa-plus-circle"></i>
+                                                            <span class="">1202190044</span>
+                                                        </p>
+                                                    </div>
+                                                    <div
+                                                        class="col-12 col-12 bg-red-2 bank-blood-rhesus-bottom text-white text-white pt-3">
+                                                        <p class="text-truncate">
+                                                            <i class="fas fa-minus-circle"></i>
+                                                            <span>12021</span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-12 mb-3">
+                                    <div class="bg-red bank-blood">
+                                        <div class="row">
+                                            <div class="col-4 m-auto">
+                                                <p class="text-center text-white text-title1 pl-2">B</p>
+                                            </div>
+                                            <div class="col-8">
+                                                <div class="row">
+                                                    <div class="col-12 bg-red-2 bank-blood-rhesus-top text-white pt-3">
+                                                        <p class="text-truncate">
+                                                            <i class="fas fa-plus-circle"></i>
+                                                            <span class="">1202190044</span>
+                                                        </p>
+                                                    </div>
+                                                    <div
+                                                        class="col-12 col-12 bg-red-2 bank-blood-rhesus-bottom text-white text-white pt-3">
+                                                        <p class="text-truncate">
+                                                            <i class="fas fa-minus-circle"></i>
+                                                            <span>12021</span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-sm-12 mb-3">
+                                    <div class="bg-red bank-blood">
+                                        <div class="row">
+                                            <div class="col-4 m-auto">
+                                                <p class="text-center text-white text-title1 pl-2">O</p>
+                                            </div>
+                                            <div class="col-8">
+                                                <div class="row">
+                                                    <div class="col-12 bg-red-2 bank-blood-rhesus-top text-white pt-3">
+                                                        <p class="text-truncate">
+                                                            <i class="fas fa-plus-circle"></i>
+                                                            <span class="">1202190044</span>
+                                                        </p>
+
+                                                    </div>
+                                                    <div
+                                                        class="col-12 col-12 bg-red-2 bank-blood-rhesus-bottom text-white text-white pt-3">
+                                                        <p class="text-truncate">
+                                                            <i class="fas fa-minus-circle"></i>
+                                                            <span>12021</span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <small>Lokasi</small>
+                    <p class="ellipsis-1 text-blue text-title1">Kantor PMI Kota Kediri</p>
+                    <small class="mt-2">Alamat</small>
+                    <p class="ellipsis-2 text-blue text-title1">Jl. Mayor Bismo No.15, Mojoroto, Kec. Mojoroto, Kota
+                        Kediri, Jawa Timur 64121</p>
+                    <small class="mt-5">Kontak</small>
+                    <p class="ellipsis-1 text-blue text-title1">085608845319</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn bg-red text-white">Donor Disini</button>
+                </div>
+            </div>
+        </div>
 @endsection
 @section('custom-script')
-    <script src='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js'></script>
-    <script src="js/mapbox.js"></script>
+            <script src='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js'></script>
+            <script src="/js/mapbox.js"></script>
 @endsection

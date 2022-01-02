@@ -14,6 +14,10 @@
     background-color: #BA181B !important;
 }
 
+.bg-red-2 {
+    background-color: #903749 !important;
+}
+
 .text-red {
     color: #BA181B !important;
 }
@@ -120,22 +124,7 @@ input[type=search]:focus {
     transform: translateY(-50%);
 }
 
-.map {
-    width: 100%;
-    min-height: 600px;
-}
-
-.list-event p {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    /* number of lines to show */
-    line-clamp: 2;
-    -webkit-box-orient: vertical;
-}
-
-.list-article p {
+.list-article p, ellipsis-1 {
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
@@ -145,3 +134,27 @@ input[type=search]:focus {
     -webkit-box-orient: vertical;
 }
 
+
+.list-event p, ellipsis-2 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    /* number of lines to show */
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.bank-blood {
+    border-radius: 20px;
+}
+
+.bank-blood-rhesus-top {
+    border-top-right-radius: 25px;
+    border-bottom: 3px solid #BA181B;
+}
+
+.bank-blood-rhesus-bottom {
+    border-bottom-right-radius: 25px;
+    border-top: 3px solid #BA181B;
+}
