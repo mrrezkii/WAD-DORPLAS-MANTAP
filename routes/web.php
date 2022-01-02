@@ -34,13 +34,6 @@ Route::get('/event', function () {
     ]);
 });
 
-Route::get('/article', function () {
-    return view('pages.article.index', [
-        'title' => 'Artikel',
-        'active' => 'article',
-    ]);
-});
-
 Route::get('/donor', function () {
     return view('pages.donor.index', [
         'title' => 'Donor',
@@ -52,6 +45,20 @@ Route::get('/request', function () {
     return view('pages.donor.request', [
         'title' => 'Request',
         'active' => 'donor',
+    ]);
+});
+
+Route::get('/article', function () {
+    return view('pages.article.index', [
+        'title' => 'Artikel',
+        'active' => 'article',
+    ]);
+});
+
+Route::get('/account', function () {
+    return view('pages.account.index', [
+        'title' => 'Akun',
+        'active' => 'account',
     ]);
 });
 

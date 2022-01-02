@@ -158,3 +158,17 @@ input[type=search]:focus {
     border-bottom-right-radius: 25px;
     border-top: 3px solid #BA181B;
 }
+
+.photo-edit {
+    position: relative;
+}
+
+.photo-edit img {
+    display: block;
+}
+
+.photo-edit .fa-edit {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}

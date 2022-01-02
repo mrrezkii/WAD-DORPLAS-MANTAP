@@ -15,7 +15,7 @@
                                      height="70px" alt="avatar">
                             </div>
                             <div class="col-md-9">
-                                <p class="text-title1 text-blue mb-1 ml-3">Muhammad Diky Jaka</p>
+                                <p class="text-title1 text-blue mb-1 ml-3">Muhammad Rezki Ananda</p>
                                 <img src="{{ url('/images/icon/ic_star.svg') }}" alt="point" class="img-fluid ml-3">
                                 <span class="text-body1 text-blue">255</span>
                             </div>

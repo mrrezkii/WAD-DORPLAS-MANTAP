@@ -70,12 +70,12 @@
     </li>
 
     <li class="nav-item ml-2">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="{{ url('/account') }}">
             <img src="{{ url('/images/icon/ic_profile.svg') }}" class="img-fluid" width="24px" alt="akun">
             <span class="text-grey hover-underline-animation {{ ($active === "account") ? 'active' : '' }}">Akun</span></a>
     </li>
 
-    <li class="nav-item ml-2">
+    <li class="nav-item ml-2 d-none">
         <a class="nav-link" href="#">
             <img src="{{ url('/images/icon/ic_setting.svg') }}" class="img-fluid" width="24px" alt="setting">
             <span
