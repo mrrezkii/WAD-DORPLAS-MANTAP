@@ -64,7 +64,8 @@
                 </div>
                 <div class="form-group">
                     <label for="address" class="text-title1 text-blue">Alamat</label>
-                    <textarea class="form-control" id="address" name="address" rows="3"></textarea>
+                    <textarea class="form-control text-title1 text-blue" id="address" name="address"
+                              rows="3"></textarea>
                 </div>
                 <div class="form-group mb-3">
                     <label for="no_hp" class="text-title1 text-blue">No. Telp / WA</label>
@@ -79,40 +80,36 @@
             <form>
                 @csrf
                 @method("PUT")
-                <div class="form-group mb-3" id="show_hide_password">
-                    <label for="current_password" class="text-title1 text-blue">Password Saat Ini</label>
-                    <div class="input-group">
-                        <input type="password" class="form-control mt-1 text-title1 text-blue" id="current_password"
-                               name="current_password" placeholder="******" required>
+                <label for="current_password" class="text-title1 text-blue">Password Lama</label>
+                <div class="input-group mb-3" id="show_hide_password">
+                    <input class="form-control text-title1 text-blue" type="password" name="current_password"
+                           id="current_password"
+                           placeholder="*****" required>
+                    <div class="input-group-append">
                         <a href="" class="input-group-text text-decoration-none"><i class="fa fa-eye-slash"
                                                                                     aria-hidden="true"></i></a>
                     </div>
-
                 </div>
-                <div class="form-group mb-3" id="show_hide_password">
-                    <label for="password" class="text-title1 text-blue">Password Baru</label>
-                    <div class="input-group">
-                        <input type="password" class="form-control mt-1 text-title1 text-blue" id="password"
-                               placeholder="******" required>
+                <label for="password" class="text-title1 text-blue">Password Baru</label>
+                <div class="input-group mb-3" id="show_hide_password">
+                    <input class="form-control text-title1 text-blue" type="password" name="password" id="password"
+                           placeholder="*****" required>
+                    <div class="input-group-append">
                         <a href="" class="input-group-text text-decoration-none"><i class="fa fa-eye-slash"
                                                                                     aria-hidden="true"></i></a>
                     </div>
-
                 </div>
-                <div class="form-group mb-3" id="show_hide_password">
-                    <label for="recheck-password" class="text-title1 text-blue">Konfirmasi Password Baru</label>
-                    <div class="input-group">
-                        <input type="password" class="form-control mt-1 text-title1 text-blue" id="recheck-password"
-                               name="password" placeholder="******" required>
-                        <div class="input-group-append">
-                            <a href="" class="input-group-text text-decoration-none"><i class="fa fa-eye-slash"
-                                                                                        aria-hidden="true"></i></a>
-                        </div>
+                <label for="recheck-password" class="text-title1 text-blue">Konfirmasi Password Baru</label>
+                <div class="input-group mb-3" id="show_hide_password">
+                    <input class="form-control text-title1 text-blue" type="password" id="recheck-password"
+                           placeholder="*****" required>
+                    <div class="input-group-append">
+                        <a href="" class="input-group-text text-decoration-none"><i class="fa fa-eye-slash"
+                                                                                    aria-hidden="true"></i></a>
                     </div>
-
                 </div>
 
-                <button class="btn bg-red text-white mt-4 w-25 text-title2" type="submit">Simpan</button>
+                <button class="btn bg-red text-white mt-4 w-25 text-title2 mb-5" type="submit">Simpan</button>
             </form>
         </div>
     </div>

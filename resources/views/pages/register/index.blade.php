@@ -10,7 +10,7 @@
             <div class=" flex-column mx-auto" style="padding-top: 200px">
                 <p class="text-left text-blue text-title1 pb-2"
                    style="font-size: 50px;line-height: 30px;font-family: 'Montserrat', sans-serif;">Welcome to <img
-                        src="{{ url('/images/logo.png') }}" alt="logo" width="145px"></p>
+                        src="{{ url('/images/logo.png') }}" alt="logo" width="175px"></p>
                 <p class="text-left text-body1 pb-2 my-2" style="max-width: 500px">Lorem ipsum dolor sit amet,
                     consectetur adipiscing elit. Tristique quis consequat feugiat luctus mauris enim mi.</p>
                 <img class="img-fluid mt-3" src="{{ url('/images/nurse_with_medicine.png') }}" alt="nurse">
@@ -20,30 +20,53 @@
             <h3 class="text-blue font-bolder font-weight-bold mb-5">Daftar</h3>
             <form action="#" method="POST">
                 @csrf
-                <p class="text-title2 text-blue">Nama</p>
-                <div class="input-group mb-3 w-75">
-                    <input class="form-control" type="text" name="name" placeholder="Masukkan nama">
+                <div class="form-group mb-3 w-75">
+                    <label for="name" class="text-title1 text-blue">Nama Lengkap</label>
+                    <input type="text" class="form-control mt-1 text-title1 text-blue" id="name" name="name"
+                           placeholder="Masukkan Nama Lengkap" required>
                 </div>
-                <p class="text-title2 text-blue">Email</p>
-                <div class="input-group mb-3 w-75">
-                    <input class="form-control" type="email" name="email" placeholder="Masukkan email">
+
+                <div class="form-group mb-3 w-75">
+                    <label for="email" class="text-title1 text-blue">Email</label>
+                    <input type="email" class="form-control mt-1 text-title1 text-blue" id="email" name="email"
+                           placeholder="Masukkan alamat" required>
                 </div>
-                <p class="text-title2 text-blue">Alamat</p>
-                <div class="input-group mb-3 w-75">
-                    <input class="form-control" type="text" name="address" placeholder="Masukkan alamat">
+                <div class="form-group mb-3 w-75">
+                    <label for="bloodType" class="text-title1 text-blue">Masukkan Golongan Darah</label>
+                    <select class="custom-select text-title1 text-blue mt-1" id="bloodType" name="bloodType" required>
+                        <option value="" disabled selected>Golongan Darah</option>
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="AB">AB</option>
+                        <option value="O">O</option>
+                    </select>
                 </div>
-                <p class="text-title2 text-blue">Password</p>
+                <div class="form-group mb-3 w-75">
+                    <label for="rhesusType" class="text-title1 text-blue">Masukkan Jenis Rhesus</label>
+                    <select class="custom-select text-title1 text-blue mt-1" id="rhesusType" name="rhesusType" required>
+                        <option value="" disabled selected>Rhesus</option>
+                        <option value="positive">Positif (+)</option>
+                        <option value="negatif">Negatif (-)</option>
+                    </select>
+                </div>
+                <div class="form-group mb-3 w-75">
+                    <label for="address" class="text-title1 text-blue">Alamat</label>
+                    <textarea class="form-control text-title1 text-blue" id="address" name="address"
+                              rows="3"></textarea>
+                </div>
+                <label for="password" class="text-title1 text-blue">Password Baru</label>
                 <div class="input-group mb-3 w-75" id="show_hide_password">
-                    <input class="form-control" type="password" name="password" id="password"
-                           placeholder="Masukkan password">
+                    <input class="form-control text-title1 text-blue" type="password" name="password" id="password"
+                           placeholder="*****" required>
                     <div class="input-group-append">
                         <a href="" class="input-group-text text-decoration-none"><i class="fa fa-eye-slash"
                                                                                     aria-hidden="true"></i></a>
                     </div>
                 </div>
-                <p class="text-title2 text-blue">Ulangi Password</p>
+                <label for="recheck-password" class="text-title1 text-blue">Konfirmasi Password Baru</label>
                 <div class="input-group mb-3 w-75" id="show_hide_password">
-                    <input class="form-control" type="password" id="recheck-password" placeholder="Ulangi Password">
+                    <input class="form-control text-title1 text-blue" type="password" id="recheck-password"
+                           placeholder="*****" required>
                     <div class="input-group-append">
                         <a href="" class="input-group-text text-decoration-none"><i class="fa fa-eye-slash"
                                                                                     aria-hidden="true"></i></a>

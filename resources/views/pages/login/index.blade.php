@@ -10,7 +10,7 @@
             <div class=" flex-column mx-auto" style="padding-top: 200px">
                 <p class="text-left text-blue text-title1 pb-2"
                    style="font-size: 50px;line-height: 30px;font-family: 'Montserrat', sans-serif;">Welcome to <img
-                        src="{{ url('/images/logo.png') }}" alt="logo" width="145px"></p>
+                        src="{{ url('/images/logo.png') }}" alt="logo" width="175px"></p>
                 <p class="text-left text-body1 pb-2 my-2" style="max-width: 500px">Lorem ipsum dolor sit amet,
                     consectetur adipiscing elit. Tristique quis consequat feugiat luctus mauris enim mi.</p>
                 <img class="img-fluid mt-3" src="{{ url('/images/nurse_with_medicine.png') }}" alt="nurse">
@@ -18,15 +18,17 @@
         </div>
         <div class="col-md-6 col-sm-12 d-flex flex-column m-auto pt-5">
             <h3 class="text-blue font-bolder font-weight-bold mb-5">Masuk</h3>
-            <form action="#" METHOD="POST">
+            <form action="#" method="POST">
                 @csrf
-                <p class="text-title2 text-blue">Email</p>
-                <div class="input-group mb-3 w-75">
-                    <input class="form-control" type="email" name="email" placeholder="Masukkan email">
+                <div class="form-group mb-3 w-75">
+                    <label for="email" class="text-title1 text-blue">Email</label>
+                    <input type="email" class="form-control mt-1 text-title1 text-blue" id="email" name="email"
+                           placeholder="Masukkan Email" required>
                 </div>
-                <p class="text-title2 text-blue">Password</p>
+                <label for="password" class="text-title1 text-blue">Password</label>
                 <div class="input-group mb-3 w-75" id="show_hide_password">
-                    <input class="form-control" type="password" name="password" placeholder="Masukkan email">
+                    <input class="form-control text-title1 text-blue" type="password" name="password" id="password"
+                           placeholder="Masukkan password" required>
                     <div class="input-group-append">
                         <a href="" class="input-group-text text-decoration-none"><i class="fa fa-eye-slash"
                                                                                     aria-hidden="true"></i></a>
