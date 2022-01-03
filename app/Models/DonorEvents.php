@@ -11,4 +11,11 @@ class DonorEvents extends Model
 
     protected $table = 'donor_events';
     protected $guarded = 'id_donor_events';
+
+    protected $with = ['institutions'];
+
+    public function institutions()
+    {
+        return $this->belongsTo(Institutions::class, 'id_institutions');
+    }
 }
