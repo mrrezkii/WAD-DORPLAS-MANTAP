@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\BloodBank;
 use Illuminate\Database\Seeder;
 
 class BloodBankSeeder extends Seeder
@@ -13,6 +14,6 @@ class BloodBankSeeder extends Seeder
      */
     public function run()
     {
-        //
+        BloodBank::factory(5)->create();
     }
 }
