@@ -23,7 +23,7 @@ class CreateDonorNotesTable extends Migration
             $table->foreign('id_donor_events')->references('id_donor_events')->on('donor_events');
             $table->unsignedBigInteger('status_donor_notes');
             $table->foreign('status_donor_notes')->references('id_status_donor')->on('status_donor');
-            $table->string('schedule_donor_notes');
+            $table->dateTime('schedule_donor_notes');
             $table->timestamps();
         });
     }
