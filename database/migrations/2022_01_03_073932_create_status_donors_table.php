@@ -14,8 +14,8 @@ class CreateStatusDonorsTable extends Migration
     public function up()
     {
         Schema::create('status_donors', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->id('id_status_donor');
+            $table->string('name_status_donor');
         });
     }
 
