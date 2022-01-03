@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 
 class DonorNoteController extends Controller
 {
-    //Donor Note Controller
+    public function index(){
+        return view('pages.donor.index', [
+            'title' => 'Donor',
+            'active' => 'donor',
+        ]);
+    }
 }

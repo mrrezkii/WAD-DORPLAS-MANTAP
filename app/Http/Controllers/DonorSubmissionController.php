@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 
 class DonorSubmissionController extends Controller
 {
-    //Donor Submission Controller
+    public function index(){
+        return view('pages.donor.submission', [
+            'title' => 'Request Plasma',
+            'active' => 'donor',
+        ]);
+    }
 }

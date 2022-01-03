@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 
 class LocationController extends Controller
 {
-    //Location Controller
+    public function index() {
+        return view('pages.location.index', [
+            'title' => 'Lokasi',
+            'active' => 'location',
+        ]);
+    }
 }

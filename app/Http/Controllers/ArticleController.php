@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
-    //Article Controller
+    public function index(){
+        return view('pages.article.index', [
+            'title' => 'Artikel',
+            'active' => 'article',
+        ]);
+    }
 }

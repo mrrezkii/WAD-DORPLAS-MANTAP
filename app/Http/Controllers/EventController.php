@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 
 class EventController extends Controller
 {
-    //Event Controller
+    public function index(){
+        return view('pages.event.index', [
+            'title' => 'Acara',
+            'active' => 'event',
+        ]);
+    }
 }
