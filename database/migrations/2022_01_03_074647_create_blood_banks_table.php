@@ -17,14 +17,14 @@ class CreateBloodBanksTable extends Migration
             $table->id('id_blood_bank');
             $table->unsignedBigInteger('id_institutions');
             $table->foreign('id_institutions')->references('id_institutions')->on('institutions');
-            $table->string('a_positive_blood_bank');
-            $table->string('a_negative_blood_bank');
-            $table->string('b_positive_blood_bank');
-            $table->string('b_negative_blood_bank');
-            $table->string('ab_positive_blood_bank');
-            $table->string('ab_negative_blood_bank');
-            $table->string('o_positive_blood_bank');
-            $table->string('o_negative_blood_bank');
+            $table->integer('a_positive_blood_bank');
+            $table->integer('a_negative_blood_bank');
+            $table->integer('b_positive_blood_bank');
+            $table->integer('b_negative_blood_bank');
+            $table->integer('ab_positive_blood_bank');
+            $table->integer('ab_negative_blood_bank');
+            $table->integer('o_positive_blood_bank');
+            $table->integer('o_negative_blood_bank');
             $table->timestamps();
         });
     }

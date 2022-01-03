@@ -18,10 +18,12 @@ class CreateDonorEventsTable extends Migration
             $table->unsignedBigInteger('id_institutions');
             $table->foreign('id_institutions')->references('id_institutions')->on('institutions');
             $table->string('name_donor_events');
-            $table->string('start_donor_events');
-            $table->string('end_donor_events');
-            $table->string('desc_donor_events');
-            $table->string('point_donor_events');
+            $table->date('start_date_donor_events');
+            $table->date('end_date_donor_events');
+            $table->time('start_time_donor_events');
+            $table->time('end_time_donor_events');
+            $table->text('desc_donor_events');
+            $table->integer('point_donor_events');
             $table->timestamps();
         });
     }

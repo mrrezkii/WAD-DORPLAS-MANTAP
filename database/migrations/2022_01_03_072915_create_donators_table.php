@@ -21,8 +21,8 @@ class CreateDonatorsTable extends Migration
             $table->string('blood_type_donators');
             $table->string('blood_rhesus_donators');
             $table->string('contact_donators');
-            $table->string('address_donators');
-            $table->string('point_donators');
+            $table->text('address_donators');
+            $table->integer('point_donators');
             $table->string('profile_images_donators')->nullable();
             $table->timestamps();
         });
