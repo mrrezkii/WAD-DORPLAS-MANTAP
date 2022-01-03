@@ -11,4 +11,11 @@ class Employees extends Model
 
     protected $table = 'employees';
     protected $guarded = 'id_employees';
+
+    protected $with = ['institutions'];
+
+    public function institutions()
+    {
+        return $this->belongsTo(Institutions::class, 'id_institutions');
+    }
 }
