@@ -18,6 +18,23 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        $donators = new DonatorsSeeder();
+        $institutions = new InstitutionsSeeder();
+        $status_donor = new StatusDonorSeeder();
+        $employees = new EmployeesSeeder();
+        $blood_bank = new BloodBankSeeder();
+        $donor_submissions = new DonorSubmissionsSeeder();
+        $donor_events = new DonorEventsSeeder();
+        $donor_notes = new DonorNotesSeeder();
+
+        $donators->run();
+        $institutions->run();
+        $status_donor->run();
+        $employees->run();
+        $blood_bank->run();
+        $donor_submissions->run();
+        $donor_events->run();
+        $donor_notes->run();
 
     }
 }
