@@ -11,4 +11,10 @@ class BloodBank extends Model
 
     protected $table = 'blood_bank';
     protected $guarded = 'id_blood_bank';
+    protected $with = ['institutions'];
+
+    public function institutions()
+    {
+        return $this->belongsTo(Institutions::class, 'id_institutions');
+    }
 }
