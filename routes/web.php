@@ -6,7 +6,10 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DonorNoteController;
 use App\Http\Controllers\DonorSubmissionController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\FaqController;
 use App\Http\Controllers\LocationController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,24 +30,6 @@ Route::get('/donor', [DonorNoteController::class, 'index']);
 Route::get('/submission', [DonorSubmissionController::class, 'index']);
 Route::get('/article', [ArticleController::class, 'index']);
 Route::get('/account', [AccountController::class, 'index']);
-
-Route::get('/faq', function () {
-    return view('pages.faq.index', [
-        'title' => 'FAQ',
-        'active' => 'faq',
-    ]);
-});
-
-Route::get('/login', function () {
-    return view('pages.login.index', [
-        'title' => 'Masuk',
-        'active' => 'login',
-    ]);
-});
-
-Route::get('/register', function () {
-    return view('pages.register.index', [
-        'title' => 'Daftar',
-        'active' => 'register',
-    ]);
-});
+Route::get('/faq', [FaqController::class, 'index']);
+Route::get('/login', [LoginController::class, 'index']);
+Route::get('/register', [RegisterController::class, 'index']);
