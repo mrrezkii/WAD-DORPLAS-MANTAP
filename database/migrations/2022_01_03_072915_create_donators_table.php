@@ -19,7 +19,7 @@ class CreateDonatorsTable extends Migration
             $table->string('email_donators')->unique();
             $table->string('password_donators');
             $table->string('blood_type_donators');
-            $table->string('blood_rhesus_donators');
+            $table->string('rhesus_type_donators');
             $table->string('contact_donators');
             $table->text('address_donators');
             $table->integer('point_donators');
