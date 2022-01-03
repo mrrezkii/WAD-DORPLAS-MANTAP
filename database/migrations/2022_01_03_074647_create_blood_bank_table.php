@@ -13,7 +13,7 @@ class CreateBloodBanksTable extends Migration
      */
     public function up()
     {
-        Schema::create('blood_banks', function (Blueprint $table) {
+        Schema::create('blood_bank', function (Blueprint $table) {
             $table->id('id_blood_bank');
             $table->string('id_institutions')->references('id_institutions')->on('institutions');
             $table->string('a_positive_blood_bank');
@@ -35,6 +35,6 @@ class CreateBloodBanksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('blood_banks');
+        Schema::dropIfExists('blood_bank');
     }
 }

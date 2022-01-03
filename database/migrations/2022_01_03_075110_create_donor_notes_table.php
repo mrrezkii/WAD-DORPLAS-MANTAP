@@ -14,7 +14,12 @@ class CreateDonorNotesTable extends Migration
     public function up()
     {
         Schema::create('donor_notes', function (Blueprint $table) {
-            $table->id();
+            $table->id('id_donor_notes');
+            $table->string('id_donators')->references('id_donators')->on('donators');
+            $table->string('id_institutions')->references('id_institutions')->on('institutions');
+            $table->string('id_donor_events')->references('id_donor_events')->on('donor_events');
+            $table->string('status_donor_notes')->references('id_status_donor')->on('status_donor');
+            $table->string('schedule_donor_notes');
             $table->timestamps();
         });
     }

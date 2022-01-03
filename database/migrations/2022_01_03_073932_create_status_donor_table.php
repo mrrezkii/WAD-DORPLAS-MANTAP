@@ -13,7 +13,7 @@ class CreateStatusDonorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('status_donors', function (Blueprint $table) {
+        Schema::create('status_donor', function (Blueprint $table) {
             $table->id('id_status_donor');
             $table->string('name_status_donor');
         });
@@ -26,6 +26,6 @@ class CreateStatusDonorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('status_donors');
+        Schema::dropIfExists('status_donor');
     }
 }
