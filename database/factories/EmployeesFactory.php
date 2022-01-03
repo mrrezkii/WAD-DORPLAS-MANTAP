@@ -14,7 +14,12 @@ class EmployeesFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'id_institutions' => mt_rand(1, 5),
+            'name_employees' => $this->faker->name(),
+            'email_employees' => $this->faker->unique()->safeEmail(),
+            'password_employees' => bcrypt('12345'),
+            'contact_employees' => $this->faker->phoneNumber(),
+            'address_employees' => $this->faker->address()
         ];
     }
 }
