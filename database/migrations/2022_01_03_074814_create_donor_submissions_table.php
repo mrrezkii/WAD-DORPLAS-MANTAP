@@ -14,7 +14,18 @@ class CreateDonorSubmissionsTable extends Migration
     public function up()
     {
         Schema::create('donor_submissions', function (Blueprint $table) {
-            $table->id();
+            $table->id('id_donor_submission');
+            $table->string('id_donators')->references('id_donators')->on('donators');
+            $table->string('id_institutions')->references('id_institutions')->on('institutions');
+            $table->string('recipient_donor_submissions');
+            $table->string('applicant_donor_submissions');
+            $table->string('blood_type_donor_submissions');
+            $table->string('rhesus_type_donor_submissions');
+            $table->string('quantity_donor_submissions');
+            $table->string('time_used_donor_submissions');
+            $table->string('ktp_donor_submissions');
+            $table->string('letter_donor_submissions');
+            $table->string('status_donor_submissions')->references('id_status_donor')->on('status_donor');
             $table->timestamps();
         });
     }

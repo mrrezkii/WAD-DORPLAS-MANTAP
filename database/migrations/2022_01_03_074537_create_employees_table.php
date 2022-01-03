@@ -16,11 +16,11 @@ class CreateEmployeesTable extends Migration
         Schema::create('employees', function (Blueprint $table) {
             $table->id('id_employee');
             $table->string('id_institutions')->references('id_institutions')->on('institutions');
-            $table->string('name_employee');
-            $table->string('email_employee')->unique();
-            $table->string('password_employee');
-            $table->string('contact_employee');
-            $table->string('address_employee');
+            $table->string('name_employees');
+            $table->string('email_employees')->unique();
+            $table->string('password_employees');
+            $table->string('contact_employees');
+            $table->string('address_employees');
             $table->timestamps();
         });
     }
