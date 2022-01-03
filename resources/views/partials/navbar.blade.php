@@ -44,7 +44,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Jenis Layanan</h6>
                 <a class="collapse-item" href="{{ url('/donor') }}">Donor Plasma</a>
-                <a class="collapse-item" href="{{ url('/request') }}">Request Plasma</a>
+                <a class="collapse-item" href="{{ url('/submission') }}">Request Plasma</a>
             </div>
         </div>
     </li>

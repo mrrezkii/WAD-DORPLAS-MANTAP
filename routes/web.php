@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('pages.home.index', [
+    return view('pages.dashboard.index', [
         'title' => 'Dashboard',
         'active' => 'dashboard',
     ]);
@@ -41,8 +41,8 @@ Route::get('/donor', function () {
     ]);
 });
 
-Route::get('/request', function () {
-    return view('pages.donor.request', [
+Route::get('/submission', function () {
+    return view('pages.donor.submission', [
         'title' => 'Request',
         'active' => 'donor',
     ]);
