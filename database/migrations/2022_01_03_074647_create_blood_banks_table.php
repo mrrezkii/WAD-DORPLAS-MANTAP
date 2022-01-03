@@ -15,7 +15,8 @@ class CreateBloodBanksTable extends Migration
     {
         Schema::create('blood_bank', function (Blueprint $table) {
             $table->id('id_blood_bank');
-            $table->string('id_institutions')->references('id_institutions')->on('institutions');
+            $table->unsignedBigInteger('id_institutions');
+            $table->foreign('id_institutions')->references('id_institutions')->on('institutions');
             $table->string('a_positive_blood_bank');
             $table->string('a_negative_blood_bank');
             $table->string('b_positive_blood_bank');

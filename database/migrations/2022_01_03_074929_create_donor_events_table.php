@@ -15,7 +15,8 @@ class CreateDonorEventsTable extends Migration
     {
         Schema::create('donor_events', function (Blueprint $table) {
             $table->id('id_donor_events');
-            $table->string('id_institutions')->references('id_institutions')->on('institutions');
+            $table->unsignedBigInteger('id_institutions');
+            $table->foreign('id_institutions')->references('id_institutions')->on('institutions');
             $table->string('name_donor_events');
             $table->string('start_donor_events');
             $table->string('end_donor_events');

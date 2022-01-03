@@ -15,8 +15,10 @@ class CreateDonorSubmissionsTable extends Migration
     {
         Schema::create('donor_submissions', function (Blueprint $table) {
             $table->id('id_donor_submission');
-            $table->string('id_donators')->references('id_donators')->on('donators');
-            $table->string('id_institutions')->references('id_institutions')->on('institutions');
+            $table->unsignedBigInteger('id_donators');
+            $table->foreign('id_donators')->references('id_donators')->on('donators');
+            $table->unsignedBigInteger('id_institutions');
+            $table->foreign('id_institutions')->references('id_institutions')->on('institutions');
             $table->string('recipient_donor_submissions');
             $table->string('applicant_donor_submissions');
             $table->string('blood_type_donor_submissions');
@@ -25,7 +27,8 @@ class CreateDonorSubmissionsTable extends Migration
             $table->string('time_used_donor_submissions');
             $table->string('ktp_donor_submissions');
             $table->string('letter_donor_submissions');
-            $table->string('status_donor_submissions')->references('id_status_donor')->on('status_donor');
+            $table->unsignedBigInteger('status_donor_submissions');
+            $table->foreign('status_donor_submissions')->references('id_status_donor')->on('status_donor');
             $table->timestamps();
         });
     }

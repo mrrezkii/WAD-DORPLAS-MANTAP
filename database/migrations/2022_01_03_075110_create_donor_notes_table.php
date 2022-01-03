@@ -15,10 +15,14 @@ class CreateDonorNotesTable extends Migration
     {
         Schema::create('donor_notes', function (Blueprint $table) {
             $table->id('id_donor_notes');
-            $table->string('id_donators')->references('id_donators')->on('donators');
-            $table->string('id_institutions')->references('id_institutions')->on('institutions');
-            $table->string('id_donor_events')->references('id_donor_events')->on('donor_events');
-            $table->string('status_donor_notes')->references('id_status_donor')->on('status_donor');
+            $table->unsignedBigInteger('id_donators');
+            $table->foreign('id_donators')->references('id_donators')->on('donators');
+            $table->unsignedBigInteger('id_institutions');
+            $table->foreign('id_institutions')->references('id_institutions')->on('institutions');
+            $table->unsignedBigInteger('id_donor_events');
+            $table->foreign('id_donor_events')->references('id_donor_events')->on('donor_events');
+            $table->unsignedBigInteger('status_donor_notes');
+            $table->foreign('status_donor_notes')->references('id_status_donor')->on('status_donor');
             $table->string('schedule_donor_notes');
             $table->timestamps();
         });
