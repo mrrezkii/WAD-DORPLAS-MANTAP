@@ -2,10 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\Donator;
 use Illuminate\Database\Seeder;
 
-class DonatorSeeder extends Seeder
+class DonatorsSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,6 +13,6 @@ class DonatorSeeder extends Seeder
      */
     public function run()
     {
-        Donator::factory(100)->create();
+        //
     }
 }
