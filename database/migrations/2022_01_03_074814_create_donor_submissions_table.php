@@ -24,7 +24,7 @@ class CreateDonorSubmissionsTable extends Migration
             $table->string('blood_type_donor_submissions');
             $table->string('rhesus_type_donor_submissions');
             $table->integer('quantity_donor_submissions');
-            $table->string('time_used_donor_submissions');
+            $table->dateTime('time_used_donor_submissions');
             $table->string('ktp_donor_submissions');
             $table->string('letter_donor_submissions');
             $table->unsignedBigInteger('status_donor_submissions');
