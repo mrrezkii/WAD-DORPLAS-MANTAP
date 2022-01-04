@@ -24,7 +24,7 @@ class DonatorsFactory extends Factory
             'password_donators' => bcrypt('12345'),
             'blood_type_donators' => $this->faker->randomElement($this->bloodtype),
             'rhesus_type_donators' => $this->faker->randomElement($this->rhesus),
-            'contact_donators' => $this->faker->phoneNumber(),
+            'contact_donators' => $this->faker->unique->phoneNumber(),
             'address_donators' => $this->faker->address(),
             'point_donators' => mt_rand(0, 100)
         ];

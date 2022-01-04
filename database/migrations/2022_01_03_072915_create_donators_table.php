@@ -22,7 +22,7 @@ class CreateDonatorsTable extends Migration
             $table->string('rhesus_type_donators');
             $table->string('contact_donators');
             $table->text('address_donators');
-            $table->integer('point_donators');
+            $table->integer('point_donators')->default(0);
             $table->string('profile_images_donators')->nullable();
             $table->timestamps();
         });
