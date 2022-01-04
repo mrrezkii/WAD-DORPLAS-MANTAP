@@ -11,7 +11,7 @@ class BloodBank extends Model
 
     protected $table = 'blood_bank';
     protected $guarded = 'id_blood_bank';
-    protected $with = ['institutions'];
+//    protected $with = ['institutions'];
 
     public function institutions()
     {

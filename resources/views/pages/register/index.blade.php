@@ -126,8 +126,8 @@
                 </div>
                 <button class="btn bg-red text-white mt-4 w-75 text-title2" type="submit">Daftar</button>
             </form>
-            <p class="text-title2 text-blue"> Sudah punya akun ? <a href=" {{ url('/login') }}"
-                                                                    class="text-decoration-none">
+            <p class="text-title2 text-blue mb-5"> Sudah punya akun ? <a href=" {{ url('/login') }}"
+                                                                         class="text-decoration-none">
                     <span class="text-red">Masuk</span>
                 </a></p>
         </div>
