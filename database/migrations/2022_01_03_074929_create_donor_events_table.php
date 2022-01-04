@@ -23,6 +23,7 @@ class CreateDonorEventsTable extends Migration
             $table->time('start_time_donor_events');
             $table->time('end_time_donor_events');
             $table->text('desc_donor_events');
+            $table->string('thumbnail_donor_events')->nullable();
             $table->integer('point_donor_events');
             $table->timestamps();
         });
