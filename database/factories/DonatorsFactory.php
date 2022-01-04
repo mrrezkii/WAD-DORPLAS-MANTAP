@@ -18,6 +18,7 @@ class DonatorsFactory extends Factory
     public function definition()
     {
         return [
+            'id_donators' => $this->faker->unique->uuid(),
             'name_donators' => $this->faker->name(),
             'email_donators' => $this->faker->unique()->safeEmail(),
             'password_donators' => bcrypt('12345'),

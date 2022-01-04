@@ -15,8 +15,7 @@ class CreateDonorNotesTable extends Migration
     {
         Schema::create('donor_notes', function (Blueprint $table) {
             $table->id('id_donor_notes');
-            $table->unsignedBigInteger('id_donators');
-            $table->foreign('id_donators')->references('id_donators')->on('donators');
+            $table->foreignUuid('id_donators');
             $table->unsignedBigInteger('id_institutions')->nullable();
             $table->foreign('id_institutions')->references('id_institutions')->on('institutions');
             $table->unsignedBigInteger('id_donor_events')->nullable();
