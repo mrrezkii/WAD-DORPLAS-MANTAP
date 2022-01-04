@@ -18,6 +18,7 @@ class CreateDonatorsTable extends Migration
             $table->string('name_donators');
             $table->string('email_donators')->unique();
             $table->string('password_donators');
+            $table->string('gender_donators', 1)->nullable();
             $table->string('blood_type_donators');
             $table->string('rhesus_type_donators');
             $table->string('contact_donators');
