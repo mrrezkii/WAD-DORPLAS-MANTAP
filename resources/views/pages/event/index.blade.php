@@ -17,50 +17,31 @@
                           clip-rule="evenodd"/>
                 </svg>
             </div>
-            <a href="#" class="text-decoration-none">
-                <div class="list-event card py-2 mb-3" style="max-width: 465px;">
-                    <div class="row">
-                        <div class="col-8">
-                            <p style="max-lines: 2;" class="text-title1 text-blue ml-2">Dibutuhkan Segera
-                                Puluhan Stok Plasma Konvalen di wilayah Piltover!</p>
-                            <p>
-                                <span class="text-primary text-body1 mt-2 ml-2">Merdeka</span>
-                                <span class="text-secondary text-body1 ml-2">&bull;</span>
-                                <span class="text-secondary text-body1 ml-2">20-10-2021</span>
-                            </p>
+            @foreach($datas as $data)
+                {{--                @dd($data)--}}
+                <a href="#" class="text-decoration-none">
+                    <div class="list-event card py-2 mb-3" style="max-width: 465px;">
+                        <div class="row">
+                            <div class="col-8">
+                                <p style="max-lines: 2;"
+                                   class="text-title1 text-blue ml-2">{{ $data->name_donor_events }}</p>
+                                <p>
+                                    <span class="text-primary text-body1 mt-2 ml-2">Dorplas</span>
+                                    <span class="text-secondary text-body1 ml-2">&bull;</span>
+                                    <span
+                                        class="text-secondary text-body1 ml-2">{{ $data->start_date_donor_events }}</span>
+                                </p>
 
-                        </div>
-                        <div class="col-4">
-                            <img class="img-fluid rounded-right"
-                                 src="https://statik.tempo.co/data/2020/03/05/id_920662/920662_720.jpg"
-                                 width="130px" alt="event">
-                        </div>
-                    </div>
-                </div>
-            </a>
-            <a href="#" class="text-decoration-none">
-                <div class="list-event card py-2 mb-3" style="max-width: 465px;">
-                    <div class="row">
-                        <div class="col-8">
-                            <p style="max-lines: 2;" class="text-title1 text-blue ml-2">Dibutuhkan Segera
-                                Puluhan Stok Plasma Konvalen di wilayah Piltover!</p>
-                            <p>
-                                <span class="text-primary text-body1 mt-2 ml-2">Merdeka</span>
-                                <span class="text-secondary text-body1 ml-2">&bull;</span>
-                                <span class="text-secondary text-body1 ml-2">20-10-2021</span>
-                            </p>
-
-                        </div>
-                        <div class="col-4">
-                            <img class="img-fluid rounded-right"
-                                 src="https://statik.tempo.co/data/2020/03/05/id_920662/920662_720.jpg"
-                                 width="130px" alt="event">
+                            </div>
+                            <div class="col-4">
+                                <img class="img-fluid rounded-right"
+                                     src="https://source.unsplash.com/350x200?blood"
+                                     width="130px" alt="event">
+                            </div>
                         </div>
                     </div>
-                </div>
-            </a>
-
-
+                </a>
+            @endforeach
         </div>
         <div class="col-md-6 col-sm-12 mt-5">
             <div class="d-none">
