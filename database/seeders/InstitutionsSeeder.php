@@ -20,8 +20,8 @@ class InstitutionsSeeder extends Seeder
             'contact_institutions' => '(022) 2500095',
             'email_institutions' => 'halo@pmijabar.or.id',
             'address_institutions' => 'Jl. Ir. H. Juanda No.426A, Dago, Kecamatan Coblong, Kota Bandung, Jawa Barat 40135',
-            'longitude_institutions' => '-6,870,609',
-            'latitude_institutions' => '107,620,303',
+            'longitude_institutions' => '-6.86324723578973',
+            'latitude_institutions' => '107.62146541259783',
         ]);
 
         Institutions::create([
@@ -30,8 +30,8 @@ class InstitutionsSeeder extends Seeder
             'contact_institutions' => '(031) 5055173',
             'email_institutions' => ' jawa_timur@pmi.or.id',
             'address_institutions' => 'Jl. Karang Menjangan 22 Surabaya',
-            'longitude_institutions' => '-7,269,223',
-            'latitude_institutions' => '112,760,668',
+            'longitude_institutions' => '-7.263475929872024',
+            'latitude_institutions' => '112.76294054132508',
         ]);
 
         Institutions::create([
@@ -40,8 +40,8 @@ class InstitutionsSeeder extends Seeder
             'contact_institutions' => '(031) 99443899',
             'email_institutions' => 'pmisurabaya@pmi.or.id',
             'address_institutions' => 'Jl. Sumatera No.71, Gubeng, Kec. Gubeng, Kota SBY, Jawa Timur 60281',
-            'longitude_institutions' => '-7,271,273',
-            'latitude_institutions' => '112,747,831',
+            'longitude_institutions' => '-7.270122660967294',
+            'latitude_institutions' => '112.7485233269915',
         ]);
 
         Institutions::create([
@@ -50,8 +50,8 @@ class InstitutionsSeeder extends Seeder
             'contact_institutions' => '(031) 531328',
             'email_institutions' => 'contact.pmi@gmail.com',
             'address_institutions' => 'Jl. Embong Ploso No.7-15, Embong Kaliasin, Kec. Genteng, Kota SBY, Jawa Timur 60271',
-            'longitude_institutions' => '-7,268,149',
-            'latitude_institutions' => '112,745,860',
+            'longitude_institutions' => '-7.267914199486669',
+            'latitude_institutions' => '112.74577088043364',
         ]);
 
         Institutions::create([
@@ -60,8 +60,8 @@ class InstitutionsSeeder extends Seeder
             'contact_institutions' => '(022) 4207052',
             'email_institutions' => 'pmi.bandung@pmijabar.or.id',
             'address_institutions' => 'Jl. Aceh No.79, Cihapit, Kec. Bandung Wetan, Kota Bandung, Jawa Barat 40114',
-            'longitude_institutions' => '-6,908,974',
-            'latitude_institutions' => '107,619,473.00',
+            'longitude_institutions' => '-6.90850812347344',
+            'latitude_institutions' => '107.61962559763123',
         ]);
     }
 }
