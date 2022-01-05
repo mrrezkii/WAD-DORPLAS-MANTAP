@@ -36,6 +36,6 @@ class RegisterController extends Controller
 
         Donators::create($validateData);
 
-        return redirect('/login');
+        return redirect('/login')->with('registrationSuccess', 'Berhasil Melakukan Registrasi');;
     }
 }

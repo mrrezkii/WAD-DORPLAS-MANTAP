@@ -27,12 +27,11 @@ class LoginController extends Controller
 
 
         if (Auth::guard('donator')->attempt($credentials)) {
-//            $request->session()->regenerate();
-
+            $request->session()->regenerate();
             return redirect()->intended('/');
         }
 
-        return back()->with('loginError', 'Login Failed');
+        return back()->with('loginFailed', 'Email atau password tidak cocok');
 
     }
 

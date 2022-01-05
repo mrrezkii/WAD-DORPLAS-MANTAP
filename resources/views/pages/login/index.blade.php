@@ -17,6 +17,22 @@
             </div>
         </div>
         <div class="col-md-6 col-sm-12 d-flex flex-column m-auto pt-5">
+            @if(session()->has('registrationSuccess'))
+                <div class="alert alert-success alert-dismissible fade show w-75" role="alert">
+                    {{ session('registrationSuccess') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endif
+            @if(session()->has('loginFailed'))
+                <div class="alert alert-warning alert-dismissible fade show w-75" role="alert">
+                    {{ session('loginFailed') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endif
             <h3 class="text-blue font-bolder font-weight-bold mb-5">Masuk</h3>
             <form action="{{ url('/login') }}" method="POST">
                 @csrf

@@ -23,15 +23,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [DashboardController::class, 'index']);
-Route::get('/location', [LocationController::class, 'index']);
-Route::get('/event', [EventController::class, 'index']);
-Route::get('/donor', [DonorNoteController::class, 'index']);
-Route::get('/submission', [DonorSubmissionController::class, 'index']);
-Route::get('/article', [ArticleController::class, 'index']);
-Route::get('/account', [AccountController::class, 'index']);
-Route::get('/faq', [FaqController::class, 'index']);
-Route::get('/login', [LoginController::class, 'index']);
-Route::post('/login', [LoginController::class, 'authenticate']);
-Route::get('/register', [RegisterController::class, 'index']);
-Route::post('/register', [RegisterController::class, 'store']);
+
+Route::middleware(['guest'])->group(function () {
+    {
+        Route::get('/login', [LoginController::class, 'index'])->name('login');
+        Route::post('/login', [LoginController::class, 'authenticate']);
+        Route::get('/register', [RegisterController::class, 'index']);
+        Route::post('/register', [RegisterController::class, 'store']);
+    }
+});
+
+Route::middleware(['auth:donator'])->group(function () {
+    Route::get('/', [DashboardController::class, 'index']);
+    Route::get('/location', [LocationController::class, 'index']);
+    Route::get('/event', [EventController::class, 'index']);
+    Route::get('/donor', [DonorNoteController::class, 'index']);
+    Route::get('/submission', [DonorSubmissionController::class, 'index']);
+    Route::get('/article', [ArticleController::class, 'index']);
+    Route::get('/account', [AccountController::class, 'index']);
+    Route::get('/faq', [FaqController::class, 'index']);
+});
+
