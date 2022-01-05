@@ -18,21 +18,34 @@
         </div>
         <div class="col-md-6 col-sm-12 d-flex flex-column m-auto pt-5">
             <h3 class="text-blue font-bolder font-weight-bold mb-5">Masuk</h3>
-            <form action="#" method="POST">
+            <form action="{{ url('/login') }}" method="POST">
                 @csrf
                 <div class="form-group mb-3 w-75">
-                    <label for="email" class="text-title1 text-blue">Email</label>
-                    <input type="email" class="form-control mt-1 text-title1 text-blue" id="email" name="email"
-                           placeholder="Masukkan Email" required>
+                    <label for="email_donators" class="text-title1 text-blue">Email</label>
+                    <input type="email"
+                           class="form-control mt-1 text-title1 text-blue @error('email_donators') is-invalid @enderror"
+                           id="email_donators" name="email_donators"
+                           placeholder="Masukkan Email" required autofocus value="{{ old('email_donators') }}">
+                    @error('email_donators')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                    @enderror
                 </div>
-                <label for="password" class="text-title1 text-blue">Password</label>
+                <label for="password_donators" class="text-title1 text-blue">Password</label>
                 <div class="input-group mb-3 w-75" id="show_hide_password">
-                    <input class="form-control text-title1 text-blue" type="password" name="password" id="password"
-                           placeholder="Masukkan password" required>
+                    <input class="form-control text-title1 text-blue @error('password_donators') is-invalid @enderror"
+                           type="password" name="password_donators" id="password_donators"
+                           placeholder="Masukkan password" required value="{{ old('password_donators') }}">
                     <div class="input-group-append">
                         <a href="" class="input-group-text text-decoration-none"><i class="fa fa-eye-slash"
                                                                                     aria-hidden="true"></i></a>
                     </div>
+                    @error('password_donators')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                    @enderror
                 </div>
                 <button class="btn bg-red text-white mt-4 w-75 text-title2" type="submit">Masuk</button>
             </form>

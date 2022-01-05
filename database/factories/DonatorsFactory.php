@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Facades\Hash;
 
 class DonatorsFactory extends Factory
 {
@@ -21,7 +22,7 @@ class DonatorsFactory extends Factory
             'id_donators' => $this->faker->unique->uuid(),
             'name_donators' => $this->faker->name(),
             'email_donators' => $this->faker->unique()->safeEmail(),
-            'password_donators' => bcrypt('12345'),
+            'password_donators' => Hash::make(12345),
             'blood_type_donators' => $this->faker->randomElement($this->bloodtype),
             'rhesus_type_donators' => $this->faker->randomElement($this->rhesus),
             'contact_donators' => $this->faker->unique->phoneNumber(),
