@@ -58,8 +58,7 @@
                         <div class="col-md-10 col-sm-12">
                             <p class="ml-2 p-0 text-title1 text-blue" style="max-lines: 1">{{ $data['title'] }}</p>
                             <p class="ml-2 text-body1 text-dark"
-                               style="max-lines: 1">Hal ini diungkapkan oleh ilmuwan
-                                terkenal Prof. Rere, bahwasannya hati kosong itu...</p>
+                               style="max-lines: 1">{!! strip_tags($data['description']) !!}</p>
                             <p>
                                 <span class="ml-2 text-body2 text-red">covid19.go.id</span>
                                 <span class="ml-2 text-body2 text-dark">&bull;</span>

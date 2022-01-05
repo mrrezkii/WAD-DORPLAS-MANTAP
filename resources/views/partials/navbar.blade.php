@@ -1,7 +1,7 @@
 <ul class="navbar-nav bg-grey sidebar sidebar-dark accordion" id="accordionSidebar"
     style="width: 253px!important;">
 
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ url('/') }}">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ url('/dashboard') }}">
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink"></i>
         </div>
@@ -12,7 +12,7 @@
 
     <li class="nav-item mt-5 ml-2">
 
-        <a class="nav-link" href="{{ url('/') }}">
+        <a class="nav-link" href="{{ url('/dashboard') }}">
             <img src="{{ url('/images/icon/ic_home.svg') }}" class="img-fluid" width="24px" alt="home">
             <span
                 class="text-grey hover-underline-animation {{ ($active === "dashboard") ? 'active' : '' }}">Dashboard</span></a>

@@ -11,7 +11,7 @@ class DonorSubmissions extends Model
 
     protected $table = 'donor_submissions';
     protected $guarded = 'id_donor_submissions';
-    protected $with = ['institutions', 'donators', 'status_donor'];
+//    protected $with = ['institutions', 'donators', 'status_donor'];
 
     public function institutions()
     {

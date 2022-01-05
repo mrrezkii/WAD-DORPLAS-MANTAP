@@ -21,16 +21,16 @@
                     <img src="{{ url('/images/icon/ic_drop_white.svg') }}" height="60px" alt="blood">
                 </div>
                 <div class="col-9">
-                    <p class="text-subtitle1 text-blue">Diperbarui 28/10/2021</p>
+                    <p class="text-subtitle1 text-blue">Diperbarui {{ date('d/m/Y', time()) }}</p>
                     <p class="text-title1 text-red">Stok Plasma</p>
-                    <p class="text-body1 text-blue">59 Kantung</p>
+                    <p class="text-body1 text-blue">{{ $stockPlasma }} Kantung</p>
                 </div>
             </div>
         </div>
         <div class="col-md-4 col-sm-12 ">
             <p class="text-title1 text-red mt-2">Permintaan</p>
             <img src="{{ url('/images/icon/ic_search.svg') }}" alt="search" width="17px">
-            <span class="text-body1 text-blue">210</span>
+            <span class="text-body1 text-blue">{{ $totalRequest }}</span>
         </div>
     </div>
 </div>

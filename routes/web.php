@@ -34,7 +34,7 @@ Route::middleware(['guest'])->group(function () {
 });
 
 Route::middleware(['auth:donator'])->group(function () {
-    Route::get('/', [DashboardController::class, 'index']);
+    Route::get('/dashboard', [DashboardController::class, 'index']);
     Route::get('/location', [LocationController::class, 'index']);
     Route::get('/event', [EventController::class, 'index']);
     Route::get('/donor', [DonorNoteController::class, 'index']);

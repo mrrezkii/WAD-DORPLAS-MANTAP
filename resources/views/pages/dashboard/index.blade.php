@@ -4,6 +4,7 @@
     <link href="{{ url('/vendor/powerful-calendar/theme.css') }}" rel="stylesheet">
 @endsection
 @section('container')
+
     <div class="row">
         @include('partials.overview')
         <div class="col-md-6 col-sm-12 mt-5">
@@ -31,59 +32,37 @@
                         <div class="card-header py-3">
                             <div class="d-flex justify-content-between">
                                 <h6 class="m-0 text-title1 text-blue">Artikel Pilihan</h6>
-                                <a href="#" class="text-decoration-none">
+                                <a href="{{ url('/article') }}" class="text-decoration-none">
                                     <p class="text-body">Lihat selengkapnya</p>
                                 </a>
                             </div>
                         </div>
                         <div class="card-body">
-                            <a class="text-decoration-none" href="#">
-                                <div class="row no-gutters mb-3 list-article">
-                                    <div class="col-md-2 col-sm-12">
-                                        <img class="rounded img-fluid"
-                                             src="https://d324bm9stwnv8c.cloudfront.net/7-penyebab-nyeri-dada-sebelah-kiri-halodoc.jpg"
-                                             width="80px" height="80px" alt="article">
-                                    </div>
-                                    <div class="col-md-10 col-sm-12">
-                                        <p class="ml-2 p-0 text-title1 text-blue" style="max-lines: 1">Cari tahu kenapa
-                                            hati anda
-                                            kosong ? Cek ulasan lengkapnya</p>
-                                        <p class="ml-2 text-body1 text-dark"
-                                           style="max-lines: 1">Hal ini diungkapkan oleh ilmuwan
-                                            terkenal Prof. Rere, bahwasannya hati kosong itu...</p>
-                                        <p>
-                                            <span class="ml-2 text-body2 text-red">Rezki</span>
-                                            <span class="ml-2 text-body2 text-dark">&bull;</span>
-                                            <span class="ml-2 text-body2 text-blue">10 Okt 2021</span>
-                                        </p>
+                            @foreach($articleData['channel']['item']  as $data)
+                                @if ($loop->index == 5) @break @endif
+                                <a href="{{ $data['link'] }}" target="_blank" class="text-decoration-none">
+                                    <div class="row no-gutters mb-3 list-article">
+                                        <div class="col-md-2 col-sm-12">
+                                            <img class="rounded img-fluid"
+                                                 src="{{ $data['enclosure']['@attributes']['url'] }}"
+                                                 alt="article">
+                                        </div>
+                                        <div class="col-md-10 col-sm-12">
+                                            <p class="ml-2 p-0 text-title1 text-blue"
+                                               style="max-lines: 1">{{ $data['title'] }}</p>
+                                            <p class="ml-2 text-body1 text-dark"
+                                               style="max-lines: 1">{!! strip_tags($data['description']) !!}</p>
+                                            <p>
+                                                <span class="ml-2 text-body2 text-red">covid19.go.id</span>
+                                                <span class="ml-2 text-body2 text-dark">&bull;</span>
+                                                <span
+                                                    class="ml-2 text-body2 text-blue">{{ Str::replace('+0700', 'WIB', $data['pubDate']) }}</span>
+                                            </p>
 
+                                        </div>
                                     </div>
-                                </div>
-                            </a>
-                            <a class="text-decoration-none" href="#">
-                                <div class="row no-gutters mb-3 list-article">
-                                    <div class="col-md-2 col-sm-12">
-                                        <img class="rounded img-fluid"
-                                             src="https://d324bm9stwnv8c.cloudfront.net/7-penyebab-nyeri-dada-sebelah-kiri-halodoc.jpg"
-                                             width="80px" height="80px" alt="article">
-                                    </div>
-                                    <div class="col-md-10 col-sm-12">
-                                        <p class="ml-2 p-0 text-title1 text-blue" style="max-lines: 1">Cari tahu kenapa
-                                            hati anda
-                                            kosong ? Cek ulasan lengkapnya</p>
-                                        <p class="ml-2 text-body1 text-dark"
-                                           style="max-lines: 1">Hal ini diungkapkan oleh ilmuwan
-                                            terkenal Prof. Rere, bahwasannya hati kosong itu...</p>
-                                        <p>
-                                            <span class="ml-2 text-body2 text-red">Rezki</span>
-                                            <span class="ml-2 text-body2 text-dark">&bull;</span>
-                                            <span class="ml-2 text-body2 text-blue">10 Okt 2021</span>
-                                        </p>
-
-                                    </div>
-                                </div>
-                            </a>
-
+                                </a>
+                            @endforeach
                             <hr>
                         </div>
                     </div>
