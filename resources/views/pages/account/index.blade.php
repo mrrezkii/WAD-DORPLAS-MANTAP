@@ -41,34 +41,23 @@
                 </div>
                 <div class="card-body">
                     <div class="overflow-auto p-3 mb-3 mb-md-0 mr-md-3" style=" max-height: 250px;">
-                        <div class="rounded bg-red px-3 mb-3">
-                            <h5 class="text-white text-title1 py-2">Memohon Gologan Darah Tipe A+</h5>
-                            <div class="d-flex justify-content-between pb-3">
-                                <p class="text-white text-body1">29/10.2021</p>
-                                <p class="text-white text-body1">Menunggu Persetujuan</p>
+                        @foreach($donorSubmissions as $data)
+                            @php
+                                $bg_condition = 'bg-secondary';
+                                if($data->status_donor_submissions === 1) $bg_condition = 'bg-red';
+                                elseif($data->status_donor_submissions === 2) $bg_condition = 'bg-primary';
+                                elseif($data->status_donor_submissions === 3) $bg_condition = 'bg-success';
+                                elseif($data->status_donor_submissions === 4) $bg_condition = 'bg-red-2';
+                            @endphp
+                            <div class="rounded px-3 mb-3 {{ $bg_condition }}">
+                                <h5 class="text-white text-title1 py-2">Memohon Darah
+                                    Tipe {{ $data->blood_type_donor_submissions }}{{ $data->blood_type_donor_submissions == 'positive' ? '+' : '-'}}</h5>
+                                <div class="d-flex justify-content-between pb-3">
+                                    <p class="text-white text-body1">{{ $data->time_used_donor_submissions ? \Carbon\Carbon::parse($data->time_used_donor_submissions)->translatedFormat('d-m-Y') :  '-' }}</p>
+                                    <p class="text-white text-body1">{{ $data->status->name_status_donor }}</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="rounded bg-primary px-3 mb-3">
-                            <h5 class="text-white text-title1 py-2">Memohon Gologan Darah Tipe O+</h5>
-                            <div class="d-flex justify-content-between pb-3">
-                                <p class="text-white text-body1">29/10.2021</p>
-                                <p class="text-white text-body1">Disetujui RS Surya Melati</p>
-                            </div>
-                        </div>
-                        <div class="rounded bg-success px-3 mb-3">
-                            <h5 class="text-white text-title1 py-2">Memohon Gologan Darah Tipe AB-</h5>
-                            <div class="d-flex justify-content-between pb-3">
-                                <p class="text-white text-body1">29/10.2021</p>
-                                <p class="text-white text-body1">Diterima RS Surya Melati</p>
-                            </div>
-                        </div>
-                        <div class="rounded bg-red-2 px-3 mb-3">
-                            <h5 class="text-white text-title1 py-2">Memohon Gologan Darah Tipe B+</h5>
-                            <div class="d-flex justify-content-between pb-3">
-                                <p class="text-white text-body1">29/10.2021</p>
-                                <p class="text-white text-body1">Ditolak</p>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                     <hr>
                 </div>
@@ -94,34 +83,23 @@
                 </div>
                 <div class="card-body">
                     <div class="overflow-auto p-3 mb-3 mb-md-0 mr-md-3" style=" max-height: 250px;">
-                        <div class="rounded bg-red px-3 mb-3">
-                            <h5 class="text-white text-title1 py-2">Permintaan Donor Darah</h5>
-                            <div class="d-flex justify-content-between pb-3">
-                                <p class="text-white text-body1">29/10.2021</p>
-                                <p class="text-white text-body1">Menunggu Persetujuan</p>
+                        @foreach($donorNotes as $data)
+                            @php
+                                $bg_condition = 'bg-secondary';
+                                if($data->status_donor_notes === 1) $bg_condition = 'bg-red';
+                                elseif($data->status_donor_notes === 2) $bg_condition = 'bg-primary';
+                                elseif($data->status_donor_notes === 3) $bg_condition = 'bg-success';
+                                elseif($data->status_donor_notes === 4) $bg_condition = 'bg-red-2';
+                            @endphp
+                            <div class="rounded px-3 mb-3 {{ $bg_condition }}">
+                                <h5 class="text-white text-title1 py-2">Menondorkan
+                                    Darah {{ auth()->user()->blood_type_donators}}{{ auth()->user()->rhesus_type_donators == 'positive' ? '+' : '-'}}</h5>
+                                <div class="d-flex justify-content-between pb-3">
+                                    <p class="text-white text-body1">{{ \Carbon\Carbon::parse($data->schedule_donor_notes)->translatedFormat('d-m-Y') }}</p>
+                                    <p class="text-white text-body1">{{ $data->status->name_status_donor }}</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="rounded bg-primary px-3 mb-3">
-                            <h5 class="text-white text-title1 py-2">Permintaan Donor Darah</h5>
-                            <div class="d-flex justify-content-between pb-3">
-                                <p class="text-white text-body1">29/10.2021</p>
-                                <p class="text-white text-body1">Dijadwalkan RS Surya Melati</p>
-                            </div>
-                        </div>
-                        <div class="rounded bg-success px-3 mb-3">
-                            <h5 class="text-white text-title1 py-2">Permintaan Donor Darah</h5>
-                            <div class="d-flex justify-content-between pb-3">
-                                <p class="text-white text-body1">29/10.2021</p>
-                                <p class="text-white text-body1">Diterima RS Surya Melati</p>
-                            </div>
-                        </div>
-                        <div class="rounded bg-red-2 px-3 mb-3">
-                            <h5 class="text-white text-title1 py-2">Permintaan Donor Darah</h5>
-                            <div class="d-flex justify-content-between pb-3">
-                                <p class="text-white text-body1">29/10.2021</p>
-                                <p class="text-white text-body1">Ditolak</p>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                     <hr>
                 </div>

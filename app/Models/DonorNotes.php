@@ -32,6 +32,6 @@ class DonorNotes extends Model
 
     public function status()
     {
-        return $this->belongsTo(StatusDonor::class, 'id_status_donor');
+        return $this->belongsTo(StatusDonor::class, 'status_donor_notes', 'id_status_donor');
     }
 }
