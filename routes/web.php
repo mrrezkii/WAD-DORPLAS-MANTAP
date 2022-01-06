@@ -38,9 +38,13 @@ Route::middleware(['auth:donator'])->group(function () {
     Route::get('/location', [LocationController::class, 'index']);
     Route::get('/event', [EventController::class, 'index']);
     Route::get('/donor', [DonorNoteController::class, 'index']);
+
     Route::get('/submission', [DonorSubmissionController::class, 'index']);
+
     Route::get('/article', [ArticleController::class, 'index']);
     Route::get('/account', [AccountController::class, 'index']);
     Route::get('/faq', [FaqController::class, 'index']);
 });
 
+Route::post('/donor', [DonorNoteController::class, 'store']);
+Route::post('/submission', [DonorSubmissionController::class, 'store']);

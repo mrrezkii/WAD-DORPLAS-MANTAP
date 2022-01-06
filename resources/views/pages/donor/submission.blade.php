@@ -17,69 +17,139 @@
         </div>
         <div class="col-md-6 col-sm-12 d-flex flex-column my-auto pt-5">
             <h3 class="text-blue font-bolder font-weight-bold mb-5">Form Permohonan Plasma</h3>
-            <form action="#" method="POST">
+            <form action="/submission" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group mb-3">
-                    <label for="recipient" class="text-title1 text-blue">Nama Lengkap Penerima</label>
-                    <input type="text" class="form-control mt-1 text-title1 text-blue" id="recipient" name="recipient"
-                           placeholder="Masukkan Nama Lengkap Penerima" required>
+                    <label for="recipient_donor_submissions" class="text-title1 text-blue">Nama Lengkap Penerima</label>
+                    <input type="text" class="form-control mt-1 text-title1 text-blue" id="recipient_donor_submissions"
+                           name="recipient_donor_submissions"
+                           placeholder="Masukkan Nama Lengkap Penerima" required
+                           value="{{ old('recipient_donor_submissions') }}">
+                    @error('recipient_donor_submissions')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                    @enderror
                 </div>
                 <div class="form-group mb-3">
-                    <label for="applicant" class="text-title1 text-blue">Nama Lengkap Pemohon</label>
-                    <input type="text" class="form-control mt-1 text-title1 text-blue" id="applicant" name="applicant"
-                           placeholder="Masukkan Nama Lengkap Pemohon" required>
+                    <label for="applicant_donor_submissions" class="text-title1 text-blue">Nama Lengkap Pemohon</label>
+                    <input type="text" class="form-control mt-1 text-title1 text-blue" id="applicant_donor_submissions"
+                           name="applicant_donor_submissions"
+                           placeholder="Masukkan Nama Lengkap Pemohon" required
+                           value="{{ old('applicant_donor_submissions') }}">
+                    @error('applicant_donor_submissions')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                    @enderror
                 </div>
                 <div class="form-group mb-3">
-                    <label for="bloodType" class="text-title1 text-blue">Masukkan Golongan Darah</label>
-                    <select class="custom-select text-title1 text-blue mt-1" id="bloodType" name="bloodType" required>
+                    <label for="blood_type_donor_submissions" class="text-title1 text-blue">Masukkan Golongan
+                        Darah</label>
+                    <select class="custom-select text-title1 text-blue mt-1" id="blood_type_donor_submissions"
+                            name="blood_type_donor_submissions" required>
                         <option value="" disabled selected>Golongan Darah</option>
                         <option value="A">A</option>
                         <option value="B">B</option>
                         <option value="AB">AB</option>
                         <option value="O">O</option>
                     </select>
+                    @error('blood_type_donor_submissions')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                    @enderror
                 </div>
                 <div class="form-group mb-3">
-                    <label for="rhesusType" class="text-title1 text-blue">Masukkan Jenis Rhesus</label>
-                    <select class="custom-select text-title1 text-blue mt-1" id="rhesusType" name="rhesusType" required>
+                    <label for="rhesus_type_donor_submissions" class="text-title1 text-blue">Masukkan Jenis
+                        Rhesus</label>
+                    <select class="custom-select text-title1 text-blue mt-1" id="rhesus_type_donor_submissions"
+                            name="rhesus_type_donor_submissions" required>
                         <option value="" disabled selected>Rhesus</option>
                         <option value="positive">Positif (+)</option>
-                        <option value="negatif">Negatif (-)</option>
+                        <option value="negative">Negatif (-)</option>
                     </select>
+                    @error('rhesus_type_donor_submissions')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                    @enderror
                 </div>
                 <div class="form-group mb-3">
-                    <label for="quantity" class="text-title1 text-blue">Jumlah Kantong</label>
-                    <input type="number" class="form-control mt-1 text-title1 text-blue" id="quantity" name="quantity"
-                           placeholder="Masukkan Jumlah Kantung" required>
+                    <label for="quantity_donor_submissions" class="text-title1 text-blue">Jumlah Kantong</label>
+                    <input type="number" class="form-control mt-1 text-title1 text-blue" id="quantity_donor_submissions"
+                           name="quantity_donor_submissions"
+                           placeholder="Masukkan Jumlah Kantung" required
+                           value="{{ old('quantity_donor_submissions') }}">
+                    @error('quantity_donor_submissions')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                    @enderror
                 </div>
                 <div class="form-group mb-3">
-                    <label for="gender" class="text-title1 text-blue">Lokasi Donor Plasma</label>
-                    <select class="custom-select text-title1 text-blue mt-1" id="gender" name="gender" required>
+                    <label for="id_institutions" class="text-title1 text-blue">Lokasi Donor Plasma</label>
+                    <select class="custom-select text-title1 text-blue mt-1" id="id_institutions" name="id_institutions"
+                            required>
                         <option value="" disabled selected>Pilih Lokasi Terdekat</option>
-                        <option value="1">PMI Kota Kediri</option>
-                        <option value="2">PMI Kota Malang</option>
-                        <option value="3">PMI Kota Bandung</option>
+                        @foreach($institutions as $institution)
+                            <option
+                                value="{{ $institution->id_institutions }}">{{ $institution->name_institutions }}</option>
+                        @endforeach
                     </select>
+                    @error('id_institutions')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                    @enderror
                 </div>
                 <div class="form-group mb-3">
                     <label for="ktp" class="text-title1 text-blue">KTP</label>
                     <div class="custom-file mt-1">
-                        <input type="file" accept="image/jpeg,image/gif,image/png,application/pdf,image/x-eps"
-                               class="custom-file-input" id="customFile" name="ktp" required>
+                        <input onchange="validateSize(this)" type="file"
+                               accept="image/jpeg,image/gif,image/png,application/pdf,image/x-eps"
+                               class="custom-file-input" id="customFile" name="ktp_donor_submissions" required>
                         <label class="custom-file-label text-title1 text-blue" for="customFile">Choose file</label>
                     </div>
+                    @error('ktp_donor_submissions')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                    @enderror
                 </div>
                 <div class="form-group mb-3">
                     <label for="letter" class="text-title1 text-blue">Surat Rujukan</label>
                     <div class="custom-file mt-1">
-                        <input type="file" accept="image/jpeg,image/gif,image/png,application/pdf,image/x-eps"
-                               class="custom-file-input" id="customFile" name="letter" required>
+                        <input onchange="validateSize(this)" type="file"
+                               accept="image/jpeg,image/gif,image/png,application/pdf,image/x-eps"
+                               class="custom-file-input" id="customFile" name="letter_donor_submissions" required>
                         <label class="custom-file-label text-title1 text-blue" for="customFile">Choose file</label>
                     </div>
+                    @error('letter_donor_submissions')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                    @enderror
                 </div>
+                <input type="hidden" value="{{ auth()->user()->id_donators }}" name="id_donators">
                 <button class="btn bg-red text-white mt-4 w-100 text-title2 mb-5" type="submit">Daftar</button>
             </form>
         </div>
+        @if(session()->has('submissionSuccess'))
+            <div class="position-fixed" style="right: 10px;bottom: 50px">
+                <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="50000">
+                    <div class="toast-header d-flex justify-content-between">
+                        <img src="{{ url('/images/logo.png') }}" class="rounded mr-2 img-fluid w-25" alt="...">
+                        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="toast-body">
+                        {{ session('submissionSuccess') }}
+                    </div>
+                </div>
+            </div>
+        @endif
     </div>
 @endsection
 @section('custom-script')
@@ -89,5 +159,16 @@
             $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
         });
     </script>
+    <script type="text/javascript">
+        function validateSize(input) {
+            const fileSize = input.files[0].size / 1024 / 1024;
+            if (fileSize > 1) {
+                alert('Ukuran maksimum 1 Mb');
+                document.getElementById('customFile').value = "";
+            }
+        }
+    </script>
+    <script>
+        $('.toast').toast('show');
+    </script>
 @endsection
-
