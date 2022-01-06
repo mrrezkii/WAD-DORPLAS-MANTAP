@@ -39,7 +39,7 @@ new Chart(ctx, {
     data: {
         labels: labelsData.slice((labelsData.length) - 30, -1),
         datasets: [{
-            label: "Positif : ",
+            label: "Positif ",
             lineTension: 0.3,
             backgroundColor: "rgba(78, 115, 223, 0.05)",
             borderColor: "#BA181B",

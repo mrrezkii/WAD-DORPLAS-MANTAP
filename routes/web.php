@@ -27,7 +27,7 @@ Route::get('/', function () {
     return redirect('/dashboard');
 });
 
-Route::middleware(['guest'])->group(function () {
+Route::middleware(['user_login'])->group(function () {
     {
         Route::get('/login', [LoginController::class, 'index'])->name('login');
         Route::post('/login', [LoginController::class, 'authenticate']);

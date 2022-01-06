@@ -20,9 +20,6 @@ class AuthValidateDonatorsServiceProvider extends UserProvider
     {
         $plain = $credentials['password_donators'];
 
-
-        // PUT YOUR CUSTOM VALIDATION HERE
-
         return $this->hasher->check($plain, $user->getAuthPassword());
     }
 

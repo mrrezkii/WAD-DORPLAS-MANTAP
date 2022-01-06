@@ -17,7 +17,8 @@ class DonorNoteController extends Controller
             'active' => 'donor',
             'stockPlasma' => $this->dashboard()->stockPlasma(),
             'totalRequest' => $this->dashboard()->requestPlasma(),
-            'institutions' => Institutions::all()
+            'institutions' => Institutions::all(),
+            'param' => \request()->query('id')
         ]);
     }
 

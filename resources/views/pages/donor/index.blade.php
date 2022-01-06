@@ -5,6 +5,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
 @endsection
 @section('container')
+{{--    @dd($param)--}}
     <div class="row">
         @include('partials.overview')
         <div class="col-md-6 col-sm-12">
