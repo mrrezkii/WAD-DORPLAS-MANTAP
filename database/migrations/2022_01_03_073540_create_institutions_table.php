@@ -14,7 +14,7 @@ class CreateInstitutionsTable extends Migration
     public function up()
     {
         Schema::create('institutions', function (Blueprint $table) {
-            $table->id('id_institutions');
+            $table->uuid('id_institutions')->unique()->primary();;
             $table->string('name_institutions');
             $table->string('contact_institutions');
             $table->string('email_institutions')->unique();

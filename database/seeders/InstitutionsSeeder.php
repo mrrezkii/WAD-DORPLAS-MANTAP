@@ -15,7 +15,7 @@ class InstitutionsSeeder extends Seeder
     public function run()
     {
         Institutions::create([
-            'id_institutions' => '1',
+            'id_institutions' => '0264db2d-0f84-32ef-b732-d56d7b3d0493',
             'name_institutions' => 'PMI Jawa Barat Pusat',
             'contact_institutions' => '(022) 2500095',
             'email_institutions' => 'halo@pmijabar.or.id',
@@ -25,7 +25,7 @@ class InstitutionsSeeder extends Seeder
         ]);
 
         Institutions::create([
-            'id_institutions' => '2',
+            'id_institutions' => '04c10453-6762-3a69-9cd4-fdfc043164bd',
             'name_institutions' => 'PMI Jawa Timur Pusat',
             'contact_institutions' => '(031) 5055173',
             'email_institutions' => ' jawa_timur@pmi.or.id',
@@ -35,7 +35,7 @@ class InstitutionsSeeder extends Seeder
         ]);
 
         Institutions::create([
-            'id_institutions' => '3',
+            'id_institutions' => '05993934-409e-3c74-9559-150c4cee359b',
             'name_institutions' => 'PMI Surabaya',
             'contact_institutions' => '(031) 99443899',
             'email_institutions' => 'pmisurabaya@pmi.or.id',
@@ -45,7 +45,7 @@ class InstitutionsSeeder extends Seeder
         ]);
 
         Institutions::create([
-            'id_institutions' => '4',
+            'id_institutions' => '05fae751-7d73-3b41-a567-44843869588f',
             'name_institutions' => 'Unit Tranfusi Darah Palang Merah Indonesia Kota Surabaya',
             'contact_institutions' => '(031) 531328',
             'email_institutions' => 'contact.pmi@gmail.com',
@@ -55,7 +55,7 @@ class InstitutionsSeeder extends Seeder
         ]);
 
         Institutions::create([
-            'id_institutions' => '5',
+            'id_institutions' => '0a2fdb17-2d3e-3949-9f36-68cf14b941e5',
             'name_institutions' => 'PMI Kota Bandung',
             'contact_institutions' => '(022) 4207052',
             'email_institutions' => 'pmi.bandung@pmijabar.or.id',

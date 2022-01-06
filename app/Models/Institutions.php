@@ -10,10 +10,10 @@ class Institutions extends Model
     use HasFactory;
 
     protected $table = 'institutions';
-    protected $guarded = 'id_institutions';
     protected $primaryKey = 'id_institutions';
-
-//    protected $with = ['blood_bank', 'employees', 'donor_events', 'donor_notes', 'donor_submissions'];
+    public $incrementing = false;
+    protected $keyType = 'string';
+    protected $fillable = ['id_institutions', 'name_institutions', 'contact_institutions', 'email_institutions', 'address_institutions', 'longitude_institutions', 'latitude_institutions'];
 
     public function bloodBank()
     {

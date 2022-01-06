@@ -14,9 +14,8 @@ class CreateBloodBankTable extends Migration
     public function up()
     {
         Schema::create('blood_bank', function (Blueprint $table) {
-            $table->id('id_blood_bank');
-            $table->unsignedBigInteger('id_institutions');
-            $table->foreign('id_institutions')->references('id_institutions')->on('institutions');
+            $table->uuid('id_blood_bank')->unique()->primary();;
+            $table->foreignUuid('id_institutions');
             $table->integer('a_positive_blood_bank');
             $table->integer('a_negative_blood_bank');
             $table->integer('b_positive_blood_bank');

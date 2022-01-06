@@ -10,8 +10,10 @@ class DonorSubmissions extends Model
     use HasFactory;
 
     protected $table = 'donor_submissions';
-    protected $fillable = ['id_donators', 'id_institutions', 'recipient_donor_submissions', 'applicant_donor_submissions', 'blood_type_donor_submissions', 'rhesus_type_donor_submissions', 'quantity_donor_submissions', 'time_used_donor_submissions', 'ktp_donor_submissions', 'letter_donor_submissions', 'status_donor_submissions'];
-//    protected $with = ['institutions', 'donators', 'status_donor'];
+    protected $primaryKey = 'id_donor_submissions';
+    public $incrementing = false;
+    protected $keyType = 'string';
+    protected $fillable = ['id_donor_submissions', 'id_donators', 'id_institutions', 'recipient_donor_submissions', 'applicant_donor_submissions', 'blood_type_donor_submissions', 'rhesus_type_donor_submissions', 'quantity_donor_submissions', 'time_used_donor_submissions', 'ktp_donor_submissions', 'letter_donor_submissions', 'status_donor_submissions'];
 
     public function institutions()
     {

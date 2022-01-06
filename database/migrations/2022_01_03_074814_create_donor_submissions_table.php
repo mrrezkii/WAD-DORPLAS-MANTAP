@@ -14,10 +14,9 @@ class CreateDonorSubmissionsTable extends Migration
     public function up()
     {
         Schema::create('donor_submissions', function (Blueprint $table) {
-            $table->id('id_donor_submission');
+            $table->uuid('id_donor_submissions')->unique()->primary();;
             $table->foreignUuid('id_donators');
-            $table->unsignedBigInteger('id_institutions');
-            $table->foreign('id_institutions')->references('id_institutions')->on('institutions');
+            $table->foreignUuid('id_institutions');
             $table->string('recipient_donor_submissions');
             $table->string('applicant_donor_submissions');
             $table->string('blood_type_donor_submissions');
@@ -26,8 +25,7 @@ class CreateDonorSubmissionsTable extends Migration
             $table->dateTime('time_used_donor_submissions')->nullable();
             $table->string('ktp_donor_submissions');
             $table->string('letter_donor_submissions');
-            $table->unsignedBigInteger('status_donor_submissions');
-            $table->foreign('status_donor_submissions')->references('id_status_donor')->on('status_donor');
+            $table->tinyInteger('status_donor_submissions');
             $table->timestamps();
         });
     }

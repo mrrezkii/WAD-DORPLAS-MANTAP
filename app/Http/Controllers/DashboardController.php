@@ -46,8 +46,7 @@ class DashboardController extends Controller
     public function requestPlasma()
     {
         return DB::table('donor_submissions')
-            ->where('status_donor_submissions', '=', '1')
-            ->orWhere('status_donor_submissions', '=', '2')
+            ->where('status_donor_submissions', '=', '2')
             ->sum('quantity_donor_submissions');
     }
 

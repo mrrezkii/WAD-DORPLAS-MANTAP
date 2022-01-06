@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Models\DonorSubmissions;
 use App\Models\Institutions;
 use Illuminate\Http\Request;
+use Ramsey\Uuid\Uuid;
 
 class DonorSubmissionController extends Controller
 {
@@ -51,6 +52,7 @@ class DonorSubmissionController extends Controller
         $ktpFile->move($ktpPath, $ktpName);
         $letterFile->move($letterPath, $letterName);
 
+        $validateData['id_donor_submissions'] = Uuid::uuid4()->toString() . "\n";
         $validateData['id_donators'] = $request->id_donators;
         $validateData['status_donor_submissions'] = 1;
         $validateData['quantity_donor_submissions'] = (int)$request->quantity_donor_submissions;

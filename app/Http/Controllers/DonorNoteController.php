@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Models\DonorNotes;
 use App\Models\Institutions;
 use Illuminate\Http\Request;
+use Ramsey\Uuid\Uuid;
 
 class DonorNoteController extends Controller
 {
@@ -34,10 +35,10 @@ class DonorNoteController extends Controller
             'schedule_donor_notes' => 'required|date|after:yesterday',
         ]);
 
+        $validateData['id_donor_notes'] = Uuid::uuid4()->toString() . "\n";
         $validateData['status_donor_notes'] = 1;
 
         DonorNotes::create($validateData);
-
 
         return redirect('/donor')->with('donorSuccess', 'Berhasil melakukan pendaftaran donor plasma, silahkan pantau di menu akun');
     }

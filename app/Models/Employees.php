@@ -10,12 +10,15 @@ class Employees extends Model
     use HasFactory;
 
     protected $table = 'employees';
-    protected $guarded = 'id_employees';
+    protected $primaryKey = 'id_employees';
+    public $incrementing = false;
+    protected $keyType = 'string';
+    protected $fillable = ['id_employees', 'id_institutions', 'name_employees', 'email_employees', 'password_employees', 'contact_employees', 'address_employees'];
 
-    protected $with = ['institutions'];
 
     public function institutions()
     {
         return $this->belongsTo(Institutions::class, 'id_institutions');
     }
+
 }

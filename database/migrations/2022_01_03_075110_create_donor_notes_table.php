@@ -14,14 +14,11 @@ class CreateDonorNotesTable extends Migration
     public function up()
     {
         Schema::create('donor_notes', function (Blueprint $table) {
-            $table->id('id_donor_notes');
+            $table->uuid('id_donor_notes')->unique()->primary();;
             $table->foreignUuid('id_donators');
-            $table->unsignedBigInteger('id_institutions')->nullable();
-            $table->foreign('id_institutions')->references('id_institutions')->on('institutions');
-            $table->unsignedBigInteger('id_donor_events')->nullable();
-            $table->foreign('id_donor_events')->references('id_donor_events')->on('donor_events');
-            $table->unsignedBigInteger('status_donor_notes');
-            $table->foreign('status_donor_notes')->references('id_status_donor')->on('status_donor');
+            $table->foreignUuid('id_institutions');
+            $table->foreignUuid('id_donor_events')->nullable();
+            $table->tinyInteger('status_donor_notes');
             $table->date('schedule_donor_notes');
             $table->timestamps();
         });

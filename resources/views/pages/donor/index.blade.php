@@ -52,7 +52,7 @@
         </div>
         @if(session()->has('donorSuccess'))
             <div class="position-fixed" style="right: 10px;bottom: 50px">
-                <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="50000">
+                <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="5000">
                     <div class="toast-header d-flex justify-content-between">
                         <img src="{{ url('/images/logo.png') }}" class="rounded mr-2 img-fluid w-25" alt="...">
                         <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">

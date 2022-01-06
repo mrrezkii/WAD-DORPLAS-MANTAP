@@ -10,9 +10,10 @@ class DonorNotes extends Model
     use HasFactory;
 
     protected $table = 'donor_notes';
-    protected $fillable = ['id_donators', 'id_institutions', 'id_donor_events', 'status_donor_notes', 'schedule_donor_notes'];
-
-//    protected $with = status_donor_notes
+    protected $primaryKey = 'id_donor_notes';
+    public $incrementing = false;
+    protected $keyType = 'string';
+    protected $fillable = ['id_donor_notes', 'id_donators', 'id_institutions', 'id_donor_events', 'status_donor_notes', 'schedule_donor_notes'];
 
     public function institutions()
     {
