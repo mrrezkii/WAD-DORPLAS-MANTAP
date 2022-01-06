@@ -2,18 +2,22 @@
 @section('container')
     <div class="row">
         <div class="col-md-6 offset-md-3">
-            <div class="d-flex flex-column mb-5">
-                <img src="{{ url('/images/avatar.jpg') }}" class="rounded-circle mx-auto mt-5" width="100px"
-                     height="100px" alt="avatar">
-
-
+            <div class="d-flex flex-column mb-5" id="lightgallery">
+                @if(auth()->user()->profile_images_donators != null)
+                    <img src="{{ auth()->user()->profile_images_donators }}" class="rounded-circle mx-auto mt-5"
+                         width="100px"
+                         height="100px" alt="avatar">
+                @else
+                    <img src="{{ url('/images/avatar.jpg') }}" class="rounded-circle mx-auto mt-5" width="100px"
+                         height="100px" alt="avatar">
+                @endif
                 <div class="m-auto d-flex">
                     <p>
                         <img src="{{ url('/images/icon/ic_star.svg') }}" alt="point" class="ml-3" width="20px">
-                        <span class="text-title1 text-blue">255</span>
+                        <span class="text-title1 text-blue">{{ auth()->user()->point_donators }}</span>
                     </p>
                     <span class="text-secondary text-title1 ml-2">&bull;</span>
-                    <a href="#" class="text-decoration-none">
+                    <a href="#" class="text-decoration-none" data-toggle="modal" data-target="#detailModal">
                         <p class="mb-1 ml-3 text-center">
                             <span class="text-title1 text-blue">Ubah foto</span>
                             <i class="fas fa-edit text-red"></i>
@@ -135,32 +139,46 @@
                 <div class="form-group mb-3">
                     <label for="name" class="text-title1 text-blue">Nama Lengkap</label>
                     <input type="text" class="form-control mt-1 text-title1 text-blue" id="name" name="name"
-                           placeholder="Nama Lengkap" required>
+                           placeholder="Nama Lengkap" required value="{{ auth()->user()->name_donators }}">
                 </div>
                 <div class="form-group mb-3">
                     <label for="gender" class="text-title1 text-blue">Jenis Kelamin</label>
                     <select class="custom-select text-title1 text-blue mt-1" id="gender" name="gender" required>
                         <option value="" disabled selected>Jenis Kelamin</option>
-                        <option value="male">Laki - laki</option>
-                        <option value="female">Perempuan</option>
+                        <option value="male" {{ (auth()->user()->gender_donators === "male") ? 'selected' : '' }}>Laki -
+                            laki
+                        </option>
+                        <option value="female" {{ (auth()->user()->gender_donators === "female") ? 'selected' : '' }}>
+                            Perempuan
+                        </option>
                     </select>
                 </div>
                 <div class="form-group mb-3">
                     <label for="bloodType" class="text-title1 text-blue">Golongan Darah</label>
                     <select class="custom-select text-title1 text-blue mt-1" id="bloodType" name="bloodType" required>
                         <option value="" disabled selected>Golongan Darah</option>
-                        <option value="A">A</option>
-                        <option value="B">B</option>
-                        <option value="AB">AB</option>
-                        <option value="O">O</option>
+                        <option value="A" {{ (auth()->user()->blood_type_donators === "A") ? 'selected' : '' }}>A
+                        </option>
+                        <option value="B" {{ (auth()->user()->blood_type_donators === "B") ? 'selected' : '' }}>B
+                        </option>
+                        <option value="AB" {{ (auth()->user()->blood_type_donators === "AB") ? 'selected' : '' }}>AB
+                        </option>
+                        <option value="O" {{ (auth()->user()->blood_type_donators === "O") ? 'selected' : '' }}>O
+                        </option>
                     </select>
                 </div>
                 <div class="form-group mb-3">
                     <label for="rhesusType" class="text-title1 text-blue">Rhesus</label>
                     <select class="custom-select text-title1 text-blue mt-1" id="rhesusType" name="rhesusType" required>
                         <option value="" disabled selected>Rhesus</option>
-                        <option value="positive">Positif (+)</option>
-                        <option value="negatif">Negatif (-)</option>
+                        <option
+                            value="positive" {{ (auth()->user()->rhesus_type_donators === "positive") ? 'selected' : '' }} >
+                            Positif (+)
+                        </option>
+                        <option
+                            value="negatif" {{ (auth()->user()->rhesus_type_donators === "negative") ? 'selected' : '' }}>
+                            Negatif (-)
+                        </option>
                     </select>
                 </div>
                 <button class="btn bg-red text-white mt-4 w-25 text-title2" type="submit">Simpan</button>
@@ -174,17 +192,17 @@
                 <div class="form-group mb-3">
                     <label for="email" class="text-title1 text-blue">Email</label>
                     <input type="email" class="form-control mt-1 text-title1 text-blue" id="email" name="email"
-                           placeholder="Email" required>
+                           placeholder="Email" required value="{{ auth()->user()->email_donators }}">
                 </div>
                 <div class="form-group">
                     <label for="address" class="text-title1 text-blue">Alamat</label>
                     <textarea class="form-control text-title1 text-blue" id="address" name="address"
-                              rows="3"></textarea>
+                              rows="3">{{ auth()->user()->address_donators }}</textarea>
                 </div>
                 <div class="form-group mb-3">
                     <label for="no_hp" class="text-title1 text-blue">No. Telp / WA</label>
                     <input type="text" class="form-control mt-1 text-title1 text-blue" id="no_hp" name="no_hp"
-                           placeholder="No. Telp / WA" required>
+                           placeholder="No. Telp / WA" required value="{{ auth()->user()->contact_donators }}">
                 </div>
                 <button class="btn bg-red text-white mt-4 w-25 text-title2" type="submit">Simpan</button>
             </form>
@@ -225,6 +243,49 @@
 
                 <button class="btn bg-red text-white mt-4 w-25 text-title2 mb-5" type="submit">Simpan</button>
             </form>
+        </div>
+    </div>
+    <div class="modal fade" id="detailModal" tabindex="-1" aria-labelledby="detailModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-title1 text-blue text-truncate" id="detailModalLabel">Ubah Foto</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body d-flex flex-column">
+                    @if(auth()->user()->profile_images_donators != null)
+                        <img id="output" src="{{ auth()->user()->profile_images_donators }}"
+                             class="rounded-circle mx-auto" width="300px"
+                             height="300px" alt="avatar">
+                    @else
+                        <img id="output" src="{{ url('/images/avatar.jpg') }}" class="rounded-circle mx-auto"
+                             width="300px"
+                             height="300px" alt="avatar">
+                    @endif
+                    <form>
+                        <div class="form-group mb-3">
+                            <label for="ktp" class="text-title1 text-blue">Foto</label>
+                            <div class="custom-file mt-1">
+                                <input type="file" accept="image/jpeg,image/gif,image/png"
+                                       class="custom-file-input" id="customFile" name="ktp" required
+                                       onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])">
+                                <label class="custom-file-label text-title1 text-blue" for="customFile">Choose
+                                    file</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <form>
+                        <input type="hidden" id="id_institutions">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn bg-red text-white">Simpan</button>
+                    </form>
+
+                </div>
+            </div>
         </div>
     </div>
 @endsection

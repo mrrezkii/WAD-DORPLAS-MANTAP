@@ -15,6 +15,7 @@ class DonatorsFactory extends Factory
 
     private $bloodtype = ['O', 'A', 'B', 'AB'];
     private $rhesus = ['positive', 'negative'];
+    private $gender = ['male', 'female'];
 
     public function definition()
     {
@@ -23,6 +24,7 @@ class DonatorsFactory extends Factory
             'name_donators' => $this->faker->name(),
             'email_donators' => $this->faker->unique()->safeEmail(),
             'password_donators' => Hash::make(12345),
+            'gender_donators' => $this->faker->randomElement($this->gender),
             'blood_type_donators' => $this->faker->randomElement($this->bloodtype),
             'rhesus_type_donators' => $this->faker->randomElement($this->rhesus),
             'contact_donators' => $this->faker->unique->phoneNumber(),

@@ -18,7 +18,6 @@
                 </div>
                 <div class="list-location mt-5">
                     @foreach($datas as $data)
-                        {{--                        @dd($data->institutions)--}}
                         <a class="text-decoration-none" data-toggle="modal" data-target="#detailModal" href="#"
                            onclick="btnDetail(
                                '{{$data->a_positive_blood_bank}}',
@@ -209,7 +208,8 @@
                 </div>
             </div>
         </div>
-        @endsection
+    </div>
+@endsection
         @section('custom-script')
             <script> let data = @json($datas) </script>
             <script src='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js'></script>
