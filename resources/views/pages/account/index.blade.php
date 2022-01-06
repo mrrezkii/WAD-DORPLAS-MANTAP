@@ -51,7 +51,9 @@
                             @endphp
                             <div class="rounded px-3 mb-3 {{ $bg_condition }}">
                                 <h5 class="text-white text-title1 py-2">Memohon Darah
-                                    Tipe {{ $data->blood_type_donor_submissions }}{{ $data->blood_type_donor_submissions == 'positive' ? '+' : '-'}}</h5>
+                                    Tipe
+                                    <strong>{{ $data->blood_type_donor_submissions }}{{ $data->blood_type_donor_submissions == 'positive' ? '+' : '-'}}</strong>
+                                    di {{ $data->institutions->name_institutions }}</h5>
                                 <div class="d-flex justify-content-between pb-3">
                                     <p class="text-white text-body1">{{ $data->time_used_donor_submissions ? \Carbon\Carbon::parse($data->time_used_donor_submissions)->translatedFormat('d-m-Y') :  '-' }}</p>
                                     <p class="text-white text-body1">{{ $data->status->name_status_donor }}</p>
@@ -93,7 +95,9 @@
                             @endphp
                             <div class="rounded px-3 mb-3 {{ $bg_condition }}">
                                 <h5 class="text-white text-title1 py-2">Menondorkan
-                                    Darah {{ auth()->user()->blood_type_donators}}{{ auth()->user()->rhesus_type_donators == 'positive' ? '+' : '-'}}</h5>
+                                    Darah
+                                    <strong>{{ auth()->user()->blood_type_donators}}{{ auth()->user()->rhesus_type_donators == 'positive' ? '+' : '-'}}</strong>
+                                    di {{ $data->institutions->name_institutions }}</h5>
                                 <div class="d-flex justify-content-between pb-3">
                                     <p class="text-white text-body1">{{ \Carbon\Carbon::parse($data->schedule_donor_notes)->translatedFormat('d-m-Y') }}</p>
                                     <p class="text-white text-body1">{{ $data->status->name_status_donor }}</p>

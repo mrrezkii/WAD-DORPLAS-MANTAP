@@ -18,7 +18,7 @@ class DonorNoteController extends Controller
             'stockPlasma' => $this->dashboard()->stockPlasma(),
             'totalRequest' => $this->dashboard()->requestPlasma(),
             'institutions' => Institutions::all(),
-            'param' => \request()->query('id')
+            'institutionSelected' => $this->getInstitutions()
         ]);
     }
 
@@ -42,5 +42,10 @@ class DonorNoteController extends Controller
         DonorNotes::create($validateData);
 
         return redirect('/donor')->with('donorSuccess', 'Berhasil melakukan pendaftaran donor plasma, silahkan pantau di menu akun');
+    }
+
+    public function getInstitutions()
+    {
+        return Institutions::where('id_institutions', \request()->query('location'))->first();
     }
 }

@@ -5,7 +5,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
 @endsection
 @section('container')
-{{--    @dd($param)--}}
     <div class="row">
         @include('partials.overview')
         <div class="col-md-6 col-sm-12">
@@ -24,11 +23,16 @@
                     <label for="id_institutions" class="text-title1 text-blue">Lokasi Donor Plasma</label>
                     <select class="custom-select text-title1 text-blue mt-1" id="id_institutions" name="id_institutions"
                             required>
-                        <option value="" disabled selected>Pilih Lokasi Terdekat</option>
-                        @foreach($institutions as $institution)
-                            <option
-                                value="{{ $institution->id_institutions }}">{{ $institution->name_institutions }}</option>
-                        @endforeach
+                        @if(isset($institutionSelected))
+                            <option value="{{ $institutionSelected->id_institutions }}" readonly
+                                    selected>{{ $institutionSelected->name_institutions }}</option>
+                        @else
+                            <option value="" disabled selected>Pilih Lokasi Terdekat</option>
+                            @foreach($institutions as $institution)
+                                <option
+                                    value="{{ $institution->id_institutions }}">{{ $institution->name_institutions }}</option>
+                            @endforeach
+                        @endif
                     </select>
                     @error('id_institutions')
                     <div class="invalid-feedback">

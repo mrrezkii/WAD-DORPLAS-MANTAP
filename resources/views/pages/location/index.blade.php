@@ -199,8 +199,8 @@
                     <p id="email" class="ellipsis-1 text-blue text-title1">muhammad.rezki.ananda@gmail.com</p>
                 </div>
                 <div class="modal-footer">
-                    <form action="{{ url('donor') }}" method="GET">
-                        <input type="hidden" name="id" value="1212">
+                    <form action="{{ url('/donor') }}" method="GET">
+                        <input type="hidden" id="id_institutions" name="location">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="submit" class="btn bg-red text-white">Donor Disini</button>
                     </form>
