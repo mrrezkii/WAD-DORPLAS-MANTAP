@@ -4,7 +4,7 @@
     <link href="{{ url('/vendor/powerful-calendar/theme.css') }}" rel="stylesheet">
 @endsection
 @section('container')
-{{--@dd($covidData)--}}
+    {{--@dd($covidData)--}}
     <div class="row">
         @include('partials.overview')
         <div class="col-md-6 col-sm-12 mt-5">
@@ -79,32 +79,32 @@
                     <div class="calendar-container"></div>
                     <div class="detail-schedule">
                         <h6 class="m-0 text-title1 text-blue mb-5">Detail acara</h6>
-                        {{--                        @foreach($schedules as $schedule)--}}
-                        {{--                            @dd($schedules)--}}
-                        <a class="text-decoration-none" href="#">
-                            <div class="bg-red rounded shadow-md mb-3">
-                                <div class="row py-2">
-                                    <div class="col-2">
-                                        <div class="tile d-flex">
-                                            <p class="m-auto text-title1 text-blue">19</p>
+                        @foreach($schedules as $schedule)
+                            @php($newDate = \Carbon\Carbon::parse($schedule->schedule_donor_notes))
+                            <a class="text-decoration-none" href="#">
+                                <div class="bg-red rounded shadow-md mb-3">
+                                    <div class="row py-2">
+                                        <div class="col-2">
+                                            <div class="tile d-flex">
+                                                <p class="m-auto text-title1 text-blue">{{ $newDate->translatedFormat('d') }}</p>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-8">
-                                        <div class="box-event border-left">
-                                            <h6 class="text-title1 text-white ml-3">Sabtu, 19 Nov 21</h6>
-                                            <p class="text-body2 text-white ml-3 mt-1">PMI Kota Kediri</p>
-                                            <p class="text-body2 text-white ml-3">09.00 - 10.00</p>
+                                        <div class="col-8">
+                                            <div class="box-event border-left">
+                                                <h6 class="text-title1 text-white ml-3">{{ $newDate->translatedFormat('D, d F Y') }}</h6>
+                                                <p class="text-body2 text-white ml-3 mt-1 text-truncate">{{ $schedule->institutions->name_institutions }}</p>
+                                                <p class="text-body2 text-white ml-3">{{ $newDate->translatedFormat('h:i') }}</p>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-2 d-flex">
-                                        <img class="img-fluid my-auto"
-                                             src="{{ url('/images/icon/ic_arrow_right.svg') }}"
-                                             alt="next">
+                                        <div class="col-2 d-flex">
+                                            <img class="img-fluid my-auto"
+                                                 src="{{ url('/images/icon/ic_arrow_right.svg') }}"
+                                                 alt="next">
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </a>
-                        {{--                        @endforeach--}}
+                            </a>
+                        @endforeach
                     </div>
 
                     <hr>
