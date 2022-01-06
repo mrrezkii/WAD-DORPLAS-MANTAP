@@ -27,7 +27,7 @@ Route::get('/', function () {
     return redirect('/dashboard');
 });
 
-Route::middleware(['user_login'])->group(function () {
+Route::middleware(['user_not_login'])->group(function () {
     {
         Route::get('/login', [LoginController::class, 'index'])->name('login');
         Route::post('/login', [LoginController::class, 'authenticate']);
@@ -47,4 +47,5 @@ Route::middleware(['auth:donator'])->group(function () {
     Route::get('/article', [ArticleController::class, 'index']);
     Route::get('/account', [AccountController::class, 'index']);
     Route::get('/faq', [FaqController::class, 'index']);
+    Route::post('/logout', [LoginController::class, 'logout']);
 });

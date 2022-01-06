@@ -106,10 +106,12 @@
                     </button>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary text-body1 mx-2" data-dismiss="modal">Close</button>
-                    <a href="{{ url('/login') }}" class="text-decoration-none">
-                        <button type="button" class="btn btn-danger text-body1 mx-2">Keluar</button>
-                    </a>
+                    <form action="{{ url('/logout') }}" method="POST">
+                        @csrf
+                        <button type="button" class="btn btn-secondary text-body1 mx-2" data-dismiss="modal">Close
+                        </button>
+                        <button type="submit" class="btn btn-danger text-body1 mx-2">Keluar</button>
+                    </form>
                 </div>
             </div>
         </div>
