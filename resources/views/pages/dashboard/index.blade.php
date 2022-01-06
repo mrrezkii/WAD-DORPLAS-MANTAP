@@ -74,7 +74,7 @@
         <div class="col-md-6 col-sm-12 mt-5">
             <div class="card mb-4" style="width: 100%;">
                 <div class="card-header py-3">
-                    <h6 class="m-0 text-title1 text-blue">Jadwal Donor</h6>
+                    <h6 class="m-0 text-title1 text-blue">Jadwal Donor Terdekat</h6>
                 </div>
                 <div class="card-body">
                     <div class="calendar-container"></div>
@@ -116,6 +116,13 @@
 @endsection
 @section('custom-script')
     <script> let dataCovid = @json($covidData) </script>
+    <script>
+        let dataRaw = @json($schedules);
+        const dataSchedule = [];
+        for (let i = 0; i < dataRaw.length; i++) {
+            dataSchedule.push(dataRaw[i]['schedule_donor_notes']);
+        }
+    </script>
     <script src="{{ url('/vendor/chart.js/Chart.min.js') }}"></script>
     <script src="{{ url('/js/chart-covid.js') }}"></script>
     <script src="{{ url('/vendor/powerful-calendar/calendar.min.js') }}"></script>
