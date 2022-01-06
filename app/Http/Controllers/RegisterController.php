@@ -19,7 +19,6 @@ class RegisterController extends Controller
 
     public function store(Request $request)
     {
-
         $validateData = $request->validate([
             'name_donators' => 'required|max:255',
             'email_donators' => 'required|email:dns|unique:donators,email_donators,NULL,id_donators',

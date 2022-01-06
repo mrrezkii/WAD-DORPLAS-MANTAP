@@ -40,6 +40,7 @@
                         <div class="card-body">
                             @foreach($articleData['channel']['item']  as $data)
                                 @if ($loop->index == 5) @break @endif
+                                @php($newDate = \Carbon\Carbon::parse($data['pubDate']))
                                 <a href="{{ $data['link'] }}" target="_blank" class="text-decoration-none">
                                     <div class="row no-gutters mb-3 list-article">
                                         <div class="col-md-2 col-sm-12">
@@ -56,7 +57,7 @@
                                                 <span class="ml-2 text-body2 text-red">covid19.go.id</span>
                                                 <span class="ml-2 text-body2 text-dark">&bull;</span>
                                                 <span
-                                                    class="ml-2 text-body2 text-blue">{{ Str::replace('+0700', 'WIB', $data['pubDate']) }}</span>
+                                                    class="ml-2 text-body2 text-blue">{{ $newDate->translatedFormat('D, d F Y') }}</span>
                                             </p>
 
                                         </div>
@@ -81,7 +82,7 @@
                         <h6 class="m-0 text-title1 text-blue mb-5">Detail acara</h6>
                         @foreach($schedules as $schedule)
                             @php($newDate = \Carbon\Carbon::parse($schedule->schedule_donor_notes))
-                            <a class="text-decoration-none" href="#">
+                            <a class="text-decoration-none" href="{{ url('/account') }}">
                                 <div class="bg-red rounded shadow-md mb-3">
                                     <div class="row py-2">
                                         <div class="col-2">

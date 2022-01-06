@@ -12,16 +12,20 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $article = new ArticleController();
         return view('pages.dashboard.index', [
             'title' => 'Dashboard',
             'active' => 'dashboard',
-            'articleData' => $article->getArticle(),
+            'articleData' => $this->article()->getArticle(),
             'stockPlasma' => $this->stockPlasma(),
             'totalRequest' => $this->requestPlasma(),
             'schedules' => $this->schedule(),
             'covidData' => $this->getCovid()
         ]);
+    }
+
+    public function article()
+    {
+        return new ArticleController();
     }
 
     public function stockPlasma()
@@ -42,17 +46,15 @@ class DashboardController extends Controller
     public function requestPlasma()
     {
         return DB::table('donor_submissions')
-            ->where('status_donor_submissions', '1')
-            ->orWhere('status_donor_submissions', '2')
+            ->where('status_donor_submissions', '=', '1')
+            ->orWhere('status_donor_submissions', '=', '2')
             ->sum('quantity_donor_submissions');
     }
 
     public function schedule()
     {
-        return DonorNotes::where('status_donor_notes', '=', '3')->get();
-
+        return DonorNotes::where('status_donor_notes', '=', '2')->get();
     }
-
 
     public function getCovid()
     {

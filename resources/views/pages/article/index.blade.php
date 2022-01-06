@@ -5,7 +5,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
 @endsection
 @section('container')
-    {{--    @dd($datas['channel']['item'])--}}
     <div class="row">
         <div class="col-md-6 col-sm-12 mt-5">
             <div class="card mb-3">
@@ -20,7 +19,7 @@
                             <span class="text-body2 text-red" style="font-size: 18px;">covid19.go.id</span>
                             <span class="text-body2 text-dark" style="font-size: 18px;">&bull;</span>
                             <span class="text-body2 text-blue"
-                                  style="font-size: 18px;">{{ Str::replace('+0700', 'WIB', $datas['channel']['item'][0]['pubDate']) }}</span>
+                                  style="font-size: 18px;">{{ \Carbon\Carbon::parse( $datas['channel']['item'][1]['pubDate'])->translatedFormat('D, d F Y') }}</span>
                         </div>
                     </div>
                 </a>
@@ -37,7 +36,7 @@
                             <span class="text-body2 text-red" style="font-size: 18px;">covid19.go.id</span>
                             <span class="text-body2 text-dark" style="font-size: 18px;">&bull;</span>
                             <span class="text-body2 text-blue"
-                                  style="font-size: 18px;">{{ Str::replace('+0700', 'WIB', $datas['channel']['item'][1]['pubDate']) }}</span>
+                                  style="font-size: 18px;">{{ \Carbon\Carbon::parse( $datas['channel']['item'][1]['pubDate'])->translatedFormat('D, d F Y') }}</span>
                         </div>
                     </div>
                 </a>
@@ -46,6 +45,7 @@
         <div class="col-md-6 col-sm-12 mt-5">
             <h6 class="mb-4 text-title1 text-blue">Artikel Pilihan</h6>
             @foreach($datas['channel']['item'] as $data)
+                @php($newDate = \Carbon\Carbon::parse($data['pubDate']))
                 @if ($loop->first) @continue @endif
                 @if ($loop->index == 1) @continue @endif
                 <a href="{{ $data['link'] }}" target="_blank" class="text-decoration-none">
@@ -63,7 +63,7 @@
                                 <span class="ml-2 text-body2 text-red">covid19.go.id</span>
                                 <span class="ml-2 text-body2 text-dark">&bull;</span>
                                 <span
-                                    class="ml-2 text-body2 text-blue">{{ Str::replace('+0700', 'WIB', $data['pubDate']) }}</span>
+                                    class="ml-2 text-body2 text-blue">{{ $newDate->translatedFormat('D, d F Y') }}</span>
                             </p>
 
                         </div>
