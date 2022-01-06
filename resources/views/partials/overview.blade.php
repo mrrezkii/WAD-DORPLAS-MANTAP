@@ -4,17 +4,12 @@
             <a href="#" class="text-decoration-none">
                 <div class="row">
                     <div class="col-md-3">
-                        @if(auth()->user()->profile_images_donators != null)
-                            <img src="{{ auth()->user()->profile_images_donators }}" class="rounded-circle" width="70px"
-                                 height="70px" alt="avatar">
-                        @else
-                            <img src="{{ url('/images/avatar.jpg') }}" class="rounded-circle" width="70px"
-                                 height="70px" alt="avatar">
-                        @endif
-
+                        <img src="{{ auth()->user()->profile_images_donators ?? url('/images/avatar.jpg') }}"
+                             class="rounded-circle" width="70px"
+                             height="70px" alt="avatar">
                     </div>
                     <div class="col-md-9">
-                        <p class="text-title1 text-blue mb-1 ml-3">{{ auth()->user()->name_donators }}</p>
+                        <p class="text-title1 text-blue mb-1 ml-3 text-truncate">{{ auth()->user()->name_donators }}</p>
                         <img src="{{ url('/images/icon/ic_star.svg') }}" alt="point" class="img-fluid ml-3">
                         <span class="text-body1 text-blue">{{ auth()->user()->point_donators }}</span>
                     </div>

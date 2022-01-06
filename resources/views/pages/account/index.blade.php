@@ -3,14 +3,10 @@
     <div class="row">
         <div class="col-md-6 offset-md-3">
             <div class="d-flex flex-column mb-5" id="lightgallery">
-                @if(auth()->user()->profile_images_donators != null)
-                    <img src="{{ auth()->user()->profile_images_donators }}" class="rounded-circle mx-auto mt-5"
-                         width="100px"
-                         height="100px" alt="avatar">
-                @else
-                    <img src="{{ url('/images/avatar.jpg') }}" class="rounded-circle mx-auto mt-5" width="100px"
-                         height="100px" alt="avatar">
-                @endif
+                <img src="{{ auth()->user()->profile_images_donators ?? url('/images/avatar.jpg') }}"
+                     class="rounded-circle mx-auto mt-5"
+                     width="100px"
+                     height="100px" alt="avatar">
                 <div class="m-auto d-flex">
                     <p>
                         <img src="{{ url('/images/icon/ic_star.svg') }}" alt="point" class="ml-3" width="20px">

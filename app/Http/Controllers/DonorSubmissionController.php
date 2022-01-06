@@ -43,11 +43,12 @@ class DonorSubmissionController extends Controller
         $ktpFile = $request->file('ktp_donor_submissions');
         $letterFile = $request->file('letter_donor_submissions');
 
-        $ktpName = time() . "_" . $request->id_donators . "_" . $ktpFile->getClientOriginalName();
-        $letterName = time() . "_" . $request->id_donators . "_" . $letterFile->getClientOriginalName();
+        $uuidShorten = str_replace('-', '', $request->id_donators);
+        $ktpName = time() . "_" . $uuidShorten . "_" . $ktpFile->getClientOriginalName();
+        $letterName = time() . "_" . $uuidShorten . "_" . $letterFile->getClientOriginalName();
 
-        $ktpPath = "upload/$request->id_donators/ktp";
-        $letterPath = "upload/$request->id_donators/letter";
+        $ktpPath = "upload/$uuidShorten/ktp";
+        $letterPath = "upload/$uuidShorten/letter";
 
         $ktpFile->move($ktpPath, $ktpName);
         $letterFile->move($letterPath, $letterName);
