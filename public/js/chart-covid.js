@@ -1,10 +1,17 @@
-// Set new default font family and font color to mimic Bootstrap's default styling
+console.log(dataCovid)
 Chart.defaults.global.defaultFontFamily = 'Open Sans', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
 Chart.defaults.global.defaultFontColor = '#858796';
 
+const labelsData = [];
+const dataPositive = [];
+
+for (let i = 0; i < dataCovid.length; i++) {
+    const d = new Date(dataCovid[i]['tanggal']);
+    labelsData.push(d.getDate() + "/" + d.getMonth() + 1 + "/" + d.getFullYear());
+    dataPositive.push(dataCovid[i]['positif']);
+}
+
 function number_format(number, decimals, dec_point, thousands_sep) {
-    // *     example: number_format(1234.56, 2, ',', ' ');
-    // *     return: '1 234,56'
     number = (number + '').replace(',', '').replace(' ', '');
     var n = !isFinite(+number) ? 0 : +number,
         prec = !isFinite(+decimals) ? 0 : Math.abs(decimals),
@@ -15,7 +22,6 @@ function number_format(number, decimals, dec_point, thousands_sep) {
             var k = Math.pow(10, prec);
             return '' + Math.round(n * k) / k;
         };
-    // Fix for IE parseFloat(0.55).toFixed(0) = 0;
     s = (prec ? toFixedFix(n, prec) : '' + Math.round(n)).split('.');
     if (s[0].length > 3) {
         s[0] = s[0].replace(/\B(?=(?:\d{3})+(?!\d))/g, sep);
@@ -27,14 +33,13 @@ function number_format(number, decimals, dec_point, thousands_sep) {
     return s.join(dec);
 }
 
-// Area Chart Example
-var ctx = document.getElementById("myAreaChart");
-var myLineChart = new Chart(ctx, {
+const ctx = document.getElementById("myAreaChart");
+new Chart(ctx, {
     type: 'line',
     data: {
-        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+        labels: labelsData.slice((labelsData.length) - 30, -1),
         datasets: [{
-            label: "Earnings",
+            label: "Positif : ",
             lineTension: 0.3,
             backgroundColor: "rgba(78, 115, 223, 0.05)",
             borderColor: "#BA181B",
@@ -46,7 +51,7 @@ var myLineChart = new Chart(ctx, {
             pointHoverBorderColor: "#BA181B",
             pointHitRadius: 10,
             pointBorderWidth: 2,
-            data: [0, 10000, 5000, 15000, 10000, 20000, 15000, 25000, 20000, 30000, 25000, 40000],
+            data: dataPositive.slice((dataPositive.length) - 30, -1),
         }],
     },
     options: {

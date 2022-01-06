@@ -8,8 +8,6 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-
-
     public function index()
     {
         return view('pages.login.index', [
@@ -28,11 +26,10 @@ class LoginController extends Controller
 
         if (Auth::guard('donator')->attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('/');
+            return redirect()->intended('/dashboard');
         }
 
         return back()->with('loginFailed', 'Email atau password tidak cocok');
-
     }
 
 }

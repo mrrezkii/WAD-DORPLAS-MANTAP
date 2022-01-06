@@ -11,7 +11,7 @@ class DonorNotes extends Model
 
     protected $table = 'donor_notes';
     protected $guarded = 'id_donor_notes';
-    protected $with = ['institutions', 'donators', 'donor_events', 'status_donor'];
+//    protected $with = ['institutions', 'donators', 'donor_events', 'status_donor'];
 
     public function institutions()
     {

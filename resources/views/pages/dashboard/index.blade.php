@@ -4,7 +4,7 @@
     <link href="{{ url('/vendor/powerful-calendar/theme.css') }}" rel="stylesheet">
 @endsection
 @section('container')
-
+{{--@dd($covidData)--}}
     <div class="row">
         @include('partials.overview')
         <div class="col-md-6 col-sm-12 mt-5">
@@ -13,7 +13,7 @@
                     <div class="card mb-4" style="width: 100%;">
                         <div class="card-header py-3">
                             <div class="d-flex justify-content-between">
-                                <h6 class="m-0 text-title1 text-blue">Trend Donor Plasma</h6>
+                                <h6 class="m-0 text-title1 text-blue">Trend Covid Indonesia</h6>
                                 <a class="text-decoration-none" href="#">
                                     <p class="text-body">30 hari terakhir</p>
                                 </a>
@@ -79,6 +79,8 @@
                     <div class="calendar-container"></div>
                     <div class="detail-schedule">
                         <h6 class="m-0 text-title1 text-blue mb-5">Detail acara</h6>
+                        {{--                        @foreach($schedules as $schedule)--}}
+                        {{--                            @dd($schedules)--}}
                         <a class="text-decoration-none" href="#">
                             <div class="bg-red rounded shadow-md mb-3">
                                 <div class="row py-2">
@@ -90,8 +92,7 @@
                                     <div class="col-8">
                                         <div class="box-event border-left">
                                             <h6 class="text-title1 text-white ml-3">Sabtu, 19 Nov 21</h6>
-                                            <p class="text-body2 text-white ml-3 mt-1">Lokasi PMI Kota
-                                                Kediri</p>
+                                            <p class="text-body2 text-white ml-3 mt-1">PMI Kota Kediri</p>
                                             <p class="text-body2 text-white ml-3">09.00 - 10.00</p>
                                         </div>
                                     </div>
@@ -103,31 +104,7 @@
                                 </div>
                             </div>
                         </a>
-                        <a class="text-decoration-none" href="#">
-                            <div class="bg-red rounded shadow-md mb-3">
-                                <div class="row py-2">
-                                    <div class="col-2">
-                                        <div class="tile d-flex">
-                                            <p class="m-auto text-title1 text-blue">20</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-8">
-                                        <div class="box-event border-left">
-                                            <h6 class="text-title1 text-white ml-3">Minggu, 20 Nov 21</h6>
-                                            <p class="text-body2 text-white ml-3 mt-1">Lokasi PMI Kota
-                                                Kediri</p>
-                                            <p class="text-body2 text-white ml-3">09.00 - 10.00</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-2 d-flex">
-                                        <img class="img-fluid my-auto"
-                                             src="{{ url('/images/icon/ic_arrow_right.svg') }}"
-                                             alt="next">
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-
+                        {{--                        @endforeach--}}
                     </div>
 
                     <hr>
@@ -137,8 +114,9 @@
     </div>
 @endsection
 @section('custom-script')
+    <script> let dataCovid = @json($covidData) </script>
     <script src="{{ url('/vendor/chart.js/Chart.min.js') }}"></script>
-    <script src="{{ url('/js/chart-area-demo.js') }}"></script>
+    <script src="{{ url('/js/chart-covid.js') }}"></script>
     <script src="{{ url('/vendor/powerful-calendar/calendar.min.js') }}"></script>
     <script src="{{ url('/js/calendar.js') }}"></script>
 @endsection

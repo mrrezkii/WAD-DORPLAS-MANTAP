@@ -4,10 +4,9 @@ namespace App\Http\Controllers;
 
 
 use App\Models\BloodBank;
-use App\Models\DonorSubmissions;
-use Faker\Core\Blood;
+use App\Models\DonorNotes;
+use GuzzleHttp\Client;
 use Illuminate\Support\Facades\DB;
-use mysql_xdevapi\Table;
 
 class DashboardController extends Controller
 {
@@ -19,7 +18,9 @@ class DashboardController extends Controller
             'active' => 'dashboard',
             'articleData' => $article->getArticle(),
             'stockPlasma' => $this->stockPlasma(),
-            'totalRequest' => $this->requestPlasma()
+            'totalRequest' => $this->requestPlasma(),
+            'schedules' => $this->schedule(),
+            'covidData' => $this->getCovid()
         ]);
     }
 
@@ -44,5 +45,22 @@ class DashboardController extends Controller
             ->where('status_donor_submissions', '1')
             ->orWhere('status_donor_submissions', '2')
             ->sum('quantity_donor_submissions');
+    }
+
+    public function schedule()
+    {
+        return DonorNotes::where('status_donor_notes', '=', '3')->get();
+
+    }
+
+
+    public function getCovid()
+    {
+        $client = new Client;
+        $results = $client->request('GET', 'https://apicovid19indonesia-v2.vercel.app/api/indonesia/harian');
+
+        $array = json_decode($results->getBody()->getContents(), true);
+        $collection = collect($array);
+        return $collection;
     }
 }
