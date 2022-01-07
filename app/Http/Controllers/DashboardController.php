@@ -6,10 +6,16 @@ namespace App\Http\Controllers;
 use App\Models\BloodBank;
 use App\Models\DonorNotes;
 use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
         return view('pages.dashboard.index', [
@@ -52,7 +58,9 @@ class DashboardController extends Controller
 
     public function schedule()
     {
-        return DonorNotes::where('status_donor_notes', '=', '2')->get();
+        $idDonators = Auth::check() ? Auth::id() : true;
+        return DonorNotes::where('id_donators', '=', $idDonators)
+            ->where('status_donor_notes', '=', '2')->get();
     }
 
     public function getCovid()
