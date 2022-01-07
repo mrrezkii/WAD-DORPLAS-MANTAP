@@ -86,7 +86,7 @@ class AccountController extends Controller
         $validateData = $request->validate([
             'email_donators' => 'required|max:255|email:dns|unique:donators,email_donators,NULL,id_donators',
             'address_donators' => 'required',
-            'contact_donators' => 'required|max:20|unique:donators,contact_donators,NULL,id_donators',
+            'contact_donators' => 'required|max:20',
         ]);
 
         Donators::where('id_donators', '=', $idDonators)->update($validateData);

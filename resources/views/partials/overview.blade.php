@@ -1,7 +1,7 @@
 <div class="col-12 mt-4 pb-4 border-bottom">
     <div class="row">
         <div class="col-md-4 col-sm-12">
-            <a href="#" class="text-decoration-none">
+            <a href="{{ url('/account') }}" class="text-decoration-none">
                 <div class="row">
                     <div class="col-md-3">
                         <img src="{{ auth()->user()->profile_images_donators ?? url('/images/avatar.jpg') }}"
