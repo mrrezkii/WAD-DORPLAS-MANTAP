@@ -75,20 +75,16 @@ return [
             'model' => App\Models\User::class,
         ],
 
-//        'donators' => [
-//            'driver' => 'eloquent',
-//            'model' => App\Models\Donators::class,
-//        ],
-
         'donators' => [
             'driver' => 'AuthValidateDonatorsServiceProvider',
             'model' => App\Models\Donators::class,
             'table' => 'donators'
         ],
 
-        'employeees' => [
-            'driver' => 'eloquent',
+        'employees' => [
+            'driver' => 'AuthValidateEmployeesServiceProvider',
             'model' => App\Models\Employees::class,
+            'table' => 'employees'
         ],
 
         // 'users' => [

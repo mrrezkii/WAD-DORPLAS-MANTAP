@@ -28,5 +28,8 @@ class AuthServiceProvider extends ServiceProvider
         Auth::provider('AuthValidateDonatorsServiceProvider', function ($app, array $config) {
             return new AuthValidateDonatorsServiceProvider($app['hash'], $config['model']);
         });
+        Auth::provider('AuthValidateEmployeesServiceProvider', function ($app, array $config) {
+            return new AuthValidateEmployeesServiceProvider($app['hash'], $config['model']);
+        });
     }
 }

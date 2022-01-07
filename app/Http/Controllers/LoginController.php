@@ -23,10 +23,17 @@ class LoginController extends Controller
             'password_donators' => 'required'
         ]);
 
+        $credentialsEmployee = ([
+            'email_employees' => $request->email_donators,
+            'password_employees' => $request->password_donators,
+        ]);
 
         if (Auth::guard('donator')->attempt($credentials)) {
             $request->session()->regenerate();
             return redirect()->intended('/dashboard');
+        } else if (Auth::guard('employee')->attempt($credentialsEmployee)) {
+            $request->session()->regenerate();
+            return redirect()->intended('/_dashboard');
         }
 
         return back()->with('loginFailed', 'Email atau password tidak cocok');
@@ -34,7 +41,12 @@ class LoginController extends Controller
 
     public function logout()
     {
-        Auth::guard('donator')->logout();
+        if (Auth::guard('donator')->check()) {
+            Auth::guard('donator')->logout();
+        } elseif (Auth::guard('employee')->check()) {
+            Auth::guard('employee')->logout();
+        }
+
         header("cache-Control:no-store,no-cache, must-revalidate");
         header("cache-Control:post-check=0,pre-check=0", false);
         header("Pragma:no-cache");

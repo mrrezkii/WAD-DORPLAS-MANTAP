@@ -19,6 +19,8 @@ class UserNotLoginMiddleware
     {
         if (Auth::guard('donator')->check()) {
             return redirect('/dashboard');
+        } else if (Auth::guard('employee')->check()) {
+            return redirect('/_dashboard');
         }
         return $next($request);
     }

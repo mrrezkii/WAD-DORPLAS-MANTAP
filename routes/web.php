@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\AccountEmployeeController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DashboardEmployeeController;
 use App\Http\Controllers\DonorNoteController;
 use App\Http\Controllers\DonorSubmissionController;
 use App\Http\Controllers\EventController;
@@ -50,6 +52,14 @@ Route::middleware(['auth:donator'])->group(function () {
     Route::put('/updateIdentity', [AccountController::class, 'updateIdentity']);
     Route::put('/updateContact', [AccountController::class, 'updateContact']);
     Route::put('/updatePassword', [AccountController::class, 'updatePassword']);
+});
+
+Route::middleware(['auth:employee'])->group(function () {
+    Route::get('/_dashboard', [DashboardEmployeeController::class, 'index']);
+    Route::get('/_account', [AccountEmployeeController::class, 'index']);
+});
+
+Route::middleware(['auth:donator,employee'])->group(function () {
     Route::get('/faq', [FaqController::class, 'index']);
     Route::post('/logout', [LoginController::class, 'logout']);
 });
