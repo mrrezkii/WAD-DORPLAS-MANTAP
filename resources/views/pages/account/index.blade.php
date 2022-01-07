@@ -51,7 +51,7 @@
                                     if($data->status_donor_submissions === 1) $bg_condition = 'bg-red';
                                     elseif($data->status_donor_submissions === 2) $bg_condition = 'bg-primary';
                                     elseif($data->status_donor_submissions === 3) $bg_condition = 'bg-success';
-                                    elseif($data->status_donor_submissions === 4) $bg_condition = 'bg-red-2';
+                                    elseif($data->status_donor_submissions === 4) $bg_condition = 'bg-red-2'
                                 @endphp
                                 <div class="rounded px-3 mb-3 {{ $bg_condition }}">
                                     <h5 class="text-white text-title1 py-2">Memohon Darah
@@ -99,7 +99,7 @@
                                     if($data->status_donor_notes === 1) $bg_condition = 'bg-red';
                                     elseif($data->status_donor_notes === 2) $bg_condition = 'bg-primary';
                                     elseif($data->status_donor_notes === 3) $bg_condition = 'bg-success';
-                                    elseif($data->status_donor_notes === 4) $bg_condition = 'bg-red-2';
+                                    elseif($data->status_donor_notes === 4) $bg_condition = 'bg-red-2'
                                 @endphp
                                 <div class="rounded px-3 mb-3 {{ $bg_condition }}">
                                     <h5 class="text-white text-title1 py-2">Menondorkan
@@ -320,49 +320,48 @@
                     </div>
                 </div>
             </div>
-        @endif
+            @endif
     </div>
     <div class="modal fade" id="detailModal" tabindex="-1" aria-labelledby="detailModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title text-title1 text-blue text-truncate" id="detailModalLabel">Ubah Foto</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body d-flex flex-column">
-                    @if(auth()->user()->profile_images_donators != null)
-                        <img id="output" src="{{ auth()->user()->profile_images_donators }}"
-                             class="rounded-circle mx-auto" width="300px"
-                             height="300px" alt="avatar">
-                    @else
-                        <img id="output" src="{{ url('/images/avatar.jpg') }}" class="rounded-circle mx-auto"
-                             width="300px"
-                             height="300px" alt="avatar">
-                    @endif
-                    <form>
+            <form action="{{ url('/updatePhoto') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                @method('PUT')
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-title1 text-blue text-truncate" id="detailModalLabel">Ubah Foto</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body d-flex flex-column">
+                        @if(auth()->user()->profile_images_donators != null)
+                            <img id="output" src="{{ auth()->user()->profile_images_donators }}"
+                                 class="rounded-circle mx-auto" width="300px"
+                                 height="300px" alt="avatar">
+                        @else
+                            <img id="output" src="{{ url('/images/avatar.jpg') }}" class="rounded-circle mx-auto"
+                                 width="300px"
+                                 height="300px" alt="avatar">
+                        @endif
                         <div class="form-group mb-3">
                             <label for="ktp" class="text-title1 text-blue">Foto</label>
                             <div class="custom-file mt-1">
                                 <input type="file" accept="image/jpeg,image/gif,image/png"
-                                       class="custom-file-input" id="customFile" name="ktp" required
+                                       class="custom-file-input" id="customFile" name="profile_images_donators" required
                                        onchange="document.getElementById('output').src = window.URL.createObjectURL(this.files[0])">
                                 <label class="custom-file-label text-title1 text-blue" for="customFile">Choose
                                     file</label>
                             </div>
                         </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <form>
-                        <input type="hidden" id="id_institutions">
+
+                    </div>
+                    <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="submit" class="btn bg-red text-white">Simpan</button>
-                    </form>
-
+                    </div>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 @endsection

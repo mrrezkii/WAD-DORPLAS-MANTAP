@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Donators;
 use App\Models\DonorNotes;
 use App\Models\DonorSubmissions;
+use File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -40,7 +41,27 @@ class AccountController extends Controller
 
     public function updatePhoto(Request $request)
     {
+        $idDonators = Auth::check() ? Auth::id() : true;
+        $validateData = $request->validate([
+            'profile_images_donators' => 'required|mimes:jpeg,png,jpg,gif,svg,pdf',
+        ]);
 
+        $uuidShorten = str_replace('-', '', $idDonators);
+        $file = $request->file('profile_images_donators');
+
+        $name = time() . "_" . $uuidShorten . "_" . $file->getClientOriginalName();
+        $path = "upload/$uuidShorten/photo";
+        $file->move($path, $name);
+
+        $data = Donators::findOrFail($idDonators);
+        if (File::exists(public_path($data->profile_images_donators))) {
+            File::delete(public_path($data->profile_images_donators));
+        }
+
+        $validateData['profile_images_donators'] = "/$path/$name";
+        Donators::where('id_donators', '=', $idDonators)->update($validateData);
+
+        return redirect('/account')->with('updateSuccess', 'Berhasil Memperbarui Foto');
     }
 
     public function updateIdentity(Request $request)
@@ -56,7 +77,7 @@ class AccountController extends Controller
 
         Donators::where('id_donators', '=', $idDonators)->update($validateData);
 
-        return redirect('/account')->with('updateSuccess', 'Berhasil Memperbarui Identitas');;
+        return redirect('/account')->with('updateSuccess', 'Berhasil Memperbarui Identitas');
     }
 
     public function updateContact(Request $request)
