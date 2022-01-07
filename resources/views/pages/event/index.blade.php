@@ -148,8 +148,8 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <form>
-                                <input type="hidden" id="id_institutions">
+                            <form action="{{ url('/donor') }}" method="GET">
+                                <input type="hidden" name="event" value="{{ $data->id_donor_events }}">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                 <button type="submit" class="btn bg-red text-white">Daftar</button>
                             </form>

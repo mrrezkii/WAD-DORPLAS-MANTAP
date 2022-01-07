@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Models\DonorEvents;
 use App\Models\DonorNotes;
 use App\Models\Institutions;
 use Illuminate\Http\Request;
@@ -18,7 +19,8 @@ class DonorNoteController extends Controller
             'stockPlasma' => $this->dashboard()->stockPlasma(),
             'totalRequest' => $this->dashboard()->requestPlasma(),
             'institutions' => Institutions::all(),
-            'institutionSelected' => $this->getInstitutions()
+            'institutionSelected' => $this->getInstitutions(),
+            'eventSelected' => $this->getEvent()
         ]);
     }
 
@@ -37,6 +39,7 @@ class DonorNoteController extends Controller
         ]);
 
         $validateData['id_donor_notes'] = Uuid::uuid4()->toString() . "\n";
+        $validateData['id_donor_events'] = $request->id_donor_events;
         $validateData['status_donor_notes'] = 1;
 
         DonorNotes::create($validateData);
@@ -47,5 +50,10 @@ class DonorNoteController extends Controller
     public function getInstitutions()
     {
         return Institutions::where('id_institutions', \request()->query('location'))->first();
+    }
+
+    public function getEvent()
+    {
+        return DonorEvents::where('id_donor_events', \request()->query('event'))->first();
     }
 }

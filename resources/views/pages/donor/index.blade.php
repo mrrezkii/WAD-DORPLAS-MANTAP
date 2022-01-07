@@ -6,6 +6,7 @@
 @endsection
 @section('container')
     <div class="row">
+{{--        @dd($eventSelected->start_date_donor_events)--}}
         @include('partials.overview')
         <div class="col-md-6 col-sm-12">
             <img class="img=fluid" src="{{ url('/images/woman.png') }}" alt="Woman">
@@ -26,6 +27,9 @@
                         @if(isset($institutionSelected))
                             <option value="{{ $institutionSelected->id_institutions }}" readonly
                                     selected>{{ $institutionSelected->name_institutions }}</option>
+                        @elseif(isset($eventSelected))
+                            <option value="{{ $eventSelected->institutions->id_institutions }}" readonly
+                                    selected>{{ $eventSelected->institutions->name_institutions }}</option>
                         @else
                             <option value="" disabled selected>Pilih Lokasi Terdekat</option>
                             @foreach($institutions as $institution)
@@ -42,9 +46,18 @@
                 </div>
                 <div class="form-group mb-3">
                     <label for="schedule_donor_notes" class="text-title1 text-blue">Jadwal Donor Plasma</label>
-                    <input type="date" class="form-control mt-1 text-title1 text-blue" id="schedule_donor_notes"
-                           name="schedule_donor_notes"
-                           required value="{{ old('schedule_donor_notes') }}">
+                    @if(isset($eventSelected))
+                        <input type="hidden" name="id_donor_events" value="{{ $eventSelected->id_donor_events }}">
+                        <input type="date" class="form-control mt-1 text-title1 text-blue" id="schedule_donor_notes"
+                               name="schedule_donor_notes"
+                               required value="{{ $eventSelected->start_date_donor_events }}"
+                               min="{{ $eventSelected->start_date_donor_events }}"
+                               max="{{ $eventSelected->end_date_donor_events }}">
+                    @else
+                        <input type="date" class="form-control mt-1 text-title1 text-blue" id="schedule_donor_notes"
+                               name="schedule_donor_notes"
+                               required value="{{ old('schedule_donor_notes') }}">
+                    @endif
                     @error('schedule_donor_notes')
                     <div class="invalid-feedback">
                         {{ $message }}
