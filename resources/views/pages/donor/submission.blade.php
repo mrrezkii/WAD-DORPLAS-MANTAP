@@ -21,7 +21,9 @@
                 @csrf
                 <div class="form-group mb-3">
                     <label for="recipient_donor_submissions" class="text-title1 text-blue">Nama Lengkap Penerima</label>
-                    <input type="text" class="form-control mt-1 text-title1 text-blue" id="recipient_donor_submissions"
+                    <input type="text"
+                           class="form-control mt-1 text-title1 text-blue @error('recipient_donor_submissions') is-invalid @enderror"
+                           id="recipient_donor_submissions"
                            name="recipient_donor_submissions"
                            placeholder="Masukkan Nama Lengkap Penerima" required
                            value="{{ old('recipient_donor_submissions') }}">
@@ -33,10 +35,12 @@
                 </div>
                 <div class="form-group mb-3">
                     <label for="applicant_donor_submissions" class="text-title1 text-blue">Nama Lengkap Pemohon</label>
-                    <input type="text" class="form-control mt-1 text-title1 text-blue" id="applicant_donor_submissions"
+                    <input type="text"
+                           class="form-control mt-1 text-title1 text-blue @error('applicant_donor_submissions') is-invalid @enderror"
+                           id="applicant_donor_submissions"
                            name="applicant_donor_submissions"
                            placeholder="Masukkan Nama Lengkap Pemohon" required
-                           value="{{ old('applicant_donor_submissions') }}">
+                           value="{{ auth()->user()->name_donators }}">
                     @error('applicant_donor_submissions')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -46,8 +50,10 @@
                 <div class="form-group mb-3">
                     <label for="blood_type_donor_submissions" class="text-title1 text-blue">Masukkan Golongan
                         Darah</label>
-                    <select class="custom-select text-title1 text-blue mt-1" id="blood_type_donor_submissions"
-                            name="blood_type_donor_submissions" required>
+                    <select
+                        class="custom-select text-title1 text-blue mt-1 @error('blood_type_donor_submissions') is-invalid @enderror"
+                        id="blood_type_donor_submissions"
+                        name="blood_type_donor_submissions" required>
                         <option value="" disabled selected>Golongan Darah</option>
                         <option value="A">A</option>
                         <option value="B">B</option>
@@ -63,8 +69,10 @@
                 <div class="form-group mb-3">
                     <label for="rhesus_type_donor_submissions" class="text-title1 text-blue">Masukkan Jenis
                         Rhesus</label>
-                    <select class="custom-select text-title1 text-blue mt-1" id="rhesus_type_donor_submissions"
-                            name="rhesus_type_donor_submissions" required>
+                    <select
+                        class="custom-select text-title1 text-blue mt-1 @error('rhesus_type_donor_submissions') is-invalid @enderror"
+                        id="rhesus_type_donor_submissions"
+                        name="rhesus_type_donor_submissions" required>
                         <option value="" disabled selected>Rhesus</option>
                         <option value="positive">Positif (+)</option>
                         <option value="negative">Negatif (-)</option>
@@ -77,7 +85,9 @@
                 </div>
                 <div class="form-group mb-3">
                     <label for="quantity_donor_submissions" class="text-title1 text-blue">Jumlah Kantong</label>
-                    <input type="number" class="form-control mt-1 text-title1 text-blue" id="quantity_donor_submissions"
+                    <input type="number"
+                           class="form-control mt-1 text-title1 text-blue @error('quantity_donor_submissions') is-invalid @enderror"
+                           id="quantity_donor_submissions"
                            name="quantity_donor_submissions"
                            placeholder="Masukkan Jumlah Kantung" required
                            value="{{ old('quantity_donor_submissions') }}">
@@ -89,8 +99,10 @@
                 </div>
                 <div class="form-group mb-3">
                     <label for="id_institutions" class="text-title1 text-blue">Lokasi Donor Plasma</label>
-                    <select class="custom-select text-title1 text-blue mt-1" id="id_institutions" name="id_institutions"
-                            required>
+                    <select
+                        class="custom-select text-title1 text-blue mt-1 @error('id_institutions') is-invalid @enderror"
+                        id="id_institutions" name="id_institutions"
+                        required>
                         <option value="" disabled selected>Pilih Lokasi Terdekat</option>
                         @foreach($institutions as $institution)
                             <option
@@ -108,7 +120,8 @@
                     <div class="custom-file mt-1">
                         <input onchange="validateSize(this)" type="file"
                                accept="image/jpeg,image/gif,image/png,application/pdf,image/x-eps"
-                               class="custom-file-input" id="customFile" name="ktp_donor_submissions" required>
+                               class="custom-file-input @error('ktp_donor_submissions') is-invalid @enderror"
+                               id="customFile" name="ktp_donor_submissions" required>
                         <label class="custom-file-label text-title1 text-blue" for="customFile">Choose file</label>
                     </div>
                     @error('ktp_donor_submissions')
@@ -122,7 +135,8 @@
                     <div class="custom-file mt-1">
                         <input onchange="validateSize(this)" type="file"
                                accept="image/jpeg,image/gif,image/png,application/pdf,image/x-eps"
-                               class="custom-file-input" id="customFile" name="letter_donor_submissions" required>
+                               class="custom-file-input @error('letter_donor_submissions') is-invalid @enderror"
+                               id="customFile" name="letter_donor_submissions" required>
                         <label class="custom-file-label text-title1 text-blue" for="customFile">Choose file</label>
                     </div>
                     @error('letter_donor_submissions')

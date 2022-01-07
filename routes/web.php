@@ -46,6 +46,10 @@ Route::middleware(['auth:donator'])->group(function () {
     Route::post('/submission', [DonorSubmissionController::class, 'store']);
     Route::get('/article', [ArticleController::class, 'index']);
     Route::get('/account', [AccountController::class, 'index']);
+    Route::put('/updatePhoto', [AccountController::class, 'updatePhoto']);
+    Route::put('/updateIdentity', [AccountController::class, 'updateIdentity']);
+    Route::put('/updateContact', [AccountController::class, 'updateContact']);
+    Route::put('/updatePassword', [AccountController::class, 'updatePassword']);
     Route::get('/faq', [FaqController::class, 'index']);
     Route::post('/logout', [LoginController::class, 'logout']);
 });
