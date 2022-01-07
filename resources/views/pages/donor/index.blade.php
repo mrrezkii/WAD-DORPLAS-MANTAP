@@ -19,6 +19,13 @@
             <h3 class="text-blue font-bolder font-weight-bold mb-5">Form Pengajuan Donor</h3>
             <form action="/donor" method="POST">
                 @csrf
+                @if(isset($eventSelected))
+                    <div class="form-group mb-3">
+                        <label for="schedule_donor_notes" class="text-title1 text-blue">Nama Acara</label>
+                        <input type="text" class="form-control mt-1 text-title1 text-blue" readonly
+                               value="{{ $eventSelected->name_donor_events  }}">
+                    </div>
+                @endif
                 <div class="form-group mb-3">
                     <label for="id_institutions" class="text-title1 text-blue">Lokasi Donor Plasma</label>
                     <select

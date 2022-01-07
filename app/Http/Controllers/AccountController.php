@@ -7,6 +7,7 @@ use App\Models\DonorNotes;
 use App\Models\DonorSubmissions;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AccountController extends Controller
 {
@@ -69,11 +70,26 @@ class AccountController extends Controller
 
         Donators::where('id_donators', '=', $idDonators)->update($validateData);
 
-        return redirect('/account')->with('updateSuccess', 'Berhasil Memperbarui Kontak');;
+        return redirect('/account')->with('updateSuccess', 'Berhasil Memperbarui Kontak');
     }
 
     public function updatePassword(Request $request)
     {
+        $user = Auth::guard('donator')->user();
+        $userPassword = $user->password_donators;
 
+        if (!Hash::check($request->old_password_donators, $userPassword)) {
+            return back()->withErrors(['old_password_donators' => 'Password not match']);
+        }
+
+        $request->validate([
+            'old_password_donators' => 'required|min:5|max:255',
+            'new_password_donators' => 'required|min:5|max:255'
+        ]);
+
+        $user->password_donators = Hash::make($request->new_password_donators);
+        $user->save();
+
+        return redirect('/account')->with('updateSuccess', 'Berhasil Memperbarui Password');
     }
 }

@@ -1,6 +1,9 @@
 @extends('layouts.main')
 @section('container')
     <div class="row">
+        @if(isset($errorMsg))
+            @dd($errorMsg)
+        @endif
         <div class="col-md-6 offset-md-3">
             <div class="d-flex flex-column mb-5" id="lightgallery">
                 <img src="{{ auth()->user()->profile_images_donators ?? url('/images/avatar.jpg') }}"
@@ -41,25 +44,29 @@
                 </div>
                 <div class="card-body">
                     <div class="overflow-auto p-3 mb-3 mb-md-0 mr-md-3" style=" max-height: 250px;">
-                        @foreach($donorSubmissions as $data)
-                            @php
-                                $bg_condition = 'bg-secondary';
-                                if($data->status_donor_submissions === 1) $bg_condition = 'bg-red';
-                                elseif($data->status_donor_submissions === 2) $bg_condition = 'bg-primary';
-                                elseif($data->status_donor_submissions === 3) $bg_condition = 'bg-success';
-                                elseif($data->status_donor_submissions === 4) $bg_condition = 'bg-red-2';
-                            @endphp
-                            <div class="rounded px-3 mb-3 {{ $bg_condition }}">
-                                <h5 class="text-white text-title1 py-2">Memohon Darah
-                                    Tipe
-                                    <strong>{{ $data->blood_type_donor_submissions }}{{ $data->blood_type_donor_submissions == 'positive' ? '+' : '-'}}</strong>
-                                    di {{ $data->institutions->name_institutions }}</h5>
-                                <div class="d-flex justify-content-between pb-3">
-                                    <p class="text-white text-body1">{{ $data->time_used_donor_submissions ? \Carbon\Carbon::parse($data->time_used_donor_submissions)->translatedFormat('d-m-Y') :  '-' }}</p>
-                                    <p class="text-white text-body1">{{ $data->status->name_status_donor }}</p>
+                        @if($donorSubmissions->count())
+                            @foreach($donorSubmissions as $data)
+                                @php
+                                    $bg_condition = 'bg-secondary';
+                                    if($data->status_donor_submissions === 1) $bg_condition = 'bg-red';
+                                    elseif($data->status_donor_submissions === 2) $bg_condition = 'bg-primary';
+                                    elseif($data->status_donor_submissions === 3) $bg_condition = 'bg-success';
+                                    elseif($data->status_donor_submissions === 4) $bg_condition = 'bg-red-2';
+                                @endphp
+                                <div class="rounded px-3 mb-3 {{ $bg_condition }}">
+                                    <h5 class="text-white text-title1 py-2">Memohon Darah
+                                        Tipe
+                                        <strong>{{ $data->blood_type_donor_submissions }}{{ $data->blood_type_donor_submissions == 'positive' ? '+' : '-'}}</strong>
+                                        di {{ $data->institutions->name_institutions }}</h5>
+                                    <div class="d-flex justify-content-between pb-3">
+                                        <p class="text-white text-body1">{{ $data->time_used_donor_submissions ? \Carbon\Carbon::parse($data->time_used_donor_submissions)->translatedFormat('d-m-Y') :  '-' }}</p>
+                                        <p class="text-white text-body1">{{ $data->status->name_status_donor }}</p>
+                                    </div>
                                 </div>
-                            </div>
-                        @endforeach
+                            @endforeach
+                        @else
+                            <p class="text-center">Belum melakukan pendaftaran request plasma</p>
+                        @endif
                     </div>
                     <hr>
                 </div>
@@ -85,31 +92,47 @@
                 </div>
                 <div class="card-body">
                     <div class="overflow-auto p-3 mb-3 mb-md-0 mr-md-3" style=" max-height: 250px;">
-                        @foreach($donorNotes as $data)
-                            @php
-                                $bg_condition = 'bg-secondary';
-                                if($data->status_donor_notes === 1) $bg_condition = 'bg-red';
-                                elseif($data->status_donor_notes === 2) $bg_condition = 'bg-primary';
-                                elseif($data->status_donor_notes === 3) $bg_condition = 'bg-success';
-                                elseif($data->status_donor_notes === 4) $bg_condition = 'bg-red-2';
-                            @endphp
-                            <div class="rounded px-3 mb-3 {{ $bg_condition }}">
-                                <h5 class="text-white text-title1 py-2">Menondorkan
-                                    Darah
-                                    <strong>{{ auth()->user()->blood_type_donators}}{{ auth()->user()->rhesus_type_donators == 'positive' ? '+' : '-'}}</strong>
-                                    di {{ $data->institutions->name_institutions }}</h5>
-                                <div class="d-flex justify-content-between pb-3">
-                                    <p class="text-white text-body1">{{ \Carbon\Carbon::parse($data->schedule_donor_notes)->translatedFormat('d-m-Y') }}</p>
-                                    <p class="text-white text-body1">{{ $data->status->name_status_donor }}</p>
+                        @if($donorNotes->count())
+                            @foreach($donorNotes as $data)
+                                @php
+                                    $bg_condition = 'bg-secondary';
+                                    if($data->status_donor_notes === 1) $bg_condition = 'bg-red';
+                                    elseif($data->status_donor_notes === 2) $bg_condition = 'bg-primary';
+                                    elseif($data->status_donor_notes === 3) $bg_condition = 'bg-success';
+                                    elseif($data->status_donor_notes === 4) $bg_condition = 'bg-red-2';
+                                @endphp
+                                <div class="rounded px-3 mb-3 {{ $bg_condition }}">
+                                    <h5 class="text-white text-title1 py-2">Menondorkan
+                                        Darah
+                                        <strong>{{ auth()->user()->blood_type_donators}}{{ auth()->user()->rhesus_type_donators == 'positive' ? '+' : '-'}}</strong>
+                                        di {{ $data->institutions->name_institutions }}</h5>
+                                    <div class="d-flex justify-content-between pb-3">
+                                        <p class="text-white text-body1">{{ \Carbon\Carbon::parse($data->schedule_donor_notes)->translatedFormat('d-m-Y') }}</p>
+                                        <p class="text-white text-body1">{{ $data->status->name_status_donor }}</p>
+                                    </div>
                                 </div>
-                            </div>
-                        @endforeach
+                            @endforeach
+                        @else
+                            <p class="text-center">Belum melakukan pendaftaran donor</p>
+                        @endif
                     </div>
                     <hr>
                 </div>
             </div>
         </div>
         <div class="col-md-8 offset-md-2 mt-5 pt-4">
+            @if($errors->any())
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endif
             <h3 class="text-blue font-weight-bold mb-4">Identitas Pribadi</h3>
             <form action="{{ url('/updateIdentity') }}" method="POST">
                 @csrf
@@ -235,38 +258,51 @@
         </div>
         <div class="col-md-8 offset-md-2 mt-5 pt-4">
             <h3 class="text-blue font-weight-bold mb-4">Ubah Password</h3>
-            <form>
+            <form action="{{ url('/updatePassword') }}" method="POST">
                 @csrf
                 @method("PUT")
                 <label for="current_password" class="text-title1 text-blue">Password Lama</label>
                 <div class="input-group mb-3" id="show_hide_password">
-                    <input class="form-control text-title1 text-blue" type="password" name="current_password"
-                           id="current_password"
-                           placeholder="*****" required>
+                    <input
+                        class="form-control text-title1 text-blue @error('old_password_donators') is-invalid @enderror"
+                        type="password" name="old_password_donators"
+                        id="current_password"
+                        placeholder="*****" required minlength="5">
                     <div class="input-group-append">
                         <a href="" class="input-group-text text-decoration-none"><i class="fa fa-eye-slash"
                                                                                     aria-hidden="true"></i></a>
                     </div>
+                    @error('old_password_donators')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                    @enderror
                 </div>
                 <label for="password" class="text-title1 text-blue">Password Baru</label>
                 <div class="input-group mb-3" id="show_hide_password">
-                    <input class="form-control text-title1 text-blue" type="password" name="password" id="password"
-                           placeholder="*****" required>
+                    <input
+                        class="form-control text-title1 text-blue  @error('new_password_donators') is-invalid @enderror"
+                        type="password" name="new_password_donators" id="password"
+                        placeholder="*****" required minlength="5">
                     <div class="input-group-append">
                         <a href="" class="input-group-text text-decoration-none"><i class="fa fa-eye-slash"
                                                                                     aria-hidden="true"></i></a>
                     </div>
+                    @error('new_password_donators')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                    @enderror
                 </div>
                 <label for="recheck-password" class="text-title1 text-blue">Konfirmasi Password Baru</label>
                 <div class="input-group mb-3" id="show_hide_password">
                     <input class="form-control text-title1 text-blue" type="password" id="recheck-password"
-                           placeholder="*****" required>
+                           placeholder="*****" required minlength="5">
                     <div class="input-group-append">
                         <a href="" class="input-group-text text-decoration-none"><i class="fa fa-eye-slash"
                                                                                     aria-hidden="true"></i></a>
                     </div>
                 </div>
-
                 <button class="btn bg-red text-white mt-4 w-25 text-title2 mb-5" type="submit">Simpan</button>
             </form>
         </div>
