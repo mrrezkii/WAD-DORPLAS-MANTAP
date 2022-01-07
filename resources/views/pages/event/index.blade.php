@@ -8,8 +8,10 @@
     <div class="row">
         <div class="col-md-5 col-sm-12 mt-5">
             <div class="input-wrapper mb-5">
-                <input type="search" class="input-search rounded" placeholder="Cari Acara Lainnya">
-
+                <form action="{{ url('/event') }}" method="GET" id="search-form">
+                    <input type="search" class="input-search rounded" placeholder="Cari Acara Lainnya" name="search"
+                           id="query" autocomplete="off" value="{{ request('search') }}">
+                </form>
                 <svg xmlns="http://www.w3.org/2000/svg" class="input-icon" viewBox="0 0 20 20"
                      fill="currentColor">
                     <path fill-rule="evenodd"
@@ -85,6 +87,10 @@
                                     <span
                                         class="text-secondary text-body1">{{ $data->institutions->name_institutions }}</span>
                                 </p>
+                                <p>
+                                    <img src="{{ url('/images/icon/ic_star.svg') }}" alt="point" width="20px">
+                                    <span class="text-title1 text-blue">{{ $data->point_donor_events }}</span>
+                                </p>
                                 <p class="text-blue text-title1 mt-2">Jadwal Acara</p>
                                 <table class="ml-4 w-75 my-2">
                                     <tr>
@@ -145,7 +151,7 @@
                             <form>
                                 <input type="hidden" id="id_institutions">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="submit" class="btn bg-red text-white">Donor Disi</button>
+                                <button type="submit" class="btn bg-red text-white">Daftar</button>
                             </form>
                         </div>
                     </div>
@@ -154,3 +160,15 @@
         @endforeach
     </div>
 @endsection
+@section('custom-script')
+    <script>
+        let timeout = null;
+        $("input[type='search']").keyup(function () {
+            clearTimeout(timeout);
+            timeout = setTimeout(() => {
+                $('#search-form').submit();
+            }, 1000);
+        });
+    </script>
+@endsection
+

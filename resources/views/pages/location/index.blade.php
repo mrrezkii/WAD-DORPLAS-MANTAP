@@ -7,8 +7,10 @@
         <div class="row no-gutters">
             <div class="col-md-6 col-sm-12 mt-5">
                 <div class="input-wrapper">
-                    <input type="search" class="input-search rounded" placeholder="Cari PMI Terdekat">
-
+                    <form action="{{ url('/location') }}" method="GET" id="search-form">
+                        <input type="search" class="input-search rounded" placeholder="Cari PMI Terdekat" name="search"
+                               id="query" autocomplete="off" value="{{ request('search') }}">
+                    </form>
                     <svg xmlns="http://www.w3.org/2000/svg" class="input-icon" viewBox="0 0 20 20"
                          fill="currentColor">
                         <path fill-rule="evenodd"
@@ -211,29 +213,38 @@
 @endsection
 @section('custom-script')
     <script> let data = @json($datas) </script>
-            <script src='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js'></script>
-            <script src="/js/mapbox.js"></script>
-            <script type="text/javascript">
-                const modal = document.getElementById("deleteModal");
-                modal.addEventListener('hidden.bs.modal', function (_) {
-                    document.getElementById("id").remove();
-                    document.getElementById("deleteModalLabel").innerText = "";
-                });
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js'></script>
+    <script src="/js/mapbox.js"></script>
+    <script type="text/javascript">
+        const modal = document.getElementById("deleteModal");
+        modal.addEventListener('hidden.bs.modal', function (_) {
+            document.getElementById("id").remove();
+            document.getElementById("deleteModalLabel").innerText = "";
+        });
 
-                function btnDetail(a_positive, a_negative, b_positive, b_negative, ab_positive, ab_negative, o_positive, o_negative, id, name, address, contact, email) {
-                    document.getElementById("a_positive").innerText = a_positive;
-                    document.getElementById("a_negative").innerText = a_negative;
-                    document.getElementById("b_positive").innerText = b_positive;
-                    document.getElementById("b_negative").innerText = b_negative;
-                    document.getElementById("ab_positive").innerText = ab_positive;
-                    document.getElementById("ab_negative").innerText = ab_negative;
-                    document.getElementById("o_positive").innerText = o_positive;
-                    document.getElementById("o_negative").innerText = o_negative;
-                    document.getElementById("id_institutions").value = id;
-                    document.getElementById("location").innerText = name;
-                    document.getElementById("address").innerText = address;
-                    document.getElementById("contact").innerText = contact;
-                    document.getElementById("email").innerText = email;
-                }
-            </script>
+        function btnDetail(a_positive, a_negative, b_positive, b_negative, ab_positive, ab_negative, o_positive, o_negative, id, name, address, contact, email) {
+            document.getElementById("a_positive").innerText = a_positive;
+            document.getElementById("a_negative").innerText = a_negative;
+            document.getElementById("b_positive").innerText = b_positive;
+            document.getElementById("b_negative").innerText = b_negative;
+            document.getElementById("ab_positive").innerText = ab_positive;
+            document.getElementById("ab_negative").innerText = ab_negative;
+            document.getElementById("o_positive").innerText = o_positive;
+            document.getElementById("o_negative").innerText = o_negative;
+            document.getElementById("id_institutions").value = id;
+            document.getElementById("location").innerText = name;
+            document.getElementById("address").innerText = address;
+            document.getElementById("contact").innerText = contact;
+            document.getElementById("email").innerText = email;
+        }
+    </script>
+    <script>
+        let timeout = null;
+        $("input[type='search']").keyup(function () {
+            clearTimeout(timeout);
+            timeout = setTimeout(() => {
+                $('#search-form').submit();
+            }, 1000);
+        });
+    </script>
 @endsection
