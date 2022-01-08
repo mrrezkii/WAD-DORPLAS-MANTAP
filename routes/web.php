@@ -52,14 +52,19 @@ Route::middleware(['auth:donator'])->group(function () {
     Route::put('/updateIdentity', [AccountController::class, 'updateIdentity']);
     Route::put('/updateContact', [AccountController::class, 'updateContact']);
     Route::put('/updatePassword', [AccountController::class, 'updatePassword']);
+    Route::get('/faq', [FaqController::class, 'index']);
 });
 
 Route::middleware(['auth:employee'])->group(function () {
     Route::get('/_dashboard', [DashboardEmployeeController::class, 'index']);
+    Route::get('/_bank', [DashboardEmployeeController::class, 'index']);
+    Route::get('/donor', [DonorNoteController::class, 'index']);
+    Route::get('/submission', [DonorSubmissionController::class, 'index']);
+    Route::get('/event', [EventController::class, 'index']);
     Route::get('/_account', [AccountEmployeeController::class, 'index']);
+    Route::get('/_faq', [FaqController::class, 'index']);
 });
 
 Route::middleware(['auth:donator,employee'])->group(function () {
-    Route::get('/faq', [FaqController::class, 'index']);
     Route::post('/logout', [LoginController::class, 'logout']);
 });
