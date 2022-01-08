@@ -108,7 +108,7 @@
                         class="form-control text-title1 text-blue @error('old_password_employees') is-invalid @enderror"
                         type="password" name="old_password_employees"
                         id="current_password"
-                        placeholder="***" required minlength="5">
+                        placeholder="*****" required minlength="5">
                     <div class="input-group-append">
                         <a href="" class="input-group-text text-decoration-none"><i class="fa fa-eye-slash"
                                                                                     aria-hidden="true"></i></a>
@@ -124,7 +124,7 @@
                     <input
                         class="form-control text-title1 text-blue  @error('new_password_employees') is-invalid @enderror"
                         type="password" name="new_password_employees" id="password"
-                        placeholder="***" required minlength="5">
+                        placeholder="*****" required minlength="5">
                     <div class="input-group-append">
                         <a href="" class="input-group-text text-decoration-none"><i class="fa fa-eye-slash"
                                                                                     aria-hidden="true"></i></a>
@@ -138,7 +138,7 @@
                 <label for="recheck-password" class="text-title1 text-blue">Konfirmasi Password Baru</label>
                 <div class="input-group mb-3" id="show_hide_password">
                     <input class="form-control text-title1 text-blue" type="password" id="recheck-password"
-                           placeholder="***" required minlength="5">
+                           placeholder="*****" required minlength="5">
                     <div class="input-group-append">
                         <a href="" class="input-group-text text-decoration-none"><i class="fa fa-eye-slash"
                                                                                     aria-hidden="true"></i></a>
@@ -147,7 +147,7 @@
                 <button class="btn bg-red text-white mt-4 w-25 text-title2 mb-5" type="submit">Simpan</button>
             </form>
         </div>
-        @if(session()->has('updateSuccess'))
+            @if(session()->has('updateSuccess'))
             <div class="position-fixed" style="right: 10px;bottom: 50px">
                 <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="5000">
                     <div class="toast-header d-flex justify-content-between">
