@@ -6,8 +6,12 @@ use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DashboardEmployeeController;
 use App\Http\Controllers\DonorNoteController;
+use App\Http\Controllers\DonorNoteEmployeeController;
 use App\Http\Controllers\DonorSubmissionController;
+use App\Http\Controllers\DonorSubmissionEmployeeController;
+use App\Http\Controllers\BankBloodEmployeeController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\EventEmployeeController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\LoginController;
@@ -57,10 +61,10 @@ Route::middleware(['auth:donator'])->group(function () {
 
 Route::middleware(['auth:employee'])->group(function () {
     Route::get('/_dashboard', [DashboardEmployeeController::class, 'index']);
-    Route::get('/_bank', [DashboardEmployeeController::class, 'index']);
-    Route::get('/donor', [DonorNoteController::class, 'index']);
-    Route::get('/submission', [DonorSubmissionController::class, 'index']);
-    Route::get('/event', [EventController::class, 'index']);
+    Route::get('/_bank', [BankBloodEmployeeController::class, 'index']);
+    Route::get('/_donor', [DonorNoteEmployeeController::class, 'index']);
+    Route::get('/_submission', [DonorSubmissionEmployeeController::class, 'index']);
+    Route::get('/_event', [EventEmployeeController::class, 'index']);
     Route::get('/_account', [AccountEmployeeController::class, 'index']);
     Route::get('/_faq', [FaqController::class, 'index']);
 });
