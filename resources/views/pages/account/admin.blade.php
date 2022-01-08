@@ -26,7 +26,7 @@
                 </div>
             @endif
             <h3 class="text-blue font-weight-bold mb-4">Identitas Pribadi</h3>
-            <form action="{{ url('/updateIdentity') }}" method="POST">
+            <form action="{{ url('/_updateIdentity') }}" method="POST">
                 @csrf
                 @method("PUT")
                 <div class="form-group mb-3">
@@ -55,7 +55,7 @@
         </div>
         <div class="col-md-8 offset-md-2 mt-5 pt-4">
             <h3 class="text-blue font-weight-bold mb-4">Kontak</h3>
-            <form action="{{ url('/updateContact') }}" method="POST">
+            <form action="{{ url('/_updateContact') }}" method="POST">
                 @csrf
                 @method("PUT")
                 <div class="form-group mb-3">
@@ -99,7 +99,7 @@
         </div>
         <div class="col-md-8 offset-md-2 mt-5 pt-4">
             <h3 class="text-blue font-weight-bold mb-4">Ubah Password</h3>
-            <form action="{{ url('/updatePassword') }}" method="POST">
+            <form action="{{ url('/_updatePassword') }}" method="POST">
                 @csrf
                 @method("PUT")
                 <label for="current_password" class="text-title1 text-blue">Password Lama</label>
@@ -108,7 +108,7 @@
                         class="form-control text-title1 text-blue @error('old_password_employees') is-invalid @enderror"
                         type="password" name="old_password_employees"
                         id="current_password"
-                        placeholder="*****" required minlength="5">
+                        placeholder="***" required minlength="5">
                     <div class="input-group-append">
                         <a href="" class="input-group-text text-decoration-none"><i class="fa fa-eye-slash"
                                                                                     aria-hidden="true"></i></a>
@@ -124,7 +124,7 @@
                     <input
                         class="form-control text-title1 text-blue  @error('new_password_employees') is-invalid @enderror"
                         type="password" name="new_password_employees" id="password"
-                        placeholder="*****" required minlength="5">
+                        placeholder="***" required minlength="5">
                     <div class="input-group-append">
                         <a href="" class="input-group-text text-decoration-none"><i class="fa fa-eye-slash"
                                                                                     aria-hidden="true"></i></a>
@@ -138,7 +138,7 @@
                 <label for="recheck-password" class="text-title1 text-blue">Konfirmasi Password Baru</label>
                 <div class="input-group mb-3" id="show_hide_password">
                     <input class="form-control text-title1 text-blue" type="password" id="recheck-password"
-                           placeholder="*****" required minlength="5">
+                           placeholder="***" required minlength="5">
                     <div class="input-group-append">
                         <a href="" class="input-group-text text-decoration-none"><i class="fa fa-eye-slash"
                                                                                     aria-hidden="true"></i></a>
