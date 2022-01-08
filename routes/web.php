@@ -72,6 +72,9 @@ Route::middleware(['auth:employee'])->group(function () {
     Route::put('/_event', [EventEmployeeController::class, 'update']);
     Route::delete('/_event', [EventEmployeeController::class, 'destroy']);
     Route::get('/_account', [AccountEmployeeController::class, 'index']);
+    Route::put('/_updateIdentity', [AccountEmployeeController::class, 'updateIdentity']);
+    Route::put('/updateContact', [AccountEmployeeController::class, 'updateContact']);
+    Route::put('/updatePassword', [AccountEmployeeController::class, 'updatePassword']);
     Route::get('/_faq', [FaqController::class, 'index']);
 });
 
