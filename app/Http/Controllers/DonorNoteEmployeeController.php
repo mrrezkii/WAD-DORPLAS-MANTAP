@@ -4,14 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class DonorSubmissionEmployeeController extends Controller
+class DonorNoteEmployeeController extends Controller
 {
 
     public function index()
     {
-        return view('pages.donor.submission_admin', [
-            'title' => 'Request Plasma',
-            'active' => 'submission',
+        return view('pages.donor.admin', [
+            'title' => 'Donor',
+            'active' => 'donor',
         ]);
     }
 
