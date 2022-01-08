@@ -28,6 +28,8 @@
         $('#myTable').DataTable({
             processing: true,
             serverSide: true,
+            "scrollY": 450,
+            "scrollX": true,
             ajax: '{{ route('donor.data') }}',
             columns: [
                 {data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false},
