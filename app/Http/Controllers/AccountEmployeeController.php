@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Donators;
 use App\Models\Employees;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 
 class AccountEmployeeController extends Controller
 {
@@ -34,5 +32,19 @@ class AccountEmployeeController extends Controller
         return redirect('/_account')->with('updateSuccess', 'Berhasil Memperbarui Identitas');
     }
 
-   
+    public function updateContact(Request $request)
+    {
+        $idEmployees = Auth::check() ? Auth::id() : true;
+        $validateData = $request->validate([
+            'email_employees' => 'required|max:255|email:dns|unique:donators,email_donators,NULL,id_donators',
+            'address_employees' => 'required',
+            'contact_employees' => 'required|max:20',
+        ]);
+
+        Employees::where('id_employees', '=', $idEmployees)->update($validateData);
+
+        return redirect('/_account')->with('updateSuccess', 'Berhasil Memperbarui Kontak');
+    }
+
+
 }
