@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\DonorNotes;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\DataTables;
@@ -40,8 +41,25 @@ class DonorNoteEmployeeController extends Controller
                 }
             })
             ->addColumn('status.name_status_donor', function (DonorNotes $donorNotes) {
-                return $donorNotes->status->name_status_donor;
+                if ($donorNotes->status_donor_notes == 1) {
+                    return '<p class="text-red">' . $donorNotes->status->name_status_donor . '</p>';
+                } else if ($donorNotes->status_donor_notes == 2) {
+                    return '<p class="text-primary">' . $donorNotes->status->name_status_donor . '</p>';
+                } else if ($donorNotes->status_donor_notes == 3) {
+                    return '<p class="text-success">' . $donorNotes->status->name_status_donor . '</p>';
+                } else if ($donorNotes->status_donor_notes == 4) {
+                    return '<p class="text-red-2">' . $donorNotes->status->name_status_donor . '</p>';
+                }
+
+                return '<p class="text-secondary">' . $donorNotes->status->name_status_donor . '</p>';
             })
+            ->addColumn('schedule_donor_notes', function ($model) {
+                return Carbon::parse($model->schedule_donor_notes)->translatedFormat("D, d-m-Y");
+            })
+            ->addColumn('action', function ($model) {
+                return (string)view('pages.donor.admin_action', ['model' => $model]);
+            })
+            ->rawColumns(['status.name_status_donor', 'action'])
             ->toJson();
     }
 

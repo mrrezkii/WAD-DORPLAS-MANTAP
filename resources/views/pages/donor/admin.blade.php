@@ -13,12 +13,36 @@
                     <th>Nama Acara</th>
                     <th>Status</th>
                     <th>Jadwal</th>
+                    <th>Aksi</th>
                 </tr>
                 </thead>
                 <tbody>
 
                 </tbody>
             </table>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <form id="deleteAction" method="POST">
+                    @csrf
+                    @method("DELETE")
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="deleteModalLabel">Modal title</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body" id="hidden-value"></div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batalkan</button>
+                            <button type="submit" class="btn btn-danger">Hapus</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 @endsection
@@ -28,7 +52,6 @@
         $('#myTable').DataTable({
             processing: true,
             serverSide: true,
-            "scrollY": 450,
             "scrollX": true,
             ajax: '{{ route('donor.data') }}',
             columns: [
@@ -37,7 +60,22 @@
                 {data: 'donor_events.name_donor_events', name: 'donor_events.name_donor_events'},
                 {data: 'status.name_status_donor', name: 'status.name_status_donor'},
                 {data: 'schedule_donor_notes', name: 'schedule_donor_notes'},
+                {data: 'action', name: 'action'},
             ]
         });
+    </script>
+    <script>
+        const modal = document.getElementById("deleteModal");
+        modal.addEventListener('hidden.bs.modal', function (_) {
+            document.getElementById("id").remove();
+            document.getElementById("deleteModalLabel").innerText = "";
+        });
+
+        function btnDelete(data) {
+            console.log(data)
+            $('#deleteModal').modal('show');
+            document.getElementById("deleteModalLabel").innerText = "Apakah Anda yakin akan hapus donor dari \t" + data['donators']['name_donators'] + " ?";
+            document.getElementById("deleteAction").action = "/_donor/" + data['id_donor_notes'];
+        }
     </script>
 @endsection

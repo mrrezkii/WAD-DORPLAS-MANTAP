@@ -20,6 +20,7 @@ class CreateDonorNotesTable extends Migration
             $table->foreignUuid('id_donor_events')->nullable();
             $table->tinyInteger('status_donor_notes');
             $table->date('schedule_donor_notes');
+            $table->string('modified_by')->nullable();
             $table->timestamps();
         });
     }

@@ -58,7 +58,10 @@ class DonorSubmissionEmployeeController extends Controller
 
                 return '<p class="text-secondary">' . $donorSubmissions->status->name_status_donor . '</p>';
             })
-            ->rawColumns(['letter_donor_submissions', 'ktp_donor_submissions', 'status.name_status_donor'])
+            ->addColumn('action', function ($model) {
+                return (string)view('pages.donor.submission_admin_action', ['model' => $model]);
+            })
+            ->rawColumns(['letter_donor_submissions', 'ktp_donor_submissions', 'status.name_status_donor', 'action'])
             ->toJson();
     }
 

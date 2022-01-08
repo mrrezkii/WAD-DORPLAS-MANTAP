@@ -9,7 +9,7 @@ class EventEmployeeController extends Controller
 
     public function index()
     {
-        return view('pages.donor.submission_admin', [
+        return view('pages.event.admin', [
             'title' => 'Acara',
             'active' => 'event',
         ]);

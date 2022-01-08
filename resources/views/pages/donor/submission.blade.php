@@ -119,7 +119,7 @@
                     <label for="ktp" class="text-title1 text-blue">KTP</label>
                     <div class="custom-file mt-1">
                         <input onchange="validateSize(this)" type="file"
-                               accept="image/jpeg,image/gif,image/png,application/pdf,image/x-eps"
+                               accept="image/jpeg,image/gif,image/png"
                                class="custom-file-input @error('ktp_donor_submissions') is-invalid @enderror"
                                id="customFile" name="ktp_donor_submissions" required>
                         <label class="custom-file-label text-title1 text-blue" for="customFile">Choose file</label>
@@ -134,7 +134,7 @@
                     <label for="letter" class="text-title1 text-blue">Surat Rujukan</label>
                     <div class="custom-file mt-1">
                         <input onchange="validateSize(this)" type="file"
-                               accept="image/jpeg,image/gif,image/png,application/pdf,image/x-eps"
+                               accept="image/jpeg,image/gif,image/png"
                                class="custom-file-input @error('letter_donor_submissions') is-invalid @enderror"
                                id="customFile" name="letter_donor_submissions" required>
                         <label class="custom-file-label text-title1 text-blue" for="customFile">Choose file</label>

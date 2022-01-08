@@ -26,6 +26,7 @@ class CreateDonorSubmissionsTable extends Migration
             $table->string('ktp_donor_submissions');
             $table->string('letter_donor_submissions');
             $table->tinyInteger('status_donor_submissions');
+            $table->string('modified_by')->nullable();
             $table->timestamps();
         });
     }
