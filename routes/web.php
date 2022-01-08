@@ -62,9 +62,15 @@ Route::middleware(['auth:donator'])->group(function () {
 Route::middleware(['auth:employee'])->group(function () {
     Route::get('/_dashboard', [DashboardEmployeeController::class, 'index']);
     Route::get('/_bank', [BankBloodEmployeeController::class, 'index']);
-    Route::get('/_donor', [DonorNoteEmployeeController::class, 'index']);
-    Route::get('/_submission', [DonorSubmissionEmployeeController::class, 'index']);
-    Route::get('/_event', [EventEmployeeController::class, 'index']);
+    Route::resource('/_donor', DonorNoteEmployeeController::class);
+    Route::put('/_donor', [DonorNoteEmployeeController::class, 'update']);
+    Route::delete('/_donor', [DonorNoteEmployeeController::class, 'destroy']);
+    Route::resource('/_submission', DonorSubmissionEmployeeController::class);
+    Route::put('/_submission', [DonorSubmissionEmployeeController::class, 'update']);
+    Route::delete('/_submission', [DonorSubmissionEmployeeController::class, 'destroy']);
+    Route::resource('/_event', EventEmployeeController::class);
+    Route::put('/_event', [EventEmployeeController::class, 'update']);
+    Route::delete('/_event', [EventEmployeeController::class, 'destroy']);
     Route::get('/_account', [AccountEmployeeController::class, 'index']);
     Route::get('/_faq', [FaqController::class, 'index']);
 });
