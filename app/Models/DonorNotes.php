@@ -25,7 +25,7 @@ class DonorNotes extends Model
         return $this->belongsTo(Donators::class, 'id_donators');
     }
 
-    public function donorEvents()
+    public function donor_events()
     {
         return $this->belongsTo(DonorEvents::class, 'id_donor_events');
     }

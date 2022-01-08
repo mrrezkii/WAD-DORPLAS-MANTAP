@@ -63,6 +63,7 @@ Route::middleware(['auth:employee'])->group(function () {
     Route::get('/_dashboard', [DashboardEmployeeController::class, 'index']);
     Route::get('/_bank', [BankBloodEmployeeController::class, 'index']);
     Route::resource('/_donor', DonorNoteEmployeeController::class);
+    Route::get('/donor/_data', [DonorNoteEmployeeController::class, 'data'])->name('donor.data');
     Route::put('/_donor', [DonorNoteEmployeeController::class, 'update']);
     Route::delete('/_donor', [DonorNoteEmployeeController::class, 'destroy']);
     Route::resource('/_submission', DonorSubmissionEmployeeController::class);
