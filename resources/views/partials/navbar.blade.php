@@ -10,16 +10,14 @@
         </div>
     </a>
 
-    <li class="nav-item mt-5 ml-2">
-
-        <a class="nav-link" href="{{ url('/dashboard') }}">
-            <img src="{{ url('/images/icon/ic_home.svg') }}" class="img-fluid" width="24px" alt="home">
-            <span
-                class="text-grey hover-underline-animation {{ ($active === "dashboard") ? 'active' : '' }}">Dashboard</span></a>
-    </li>
-
-
     @if(auth()->guard('donator')->check())
+        <li class="nav-item mt-5 ml-2">
+            <a class="nav-link" href="{{ url('/dashboard') }}">
+                <img src="{{ url('/images/icon/ic_home.svg') }}" class="img-fluid" width="24px" alt="home">
+                <span
+                    class="text-grey hover-underline-animation {{ ($active === "dashboard") ? 'active' : '' }}">Dashboard</span></a>
+        </li>
+
         <li class="nav-item ml-2">
             <a class="nav-link" href="{{ url('/location') }}">
                 <img src="{{ url('/images/icon/ic_compass.svg') }}" class="img-fluid" width="22px" alt="lokasi">
@@ -52,7 +50,6 @@
             </div>
         </li>
 
-
         <li class="nav-item ml-2">
             <a class="nav-link" href="{{ url('/article') }}">
                 <img src="{{ url('/images/icon/ic_document.svg') }}" class="img-fluid" width="24px" alt="artikel">
@@ -60,13 +57,39 @@
                     class="text-grey hover-underline-animation {{ ($active === "article") ? 'active' : '' }}">Artikel</span></a>
         </li>
 
-        <li class="nav-item ml-2 d-none">
-            <a class="nav-link" href="#">
-                <img src="{{ url('/images/icon/ic_notif.svg') }}" class="img-fluid" width="24px" alt="notifikasi">
-                <span class="text-grey hover-underline-animation {{ ($active === "notification") ? 'active' : '' }}">Notifikasi</span></a>
-        </li>
     @elseif(auth()->guard('employee')->check())
-        <p>Khusus Admin</p>
+        <li class="nav-item mt-5 ml-2">
+            <a class="nav-link" href="{{ url('/_dashboard') }}">
+                <img src="{{ url('/images/icon/ic_home.svg') }}" class="img-fluid" width="24px" alt="home">
+                <span
+                    class="text-grey hover-underline-animation {{ ($active === "dashboard") ? 'active' : '' }}">Dashboard</span></a>
+        </li>
+
+        <li class="nav-item ml-2">
+            <a class="nav-link" href="{{ url('/_bank') }}">
+                <img src="{{ url('/images/icon/ic_drop.svg') }}" class="img-fluid" width="24px" alt="home">
+                <span
+                    class="text-grey hover-underline-animation {{ ($active === "bank") ? 'active' : '' }}">Kelola Bank Darah</span></a>
+        </li>
+
+        <li class="nav-item ml-2">
+            <a class="nav-link" href="{{ url('/_donor') }}">
+                <img src="{{ url('/images/icon/ic_manage.svg') }}" class="img-fluid ml-1" width="20px" alt="notifikasi">
+                <span class="text-grey hover-underline-animation {{ ($active === "donor") ? 'active' : '' }}">Kelola Donor Plasma</span></a>
+        </li>
+
+        <li class="nav-item ml-2">
+            <a class="nav-link" href="{{ url('/_submission') }}">
+                <img src="{{ url('/images/icon/ic_manage.svg') }}" class="img-fluid ml-1" width="20px" alt="notifikasi">
+                <span class="text-grey hover-underline-animation {{ ($active === "submission") ? 'active' : '' }}">Kelola Request Plasma</span></a>
+        </li>
+
+        <li class="nav-item ml-2">
+            <a class="nav-link" href="{{ url('/_event') }}">
+                <img src="{{ url('/images/icon/ic_event_admin.svg') }}" class="img-fluid ml-1" width="20px"
+                     alt="notifikasi">
+                <span class="text-grey hover-underline-animation {{ ($active === "event") ? 'active' : '' }}">Kelola Acara</span></a>
+        </li>
     @endif
 
     <li class="nav-item m-2">
@@ -75,24 +98,40 @@
 
     </li>
 
-    <li class="nav-item ml-2">
-        <a class="nav-link" href="{{ url('/account') }}">
-            <img src="{{ url('/images/icon/ic_profile.svg') }}" class="img-fluid" width="24px" alt="akun">
-            <span class="text-grey hover-underline-animation {{ ($active === "account") ? 'active' : '' }}">Akun</span></a>
-    </li>
+    @if(auth()->guard('donator')->check())
+        <li class="nav-item ml-2">
 
-    <li class="nav-item ml-2">
-        <a class="nav-link" href="{{ url('/faq') }}">
-            <img src="{{ url('/images/icon/ic_question.svg') }}" class="img-fluid" width="22px" alt="faq">
-            <span class="text-grey hover-underline-animation {{ ($active === "faq") ? 'active' : '' }}">FAQ</span></a>
-    </li>
+            <a class="nav-link" href="{{ url('/account') }}">
+                <img src="{{ url('/images/icon/ic_profile.svg') }}" class="img-fluid" width="24px" alt="akun">
+                <span
+                    class="text-grey hover-underline-animation {{ ($active === "account") ? 'active' : '' }}">Akun</span></a>
+        </li>
 
-    <li class="nav-item ml-2 d-none">
-        <a class="nav-link" href="#">
-            <img src="{{ url('/images/icon/ic_setting.svg') }}" class="img-fluid" width="24px" alt="setting">
-            <span
-                class="text-grey hover-underline-animation {{ ($active === "setting") ? 'active' : '' }}">Setting</span></a>
-    </li>
+
+        <li class="nav-item ml-2">
+            <a class="nav-link" href="{{ url('/faq') }}">
+                <img src="{{ url('/images/icon/ic_question.svg') }}" class="img-fluid" width="22px" alt="faq">
+                <span
+                    class="text-grey hover-underline-animation {{ ($active === "faq") ? 'active' : '' }}">FAQ</span></a>
+        </li>
+
+    @elseif(auth()->guard('employee')->check())
+        <li class="nav-item ml-2">
+            <a class="nav-link" href="{{ url('/_account') }}">
+                <img src="{{ url('/images/icon/ic_profile.svg') }}" class="img-fluid" width="24px" alt="akun">
+                <span
+                    class="text-grey hover-underline-animation {{ ($active === "account") ? 'active' : '' }}">Akun</span></a>
+        </li>
+
+        <li class="nav-item ml-2">
+            <a class="nav-link" href="{{ url('/_faq') }}">
+                <img src="{{ url('/images/icon/ic_question.svg') }}" class="img-fluid" width="22px" alt="faq">
+                <span
+                    class="text-grey hover-underline-animation {{ ($active === "faq") ? 'active' : '' }}">FAQ</span></a>
+        </li>
+
+    @endif
+
 
     <li class="nav-item ml-2">
         <a class="nav-link" href="#" data-toggle="modal" data-target="#logoutModal">
