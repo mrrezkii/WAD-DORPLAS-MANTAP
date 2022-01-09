@@ -67,6 +67,7 @@ class BankBloodEmployeeController extends Controller
             'b_negative_blood_bank' => 'required',
             'o_positive_blood_bank' => 'required',
             'o_negative_blood_bank' => 'required',
+            'modified_by' => 'required',
         ]);
 
         BloodBank::where('id_institutions', '=', Auth::user()->id_institutions)->update($validateData);

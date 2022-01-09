@@ -57,6 +57,12 @@ class DonorNoteEmployeeController extends Controller
             ->addColumn('schedule_donor_notes', function ($model) {
                 return Carbon::parse($model->schedule_donor_notes)->translatedFormat("D, d-m-Y");
             })
+            ->addColumn('modified_by', function ($model) {
+                if ($model->modified_by == null) {
+                    return "-";
+                }
+                return $model->modified_by;
+            })
             ->addColumn('action', function ($model) {
                 return (string)view('pages.donor.admin_action', ['model' => $model]);
             })
@@ -99,6 +105,7 @@ class DonorNoteEmployeeController extends Controller
     {
         $validateData = $request->validate([
             'status_donor_notes' => 'required',
+            'modified_by' => 'required',
         ]);
 
         DonorNotes::where('id_donor_notes', '=', $id)->update($validateData);

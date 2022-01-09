@@ -13,6 +13,7 @@
                     <th>Nama Acara</th>
                     <th>Status</th>
                     <th>Jadwal</th>
+                    <th>Terakhir pengubah</th>
                     <th>Aksi</th>
                 </tr>
                 </thead>
@@ -76,6 +77,7 @@
                 {data: 'donor_events.name_donor_events', name: 'donor_events.name_donor_events'},
                 {data: 'status.name_status_donor', name: 'status.name_status_donor'},
                 {data: 'schedule_donor_notes', name: 'schedule_donor_notes'},
+                {data: 'modified_by', name: 'modified_by'},
                 {data: 'action', name: 'action'},
             ]
         });

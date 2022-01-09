@@ -41,6 +41,12 @@ class EventEmployeeController extends Controller
                 $end = Carbon::parse($model->end_time_donor_events)->translatedFormat("h:i");
                 return "$start - $end";
             })
+            ->addColumn('modified_by', function ($model) {
+                if ($model->modified_by == null) {
+                    return "-";
+                }
+                return $model->modified_by;
+            })
             ->addColumn('action', function ($model) {
                 return (string)view('pages.event.admin_action', ['model' => $model]);
             })
@@ -118,6 +124,7 @@ class EventEmployeeController extends Controller
             'desc_donor_events' => 'required',
             'thumbnail_donor_events' => 'mimes:jpeg,png,jpg,gif,svg',
             'point_donor_events' => 'required|max:255',
+            'modified_by' => 'required',
         ]);
 
         if ($request->thumbnail_donor_events != null) {

@@ -18,6 +18,7 @@
                     <th>Waktu</th>
                     <th>Poin</th>
                     <th>Deskripsi</th>
+                    <th>Terakhir pengubah</th>
                     <th>Aksi</th>
                 </tr>
                 </thead>
@@ -83,6 +84,7 @@
                 {data: 'time_donor_events', name: 'end_donor_events'},
                 {data: 'point_donor_events', name: 'point_donor_events'},
                 {data: 'desc_donor_events', name: 'desc_donor_events'},
+                {data: 'modified_by', name: 'modified_by'},
                 {data: 'action', name: 'action'},
             ]
         });

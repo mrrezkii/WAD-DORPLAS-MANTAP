@@ -121,6 +121,7 @@
                     </div>
                     @enderror
                 </div>
+                <input type="hidden" name="modified_by" value="{{ auth()->user()->name_employees }}">
                 <button class="btn bg-red text-white mt-4 w-25 text-title2" type="submit">Simpan</button>
             </form>
         </div>

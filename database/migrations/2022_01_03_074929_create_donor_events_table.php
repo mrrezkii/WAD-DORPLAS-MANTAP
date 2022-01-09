@@ -24,6 +24,7 @@ class CreateDonorEventsTable extends Migration
             $table->text('desc_donor_events');
             $table->string('thumbnail_donor_events')->nullable();
             $table->integer('point_donor_events');
+            $table->string('modified_by')->nullable();
             $table->timestamps();
         });
     }

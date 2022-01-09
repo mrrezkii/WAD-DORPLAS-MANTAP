@@ -18,7 +18,7 @@
                     <th>KTP</th>
                     <th>Surat</th>
                     <th>Status</th>
-                    <th>Diubah</th>
+                    <th>Terakhir pengubah</th>
                     <th>Aksi</th>
                 </tr>
                 </thead>

@@ -15,8 +15,9 @@
                     </button>
                 </div>
             @endif
-            <h3 class="text-blue font-weight-bold mt-5 mb-4">Stok Bank Darah</h3>
-            <form action="{{ url('/_bank') }}" method="POST">
+            <h3 class="text-blue font-weight-bold mt-5">Stok Bank Darah</h3>
+            <small>Terakhir pengubah : {{ $bloodBank[0]->modified_by ?? "-" }}</small>
+            <form action="{{ url('/_bank') }}" method="POST" class="mt-4">
                 @csrf
                 @method("PUT")
                 <div class="row">
@@ -133,6 +134,7 @@
                         </div>
                     </div>
                 </div>
+                <input type="hidden" name="modified_by" value="{{ auth()->user()->name_employees }}">
                 <button class="btn bg-red text-white mt-4 w-25 text-title2" type="submit">Simpan</button>
             </form>
         </div>
