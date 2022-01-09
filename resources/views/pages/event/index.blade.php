@@ -50,8 +50,10 @@
                 <p class="text-left m-auto text-blue text-title1 pb-2"
                    style="font-size: 30px;line-height: 30px;font-family: 'Montserrat', sans-serif;">
                     Carilah Event Donor Di Sekitar Anda</p>
-                <p class="text-left m-auto text-secondary text-title1">Lorem ipsum dolor sit amet,
-                    consectetur adipiscing elit. Tristique quis consequat feugiat luctus mauris enim mi.
+                <p class="text-left pt-4 m-auto text-secondary text-title1">
+                    Kebaikan untuk kesehatan tidak berada pada satu keadaan.
+                    Berdiri untuk kebaikan dan berlari menyelamatkan orang adalah hal yang mulia.
+                    Mari temukan kebaikan dan ikuti kegiatan sebagai kontribusi kepada masyarakat.
                 </p>
             </div>
         </div>

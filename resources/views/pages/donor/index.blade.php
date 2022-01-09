@@ -11,9 +11,8 @@
             <img class="img=fluid" src="{{ url('/images/woman.png') }}" alt="Woman">
             <p class="text-title1 text-blue mt-1"
                style="font-size: 30px;line-height: 30px;font-family: 'Montserrat', sans-serif;">Ajukan Donor</p>
-            <p class="text-title2 text-blue mt-2" style="max-width: 500px">Lorem ipsum dolor sit amet, consectetur
-                adipiscing elit. Tristique
-                quis consequat feugiat luctus mauris enim mi.</p>
+            <p class="text-title2 text-blue mt-2" style="max-width: 500px"><i>"Dia yang sehat memiliki harapan,
+                dan dia yang memiliki harapan memiliki segalanya."</i></p>
         </div>
         <div class="col-md-6 col-sm-12 d-flex flex-column my-auto pt-5">
             <h3 class="text-blue font-bolder font-weight-bold mb-5">Form Pengajuan Donor</h3>
