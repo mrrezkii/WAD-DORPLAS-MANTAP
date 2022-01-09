@@ -36,7 +36,7 @@
                             </div>
                             <div class="col-4">
                                 <img class="img-fluid rounded-right"
-                                     src="{{ $datas[0]->thumbnail_donor_events ?? url('https://source.unsplash.com/350x200?blood')}}"
+                                     src="{{ $data->thumbnail_donor_events ?? url('https://source.unsplash.com/350x200?blood')}}"
                                      width="130px" alt="event">
                             </div>
                         </div>

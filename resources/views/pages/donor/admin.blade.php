@@ -30,7 +30,8 @@
                     @method("DELETE")
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="deleteModalLabel">Modal title</h5>
+                            <h5 class="modal-title">Apakah Anda yakin akan hapus donor dari <strong
+                                    id="deleteModalLabel"></strong> ?</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -74,7 +75,7 @@
         function btnDelete(data) {
             console.log(data)
             $('#deleteModal').modal('show');
-            document.getElementById("deleteModalLabel").innerText = "Apakah Anda yakin akan hapus donor dari \t" + data['donators']['name_donators'] + " ?";
+            document.getElementById("deleteModalLabel").innerText = data['donators']['name_donators'];
             document.getElementById("deleteAction").action = "/_donor/" + data['id_donor_notes'];
         }
     </script>

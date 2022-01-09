@@ -49,7 +49,7 @@
                                        style="line-height: 20px;">{{ $data->institutions->address_institutions }}</p>
                                 </div>
                                 <div class="col-2 d-flex">
-                                    <p class="m-auto text-body1 text-blue">- KM</p>
+                                    <p class="m-auto text-body1 text-blue d-none">- Km</p>
                                 </div>
                                 <div class="col-12">
                                     <hr>
