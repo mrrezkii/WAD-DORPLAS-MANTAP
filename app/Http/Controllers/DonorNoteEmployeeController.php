@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Donators;
 use App\Models\DonorNotes;
 use App\Models\StatusDonor;
 use Carbon\Carbon;
@@ -106,7 +107,19 @@ class DonorNoteEmployeeController extends Controller
         $validateData = $request->validate([
             'status_donor_notes' => 'required',
             'modified_by' => 'required',
+            'id_donators' => 'required'
         ]);
+
+        if ($request->point_donor_events != 0 && $request->status_donor_notes == 3) {
+            $donators = Donators::where('id_donators', '=', $request->id_donators)->get();
+            $point_donators = $donators[0]->point_donators + $request->point_donor_events;
+
+            Donators::where('id_donators', '=', $request->id_donators)->update([
+                'point_donators' => $point_donators
+            ]);
+
+        }
+
 
         DonorNotes::where('id_donor_notes', '=', $id)->update($validateData);
 

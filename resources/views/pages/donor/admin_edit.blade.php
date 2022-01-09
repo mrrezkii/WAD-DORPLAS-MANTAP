@@ -77,6 +77,9 @@
                            value="{{ \Carbon\Carbon::parse($data->schedule_donor_notes)->translatedFormat("D, d-m-Y") }}"
                            readonly>
                 </div>
+                <input type="hidden" name="point_donor_events"
+                       value="{{ $data->donor_events != null ? $data->donor_events->point_donor_events : 0 }}">
+                <input type="hidden" name="id_donators" value="{{ $data->id_donators }}">
                 <input type="hidden" name="modified_by" value="{{ auth()->user()->name_employees }}">
                 <button class="btn bg-red text-white mt-4 w-25 text-title2" type="submit">Simpan</button>
             </form>
