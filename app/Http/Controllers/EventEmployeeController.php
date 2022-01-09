@@ -86,7 +86,7 @@ class EventEmployeeController extends Controller
 
         DonorEvents::create($validateData);
 
-        return redirect('/_event')->with('success', 'Acara berhasil ditambahkan');
+        return redirect('/_event')->with('info', 'Acara berhasil ditambahkan');
     }
 
 
@@ -142,7 +142,7 @@ class EventEmployeeController extends Controller
 
         DonorEvents::where('id_donor_events', '=', $id)->update($validateData);
 
-        return redirect('/_event')->with('success', "Acara berhasil diupdate");
+        return redirect('/_event')->with('info', "Acara berhasil diupdate");
     }
 
     public function destroy($id)
@@ -153,9 +153,9 @@ class EventEmployeeController extends Controller
             if (File::exists(public_path($data->thumbnail_donor_events))) {
                 File::delete(public_path($data->thumbnail_donor_events));
             }
-            return redirect('/_event')->with('success', "Acara berhasil dihapus");
+            return redirect('/_event')->with('info', "Acara berhasil dihapus");
         } catch (Exception $e) {
-            return redirect('/_event')->with('failed', "Acara gagal dihapus");
+            return redirect('/_event')->with('info', "Acara gagal dihapus");
         }
     }
 }

@@ -69,8 +69,8 @@ Route::middleware(['auth:employee'])->group(function () {
     Route::delete('/_donor', [DonorNoteEmployeeController::class, 'destroy']);
     Route::resource('/_submission', DonorSubmissionEmployeeController::class);
     Route::get('/submission/_data', [DonorSubmissionEmployeeController::class, 'data'])->name('submission.data');
-    Route::put('/_submission', [DonorSubmissionEmployeeController::class, 'update']);
-    Route::delete('/_submission', [DonorSubmissionEmployeeController::class, 'destroy']);
+    Route::put('/_submission/{_submission}', [DonorSubmissionEmployeeController::class, 'update']);
+    Route::delete('/_submission/{_submission}', [DonorSubmissionEmployeeController::class, 'destroy']);
     Route::resource('/_event', EventEmployeeController::class);
     Route::get('/event/_data', [EventEmployeeController::class, 'data'])->name('event.data');
     Route::put('/_event/{_event}', [EventEmployeeController::class, 'update']);

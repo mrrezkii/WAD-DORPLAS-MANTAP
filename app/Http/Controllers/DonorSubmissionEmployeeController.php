@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\DonorSubmissions;
 use Carbon\Carbon;
+use File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Yajra\DataTables\DataTables;
@@ -100,6 +101,18 @@ class DonorSubmissionEmployeeController extends Controller
 
     public function destroy($id)
     {
-        //
+        try {
+            $data = DonorSubmissions::findOrFail($id);
+            $data->delete();
+            if (File::exists(public_path($data->ktp_donor_submissions))) {
+                File::delete(public_path($data->ktp_donor_submissions));
+            }
+            if (File::exists(public_path($data->letter_donor_submissions))) {
+                File::delete(public_path($data->letter_donor_submissions));
+            }
+            return redirect('/_submission')->with('info', "Request plasma berhasil dihapus");
+        } catch (Exception $e) {
+            return redirect('/_submission')->with('info', "Request plasma gagal dihapus");
+        }
     }
 }

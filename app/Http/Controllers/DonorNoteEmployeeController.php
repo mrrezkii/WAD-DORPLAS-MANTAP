@@ -96,6 +96,9 @@ class DonorNoteEmployeeController extends Controller
 
     public function destroy($id)
     {
-        //
+        $data = DonorNotes::findOrFail($id);
+        $data->delete();
+
+        return redirect('/_donor')->with('info', "Donor berhasil dihapus");
     }
 }

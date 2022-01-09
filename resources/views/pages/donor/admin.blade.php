@@ -21,7 +21,22 @@
                 </tbody>
             </table>
         </div>
-        <!-- Modal -->
+        @if(session()->has('info'))
+            <div class="position-fixed" style="right: 10px;bottom: 50px">
+                <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="5000">
+                    <div class="toast-header d-flex justify-content-between">
+                        <img src="{{ url('/images/logo.png') }}" class="rounded mr-2 img-fluid w-25" alt="...">
+                        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="toast-body">
+                        {{ session('info') }}
+                    </div>
+                </div>
+            </div>
+    @endif
+    <!-- Modal -->
         <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel"
              aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -78,5 +93,8 @@
             document.getElementById("deleteModalLabel").innerText = data['donators']['name_donators'];
             document.getElementById("deleteAction").action = "/_donor/" + data['id_donor_notes'];
         }
+    </script>
+    <script>
+        $('.toast').toast('show');
     </script>
 @endsection
