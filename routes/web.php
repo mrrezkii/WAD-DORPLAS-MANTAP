@@ -63,11 +63,11 @@ Route::middleware(['auth:employee'])->group(function () {
     Route::get('/_dashboard', [DashboardEmployeeController::class, 'index']);
     Route::get('/_bank', [BankBloodEmployeeController::class, 'index']);
     Route::put('/_bank', [BankBloodEmployeeController::class, 'updateStock']);
-    Route::resource('/_donor', DonorNoteEmployeeController::class);
+    Route::resource('/_donor', DonorNoteEmployeeController::class)->except(['create', 'store', 'show']);
     Route::get('/donor/_data', [DonorNoteEmployeeController::class, 'data'])->name('donor.data');
-    Route::resource('/_submission', DonorSubmissionEmployeeController::class);
+    Route::resource('/_submission', DonorSubmissionEmployeeController::class)->except(['create', 'store', 'show']);;
     Route::get('/submission/_data', [DonorSubmissionEmployeeController::class, 'data'])->name('submission.data');
-    Route::resource('/_event', EventEmployeeController::class);
+    Route::resource('/_event', EventEmployeeController::class)->except('show');;
     Route::get('/event/_data', [EventEmployeeController::class, 'data'])->name('event.data');
     Route::get('/_account', [AccountEmployeeController::class, 'index']);
     Route::put('/_updateIdentity', [AccountEmployeeController::class, 'updateIdentity']);
