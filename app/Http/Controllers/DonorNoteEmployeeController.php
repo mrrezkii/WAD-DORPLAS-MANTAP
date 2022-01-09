@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\DonorNotes;
+use App\Models\StatusDonor;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -84,13 +85,25 @@ class DonorNoteEmployeeController extends Controller
 
     public function edit($id)
     {
-        //
+        $data = DonorNotes::find($id);
+        return view('pages.donor.admin_edit', [
+            'title' => 'Donor',
+            'active' => 'donor',
+            'data' => $data,
+            'status' => StatusDonor::all()
+        ]);
     }
 
 
     public function update(Request $request, $id)
     {
-        //
+        $validateData = $request->validate([
+            'status_donor_notes' => 'required',
+        ]);
+
+        DonorNotes::where('id_donor_notes', '=', $id)->update($validateData);
+
+        return redirect('/_donor')->with('info', "Data donor berhasil diupdate");
     }
 
 

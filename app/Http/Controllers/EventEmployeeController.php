@@ -137,9 +137,6 @@ class EventEmployeeController extends Controller
             $validateData['thumbnail_donor_events'] = "/$thumbnailPath/$thumbnailName";
         }
 
-        $validateData['id_donor_events'] = Uuid::uuid4()->toString() . "\n";
-        $validateData['id_institutions'] = Auth::user()->id_institutions;
-
         DonorEvents::where('id_donor_events', '=', $id)->update($validateData);
 
         return redirect('/_event')->with('info', "Acara berhasil diupdate");
