@@ -34,6 +34,9 @@ class DonorSubmissionEmployeeController extends Controller
                 return $model->rhesus_type_donor_submissions;
             })
             ->addColumn('time_used_donor_submissions', function ($model) {
+                if ($model->time_used_donor_submissions == null){
+                    return "-";
+                }
                 return Carbon::parse($model->time_used_donor_submissions)->translatedFormat("D, d-m-Y");
             })
             ->addColumn('ktp_donor_submissions', function ($model) {
