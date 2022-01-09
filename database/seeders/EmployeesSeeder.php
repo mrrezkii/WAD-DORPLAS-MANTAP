@@ -25,7 +25,7 @@ class EmployeesSeeder extends Seeder
             'email_employees' => 'muhammad.rezki.ananda@pmi.co.id',
             'password_employees' => Hash::make(12345),
             'contact_employees' => '085608845319',
-            'address_employees' => 'Jl.Kediri Raya Weeh, Jawa TImur'
+            'address_employees' => 'Jl.Kediri Raya Weeh, Jawa Timur'
             ]);
 
         Employees::create([

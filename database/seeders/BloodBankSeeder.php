@@ -14,6 +14,6 @@ class BloodBankSeeder extends Seeder
      */
     public function run()
     {
-        BloodBank::factory(5)->create();
+        BloodBank::factory(15)->create();
     }
 }
