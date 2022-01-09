@@ -63,5 +63,55 @@ class InstitutionsSeeder extends Seeder
             'longitude_institutions' => '-6.90850812347344',
             'latitude_institutions' => '107.61962559763123',
         ]);
+
+        Institutions::create([
+            'id_institutions' => '9d25e4f1-fbaf-359e-9e45-890677a67c0d',
+            'name_institutions' => 'PMI Kota Surakarta',
+            'contact_institutions' => '(0271) 646505',
+            'email_institutions' => 'kota_surakarta@pmi.or.id',
+            'address_institutions' => 'Jl. Kolonel Sutarto No.58, Jebres, Kec. Jebres, Kota Surakarta, Jawa Tengah 57126',
+            'longitude_institutions' => '-7.559450',
+            'latitude_institutions' => '110.842530',
+        ]);
+
+        Institutions::create([
+            'id_institutions' => '9aa2e5e7-3186-3d65-9b53-75f74c42b1eb',
+            'name_institutions' => 'Klinik PMI Sokaraja / UDD PMI Kab Banyumas',
+            'contact_institutions' => '(0281) 6441014',
+            'email_institutions' => 'pmisokaraja@gmail.com',
+            'address_institutions' => 'Jl. Pekaja No.37, Dusun II Sokaraja Tengah, Sokaraja Tengah, Kec. Sokaraja, Kabupaten Banyumas, Jawa Tengah 53181',
+            'longitude_institutions' => '-7.461380',
+            'latitude_institutions' => '109.286360',
+        ]);
+
+        Institutions::create([
+            'id_institutions' => '537b0937-ddf0-3143-afb9-5511d880d50c',
+            'name_institutions' => 'Unit Donor Darah PMI Kota Semarang',
+            'contact_institutions' => '(024) 3515050',
+            'email_institutions' => 'kota_semarang@pmi.or.id',
+            'address_institutions' => 'Jl. Mgr Sugiyopranoto No.31, Pendrikan Kidul, Kec. Semarang Tengah, Kota Semarang, Jawa Tengah 50131',
+            'longitude_institutions' => '-6,984000',
+            'latitude_institutions' => '110.408450',
+        ]);
+
+        Institutions::create([
+            'id_institutions' => '272f8cd3-f856-37f0-ac40-94c3b36d52da',
+            'name_institutions' => 'PMI (Palang Merah Indonesia) Kota Bekasi',
+            'contact_institutions' => '(021) 88960247',
+            'email_institutions' => 'markas@pmikotabekasi.or.id',
+            'address_institutions' => 'Jl. Pramuka No.1, RT.006/RW.006, Marga Jaya, Kec. Bekasi Sel., Kota Bks, Jawa Barat 17141',
+            'longitude_institutions' => '-6.240870',
+            'latitude_institutions' => '107.000640',
+        ]);
+
+        Institutions::create([
+            'id_institutions' => '07f00675-121a-3c22-9f77-97e21324aeeb',
+            'name_institutions' => 'Palang Merah Indonesia Kabupaten Karawang',
+            'contact_institutions' => '(0267) 405190',
+            'email_institutions' => 'karang.pmi@yahoo.com',
+            'address_institutions' => 'Jl. Jend.Ahmad Yani No.68, By Pass, Nagasari, Kec. Karawang Bar., Kabupaten Karawang, Jawa Barat 41314',
+            'longitude_institutions' => '-6.299290',
+            'latitude_institutions' => '107.299850',
+        ]);
     }
 }
