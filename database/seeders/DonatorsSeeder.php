@@ -27,7 +27,7 @@ class DonatorsSeeder extends Seeder
             'blood_type_donators' => 'O',
             'rhesus_type_donators' => 'positive',
             'contact_donators' => '085608845319',
-            'address_donators' => 'Jl.Kediri Raya Weeh, Jawa TImur',
+            'address_donators' => 'Jl.Kediri Raya Weeh, Jawa Timur',
             'point_donators' => mt_rand(0, 100)
         ]);
 
