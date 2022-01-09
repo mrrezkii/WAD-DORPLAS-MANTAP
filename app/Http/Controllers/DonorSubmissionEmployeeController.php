@@ -111,9 +111,12 @@ class DonorSubmissionEmployeeController extends Controller
         $validateData = $request->validate([
             'quantity_donor_submissions' => 'required',
             'status_donor_submissions' => 'required',
-            'time_used_donor_submissions' => 'required|after:yesterday',
             'modified_by' => 'required',
         ]);
+
+        if ($request->time_used_donor_submissions == null) {
+            $validateData['time_used_donor_submissions'] = null;
+        }
 
         DonorSubmissions::where('id_donor_submissions', '=', $id)->update($validateData);
 

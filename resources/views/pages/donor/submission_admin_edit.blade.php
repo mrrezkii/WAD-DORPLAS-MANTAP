@@ -73,8 +73,8 @@
                     <input type="datetime-local"
                            class="form-control mt-1 text-title1 text-blue @error('time_used_donor_submissions') is-invalid @enderror"
                            id="time_used_donor_submissions" name="time_used_donor_submissions"
-                           placeholder="Digunakan" required
-                           value="{{ \Carbon\Carbon::parse($data->time_used_donor_submissions)->format('Y-m-d\TH:i') }}">
+                           placeholder="Digunakan"
+                           value="{{ $data->time_used_donor_submissions != null ? \Carbon\Carbon::parse($data->time_used_donor_submissions)->format('Y-m-d\TH:i') : null }}">
                     @error('time_used_donor_submissions')
                     <div class="invalid-feedback">
                         {{ $message }}
