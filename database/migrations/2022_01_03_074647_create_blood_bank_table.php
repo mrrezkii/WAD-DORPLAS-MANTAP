@@ -24,6 +24,7 @@ class CreateBloodBankTable extends Migration
             $table->integer('ab_negative_blood_bank');
             $table->integer('o_positive_blood_bank');
             $table->integer('o_negative_blood_bank');
+            $table->string('modified_by')->nullable();
             $table->timestamps();
         });
     }
