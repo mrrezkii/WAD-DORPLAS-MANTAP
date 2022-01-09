@@ -62,6 +62,7 @@ Route::middleware(['auth:donator'])->group(function () {
 Route::middleware(['auth:employee'])->group(function () {
     Route::get('/_dashboard', [DashboardEmployeeController::class, 'index']);
     Route::get('/_bank', [BankBloodEmployeeController::class, 'index']);
+    Route::put('/_bank', [BankBloodEmployeeController::class, 'updateStock']);
     Route::resource('/_donor', DonorNoteEmployeeController::class);
     Route::get('/donor/_data', [DonorNoteEmployeeController::class, 'data'])->name('donor.data');
     Route::put('/_donor', [DonorNoteEmployeeController::class, 'update']);

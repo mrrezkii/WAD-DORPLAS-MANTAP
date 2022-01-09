@@ -21,6 +21,7 @@ class BankBloodEmployeeController extends Controller
             'active' => 'bank',
             'stockPlasma' => $this->stockPlasma(),
             'totalRequest' => $this->requestPlasma(),
+            'bloodBank' => $this->bloodBank()
         ]);
     }
 
@@ -48,5 +49,28 @@ class BankBloodEmployeeController extends Controller
                     ->where('id_institutions', '=', Auth::user()->id_institutions);
             })
             ->sum('quantity_donor_submissions');
+    }
+
+    public function bloodBank()
+    {
+        return BloodBank::where('id_institutions', '=', Auth::user()->id_institutions)->get();
+    }
+
+    public function updateStock(Request $request)
+    {
+        $validateData = $request->validate([
+            'a_positive_blood_bank' => 'required',
+            'a_negative_blood_bank' => 'required',
+            'ab_positive_blood_bank' => 'required',
+            'ab_negative_blood_bank' => 'required',
+            'b_positive_blood_bank' => 'required',
+            'b_negative_blood_bank' => 'required',
+            'o_positive_blood_bank' => 'required',
+            'o_negative_blood_bank' => 'required',
+        ]);
+
+        BloodBank::where('id_institutions', '=', Auth::user()->id_institutions)->update($validateData);
+
+        return redirect('/_bank')->with('updateSuccess', 'Berhasil Memperbarui Bank Darah');
     }
 }
