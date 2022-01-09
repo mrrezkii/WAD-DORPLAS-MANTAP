@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\DonorEvents;
 use Carbon\Carbon;
+use Exception;
+use File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Ramsey\Uuid\Uuid;
@@ -84,7 +86,7 @@ class EventEmployeeController extends Controller
 
         DonorEvents::create($validateData);
 
-        return redirect('/_event')->with('addEventSuccess', 'Acara berhasil ditambahkan');
+        return redirect('/_event')->with('success', 'Acara berhasil ditambahkan');
     }
 
 
@@ -107,6 +109,15 @@ class EventEmployeeController extends Controller
 
     public function destroy($id)
     {
-        //
+        try {
+            $data = DonorEvents::findOrFail($id);
+            $data->delete();
+            if (File::exists(public_path($data->thumbnail_donor_events))) {
+                File::delete(public_path($data->thumbnail_donor_events));
+            }
+            return redirect('/_event')->with('success', "Acara berhasil dihapus");
+        } catch (Exception $e) {
+            return redirect('/_event')->with('failed', "Acara gagal dihapus");
+        }
     }
 }

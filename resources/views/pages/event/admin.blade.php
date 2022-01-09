@@ -26,7 +26,7 @@
                 </tbody>
             </table>
         </div>
-        @if(session()->has('addEventSuccess'))
+        @if(session()->has('success'))
             <div class="position-fixed" style="right: 10px;bottom: 50px">
                 <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="5000">
                     <div class="toast-header d-flex justify-content-between">
@@ -36,7 +36,7 @@
                         </button>
                     </div>
                     <div class="toast-body">
-                        {{ session('addEventSuccess') }}
+                        {{ session('success') }}
                     </div>
                 </div>
             </div>
