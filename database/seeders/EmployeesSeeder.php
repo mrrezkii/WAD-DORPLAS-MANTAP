@@ -57,5 +57,15 @@ class EmployeesSeeder extends Seeder
             'contact_employees' => '081286226512',
             'address_employees' => 'Jl. Aster, Kab. Tokyo - Japan'
         ]);
+
+        Employees::create([
+            'id_employees' => Uuid::uuid4()->toString() . "\n",
+            'id_institutions' => '0264db2d-0f84-32ef-b732-d56d7b3d0493',
+            'name_employees' => 'Yanuar Taruna Lutfi',
+            'email_employees' => 'hanstarunal@gmail.com',
+            'password_employees' => Hash::make(12345),
+            'contact_employees' => '082318968902',
+            'address_employees' => 'Jl. Bandung Garut Km. 27 Sumedang'
+        ]);
     }
 }
