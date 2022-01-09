@@ -39,7 +39,7 @@ class DonorSubmissionEmployeeController extends Controller
                 if ($model->time_used_donor_submissions == null){
                     return "-";
                 }
-                return Carbon::parse($model->time_used_donor_submissions)->translatedFormat("D, d-m-Y");
+                return Carbon::parse($model->time_used_donor_submissions)->translatedFormat("D, d-m-Y, h:i");
             })
             ->addColumn('ktp_donor_submissions', function ($model) {
                 return '<img src="' . $model->ktp_donor_submissions . '" height="100px">';
