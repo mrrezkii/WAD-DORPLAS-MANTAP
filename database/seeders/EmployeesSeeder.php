@@ -62,7 +62,7 @@ class EmployeesSeeder extends Seeder
             'id_employees' => Uuid::uuid4()->toString() . "\n",
             'id_institutions' => '0264db2d-0f84-32ef-b732-d56d7b3d0493',
             'name_employees' => 'Yanuar Taruna Lutfi',
-            'email_employees' => 'hanstarunal@gmail.com',
+            'email_employees' => 'hanstarunal@pmi.co.id',
             'password_employees' => Hash::make(12345),
             'contact_employees' => '082318968902',
             'address_employees' => 'Jl. Bandung Garut Km. 27 Sumedang'
