@@ -6,6 +6,7 @@ use App\Models\DonorEvents;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Ramsey\Uuid\Uuid;
 use Yajra\DataTables\DataTables;
 
 class EventEmployeeController extends Controller
@@ -47,13 +48,43 @@ class EventEmployeeController extends Controller
 
     public function create()
     {
-        //
+        return view('pages.event.admin_create', [
+            'title' => 'Acara',
+            'active' => 'event',
+        ]);
     }
 
 
     public function store(Request $request)
     {
-        //
+        $validateData = $request->validate([
+            'name_donor_events' => 'required|max:255',
+            'start_date_donor_events' => 'required|max:255|before:end_date_donor_events',
+            'end_date_donor_events' => 'required|max:255|after:start_date_donor_events',
+            'start_time_donor_events' => 'required|max:255',
+            'end_time_donor_events' => 'required|max:255',
+            'desc_donor_events' => 'required',
+            'thumbnail_donor_events' => 'mimes:jpeg,png,jpg,gif,svg',
+            'point_donor_events' => 'required|max:255',
+        ]);
+
+        if ($request->thumbnail_donor_events != null) {
+            $thumbnailFile = $request->file('thumbnail_donor_events');
+
+            $uuidShorten = str_replace('-', '', Auth::user()->id_institutions);
+            $thumbnailName = time() . "_" . $uuidShorten . "_" . $thumbnailFile->getClientOriginalName();
+
+            $thumbnailPath = "upload/$uuidShorten/thumbnail";
+            $thumbnailFile->move($thumbnailPath, $thumbnailName);
+            $validateData['thumbnail_donor_events'] = "/$thumbnailPath/$thumbnailName";
+        }
+
+        $validateData['id_donor_events'] = Uuid::uuid4()->toString() . "\n";
+        $validateData['id_institutions'] = Auth::user()->id_institutions;
+
+        DonorEvents::create($validateData);
+
+        return redirect('/_event')->with('addEventSuccess', 'Acara berhasil ditambahkan');
     }
 
 

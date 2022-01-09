@@ -24,7 +24,7 @@
                         <div class="form-group mb-3">
                             <label for="a_positive_blood_bank" class="text-title1 text-blue">A (+)</label>
                             <input type="text"
-                                   class="form-control mt-1 text-title1 text-blue w-50 @error('name_employees') is-invalid @enderror"
+                                   class="form-control mt-1 text-title1 text-blue w-50 @error('a_positive_blood_bank') is-invalid @enderror"
                                    id="a_positive_blood_bank" name="a_positive_blood_bank"
                                    placeholder="Jumlah" required value="{{ $bloodBank[0]->a_positive_blood_bank }}">
                             @error('a_positive_blood_bank')

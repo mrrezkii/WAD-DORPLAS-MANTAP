@@ -36,8 +36,8 @@ class DonorSubmissionController extends Controller
             'rhesus_type_donor_submissions' => 'required|max:255',
             'quantity_donor_submissions' => 'required|max:255',
             'id_institutions' => 'required|max:255',
-            'ktp_donor_submissions' => 'required|mimes:jpeg,png,jpg,gif,svg,pdf',
-            'letter_donor_submissions' => 'required|mimes:jpeg,png,jpg,gif,svg,pdf',
+            'ktp_donor_submissions' => 'required|mimes:jpeg,png,jpg,gif,svg',
+            'letter_donor_submissions' => 'required|mimes:jpeg,png,jpg,gif,svg',
         ]);
 
         $ktpFile = $request->file('ktp_donor_submissions');
