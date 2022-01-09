@@ -39,7 +39,7 @@
                            id="applicant_donor_submissions"
                            name="applicant_donor_submissions"
                            placeholder="Masukkan Nama Lengkap Pemohon" required
-                           value="{{ auth()->user()->name_donators }}">
+                           value="{{ auth()->user()->name_donators }}" readonly>
                     @error('applicant_donor_submissions')
                     <div class="invalid-feedback">
                         {{ $message }}

@@ -18,6 +18,7 @@
                     <th>KTP</th>
                     <th>Surat</th>
                     <th>Status</th>
+                    <th>Diubah</th>
                     <th>Aksi</th>
                 </tr>
                 </thead>
@@ -86,6 +87,7 @@
                 {data: 'ktp_donor_submissions', name: 'ktp_donor_submissions'},
                 {data: 'letter_donor_submissions', name: 'letter_donor_submissions'},
                 {data: 'status.name_status_donor', name: 'status.name_status_donor'},
+                {data: 'modified_by', name: 'modified_by'},
                 {data: 'action', name: 'action'},
             ]
         });

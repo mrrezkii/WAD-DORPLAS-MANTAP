@@ -106,7 +106,7 @@
                     @enderror
                 </div>
                 <div class="form-group mb-3 d-flex flex-column">
-                    <label for="ktp" class="text-title1 text-blue">Banner (Optional)</label>
+                    <label for="output" class="text-title1 text-blue">Banner (Optional)</label>
                     <img id="output" src="{{ $data->thumbnail_donor_events }}" class="img-fluid w-25">
                     <div class="custom-file mt-1">
                         <input onchange="validateSize(this)" type="file"

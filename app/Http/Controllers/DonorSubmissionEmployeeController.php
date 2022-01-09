@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\DonorSubmissions;
+use App\Models\StatusDonor;
 use Carbon\Carbon;
 use File;
 use Illuminate\Http\Request;
@@ -65,6 +66,12 @@ class DonorSubmissionEmployeeController extends Controller
             ->addColumn('action', function ($model) {
                 return (string)view('pages.donor.submission_admin_action', ['model' => $model]);
             })
+            ->addColumn('modified_by', function ($model) {
+                if ($model->modified_by == null) {
+                    return "-";
+                }
+                return $model->modified_by;
+            })
             ->rawColumns(['letter_donor_submissions', 'ktp_donor_submissions', 'status.name_status_donor', 'action'])
             ->toJson();
     }
@@ -89,13 +96,28 @@ class DonorSubmissionEmployeeController extends Controller
 
     public function edit($id)
     {
-        //
+        $data = DonorSubmissions::find($id);
+        return view('pages.donor.submission_admin_edit', [
+            'title' => 'Request Paslma',
+            'active' => 'submission',
+            'data' => $data,
+            'status' => StatusDonor::all()
+        ]);
     }
 
 
     public function update(Request $request, $id)
     {
-        //
+        $validateData = $request->validate([
+            'quantity_donor_submissions' => 'required',
+            'status_donor_submissions' => 'required',
+            'time_used_donor_submissions' => 'required|after:yesterday',
+            'modified_by' => 'required',
+        ]);
+
+        DonorSubmissions::where('id_donor_submissions', '=', $id)->update($validateData);
+
+        return redirect('/_submission')->with('info', "Data donor berhasil diupdate");
     }
 
 

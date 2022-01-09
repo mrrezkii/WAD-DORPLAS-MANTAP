@@ -37,7 +37,7 @@
                            readonly>
                 </div>
                 <div class="form-group mb-3">
-                    <label for="status_donor_notes" class="text-title1 text-blue">Lokasi Donor Plasma</label>
+                    <label for="status_donor_notes" class="text-title1 text-blue">Status</label>
                     @php
                         $text_condition = 'text-secondary';
                         if($data->status_donor_notes === 1) $text_condition = 'text-red';
@@ -101,9 +101,6 @@
         }
     </script>
     <script>
-        // window.onload = function (){
-        //     document.getElementById("status_donor_notes").classList.add("text-blue");
-        // }
         function changeColor(input) {
             if (input.classList.contains("text-red")) input.classList.remove("text-red")
             else if (input.classList.contains("text-primary")) input.classList.remove("text-primary")
