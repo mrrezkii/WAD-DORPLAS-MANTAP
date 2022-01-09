@@ -65,16 +65,10 @@ Route::middleware(['auth:employee'])->group(function () {
     Route::put('/_bank', [BankBloodEmployeeController::class, 'updateStock']);
     Route::resource('/_donor', DonorNoteEmployeeController::class);
     Route::get('/donor/_data', [DonorNoteEmployeeController::class, 'data'])->name('donor.data');
-    Route::put('/_donor', [DonorNoteEmployeeController::class, 'update']);
-    Route::delete('/_donor', [DonorNoteEmployeeController::class, 'destroy']);
     Route::resource('/_submission', DonorSubmissionEmployeeController::class);
     Route::get('/submission/_data', [DonorSubmissionEmployeeController::class, 'data'])->name('submission.data');
-    Route::put('/_submission/{_submission}', [DonorSubmissionEmployeeController::class, 'update']);
-    Route::delete('/_submission/{_submission}', [DonorSubmissionEmployeeController::class, 'destroy']);
     Route::resource('/_event', EventEmployeeController::class);
     Route::get('/event/_data', [EventEmployeeController::class, 'data'])->name('event.data');
-    Route::put('/_event/{_event}', [EventEmployeeController::class, 'update']);
-    Route::delete('/_event/{_event}', [EventEmployeeController::class, 'destroy']);
     Route::get('/_account', [AccountEmployeeController::class, 'index']);
     Route::put('/_updateIdentity', [AccountEmployeeController::class, 'updateIdentity']);
     Route::put('/_updateContact', [AccountEmployeeController::class, 'updateContact']);
