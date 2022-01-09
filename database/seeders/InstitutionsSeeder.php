@@ -90,7 +90,7 @@ class InstitutionsSeeder extends Seeder
             'contact_institutions' => '(024) 3515050',
             'email_institutions' => 'kota_semarang@pmi.or.id',
             'address_institutions' => 'Jl. Mgr Sugiyopranoto No.31, Pendrikan Kidul, Kec. Semarang Tengah, Kota Semarang, Jawa Tengah 50131',
-            'longitude_institutions' => '-6,984000',
+            'longitude_institutions' => '-6.984000',
             'latitude_institutions' => '110.408450',
         ]);
 
@@ -112,6 +112,56 @@ class InstitutionsSeeder extends Seeder
             'address_institutions' => 'Jl. Jend.Ahmad Yani No.68, By Pass, Nagasari, Kec. Karawang Bar., Kabupaten Karawang, Jawa Barat 41314',
             'longitude_institutions' => '-6.299290',
             'latitude_institutions' => '107.299850',
+        ]);
+
+        Institutions::create([
+            'id_institutions' => 'f1b7740b-30c6-38ae-98f6-a994afbf55e6',
+            'name_institutions' => 'Palang Merah Indonesia Kabupaten Sukabumi',
+            'contact_institutions' => '(0266) 236447',
+            'email_institutions' => 'info@pmisukabumikab.org',
+            'address_institutions' => 'Jl. Raya Sukabumi, Sukaresmi, Kec. Cisaat, Kabupaten Sukabumi, Jawa Barat 43152',
+            'longitude_institutions' => '-6.912208',
+            'latitude_institutions' => '106.904933',
+        ]);
+
+        Institutions::create([
+            'id_institutions' => '2217c28f-d59c-3ab1-860c-d2cce27b2a9f',
+            'name_institutions' => 'PMI Bogor',
+            'contact_institutions' => '(0251) 832 4080',
+            'email_institutions' => 'sekretariat@rspmibogor.or.id',
+            'address_institutions' => 'Jl. Rumah Sakit I, RT.01/RW.08, Tegallega, Kecamatan Bogor Tengah, Kota Bogor, Jawa Barat 16129',
+            'longitude_institutions' => '-6.614890',
+            'latitude_institutions' => '106.812890',
+        ]);
+
+        Institutions::create([
+            'id_institutions' => '9ed81d0a-e58a-3d0b-9dd3-91eafab5266f',
+            'name_institutions' => 'Palang Merah Indonesia Banyuwangi',
+            'contact_institutions' => '(0332) 421868',
+            'email_institutions' => 'cspmibanyuwangi@pmi.co.id',
+            'address_institutions' => 'Jl. R. A. Kartini, Kepatihan, Kec. Banyuwangi, Kabupaten Banyuwangi, Jawa Timur 68411',
+            'longitude_institutions' => '-8.211760',
+            'latitude_institutions' => '114.377610',
+        ]);
+
+        Institutions::create([
+            'id_institutions' => '731ef6df-6171-33fd-bd05-93cd76db2cdd',
+            'name_institutions' => 'PMI Cabang Kota Kediri',
+            'contact_institutions' => '(0354) 689072',
+            'email_institutions' => 'pmikediri@pmi.co.id',
+            'address_institutions' => 'Jl. Mayor Bismo No.15, Mojoroto, Kec. Mojoroto, Kota Kediri, Jawa Timur 64121',
+            'longitude_institutions' => '-7.795520',
+            'latitude_institutions' => '112.009530',
+        ]);
+
+        Institutions::create([
+            'id_institutions' => '9e33b53c-d6e2-3b2b-9335-0c6b626981d3',
+            'name_institutions' => 'PMI Palang Merah Indonesia',
+            'contact_institutions' => '6285755538777',
+            'email_institutions' => 'malang@pmi.co.id',
+            'address_institutions' => 'Jl. Raya Sidorahayu, Losari, Sidorahayu, Kec. Wagir, Kabupaten Malang, Jawa Timur 65158',
+            'longitude_institutions' => '-8.012460',
+            'latitude_institutions' => '112.594800',
         ]);
     }
 }
