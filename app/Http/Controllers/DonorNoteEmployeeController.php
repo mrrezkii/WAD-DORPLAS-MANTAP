@@ -32,28 +32,28 @@ class DonorNoteEmployeeController extends Controller
 
         return DataTables::of($model)
             ->addIndexColumn()
-            ->addColumn('donators.name_donators', function (DonorNotes $donorNotes) {
-                return $donorNotes->donators->name_donators;
+            ->addColumn('donators.name_donators', function ($model) {
+                return $model->donators->name_donators;
             })
-            ->addColumn('donor_events.name_donor_events', function (DonorNotes $donorNotes) {
-                if ($donorNotes->donor_events == null) {
+            ->addColumn('donor_events.name_donor_events', function ($model) {
+                if ($model->donor_events == null) {
                     return "-";
                 } else {
-                    return $donorNotes->donor_events->name_donor_events;
+                    return $model->donor_events->name_donor_events;
                 }
             })
-            ->addColumn('status.name_status_donor', function (DonorNotes $donorNotes) {
-                if ($donorNotes->status_donor_notes == 1) {
-                    return '<p class="text-red">' . $donorNotes->status->name_status_donor . '</p>';
-                } else if ($donorNotes->status_donor_notes == 2) {
-                    return '<p class="text-primary">' . $donorNotes->status->name_status_donor . '</p>';
-                } else if ($donorNotes->status_donor_notes == 3) {
-                    return '<p class="text-success">' . $donorNotes->status->name_status_donor . '</p>';
-                } else if ($donorNotes->status_donor_notes == 4) {
-                    return '<p class="text-red-2">' . $donorNotes->status->name_status_donor . '</p>';
+            ->addColumn('status.name_status_donor', function ($model) {
+                if ($model->status_donor_notes == 1) {
+                    return '<p class="text-red">' . $model->status->name_status_donor . '</p>';
+                } else if ($model->status_donor_notes == 2) {
+                    return '<p class="text-primary">' . $model->status->name_status_donor . '</p>';
+                } else if ($model->status_donor_notes == 3) {
+                    return '<p class="text-success">' . $model->status->name_status_donor . '</p>';
+                } else if ($model->status_donor_notes == 4) {
+                    return '<p class="text-red-2">' . $model->status->name_status_donor . '</p>';
                 }
 
-                return '<p class="text-secondary">' . $donorNotes->status->name_status_donor . '</p>';
+                return '<p class="text-secondary">' . $model->status->name_status_donor . '</p>';
             })
             ->addColumn('schedule_donor_notes', function ($model) {
                 return Carbon::parse($model->schedule_donor_notes)->translatedFormat("D, d-m-Y");

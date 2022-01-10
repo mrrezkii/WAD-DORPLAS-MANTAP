@@ -50,18 +50,18 @@ class DonorSubmissionEmployeeController extends Controller
             ->addColumn('donators.name_donators', function (DonorSubmissions $donorSubmissions) {
                 return $donorSubmissions->donators->name_donators;
             })
-            ->addColumn('status.name_status_donor', function (DonorSubmissions $donorSubmissions) {
-                if ($donorSubmissions->status_donor_submissions == 1) {
-                    return '<p class="text-red">' . $donorSubmissions->status->name_status_donor . '</p>';
-                } else if ($donorSubmissions->status_donor_submissions == 2) {
-                    return '<p class="text-primary">' . $donorSubmissions->status->name_status_donor . '</p>';
-                } else if ($donorSubmissions->status_donor_submissions == 3) {
-                    return '<p class="text-success">' . $donorSubmissions->status->name_status_donor . '</p>';
-                } else if ($donorSubmissions->status_donor_submissions == 4) {
-                    return '<p class="text-red-2">' . $donorSubmissions->status->name_status_donor . '</p>';
+            ->addColumn('status.name_status_donor', function ($model) {
+                if ($model->status_donor_submissions == 1) {
+                    return '<p class="text-red">' . $model->status->name_status_donor . '</p>';
+                } else if ($model->status_donor_submissions == 2) {
+                    return '<p class="text-primary">' . $model->status->name_status_donor . '</p>';
+                } else if ($model->status_donor_submissions == 3) {
+                    return '<p class="text-success">' . $model->status->name_status_donor . '</p>';
+                } else if ($model->status_donor_submissions == 4) {
+                    return '<p class="text-red-2">' . $model->status->name_status_donor . '</p>';
                 }
 
-                return '<p class="text-secondary">' . $donorSubmissions->status->name_status_donor . '</p>';
+                return '<p class="text-secondary">' . $model->status->name_status_donor . '</p>';
             })
             ->addColumn('action', function ($model) {
                 return (string)view('pages.donor.submission_admin_action', ['model' => $model]);
