@@ -13,7 +13,7 @@
                     <th>Nama Acara</th>
                     <th>Status</th>
                     <th>Jadwal</th>
-                    <th>Terakhir pengubah</th>
+                    <th>Pengubah Terakhir</th>
                     <th>Aksi</th>
                 </tr>
                 </thead>

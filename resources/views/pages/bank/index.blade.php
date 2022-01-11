@@ -16,7 +16,7 @@
                 </div>
             @endif
             <h3 class="text-blue font-weight-bold mt-5">Stok Bank Darah</h3>
-            <small>Terakhir pengubah : {{ $bloodBank[0]->modified_by ?? "-" }}</small>
+            <small>Pengubah Terakhir : {{ $bloodBank[0]->modified_by ?? "-" }}</small>
             <form action="{{ url('/_bank') }}" method="POST" class="mt-4">
                 @csrf
                 @method("PUT")
