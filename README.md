@@ -15,7 +15,7 @@
 
 <br />
 
-Buka CMD atau Terminal kemudian lakukan instalasi package/libray/plugin dibawah dengan command sebagai berikut :
+Buka CMD atau Terminal kemudian lakukan instalasi package/library/plugin dibawah dengan command sebagai berikut :
 
 `create database dorplas`
 
@@ -28,7 +28,6 @@ Buka CMD atau Terminal kemudian lakukan instalasi package/libray/plugin dibawah 
 `php artisan migrate:fresh --seed`
 
 `pip artisan serve`
-
 <br />
 
 ##### Tech Stack
