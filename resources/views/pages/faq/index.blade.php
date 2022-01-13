@@ -115,18 +115,11 @@
                         <div class="card-body text-decoration-none">
                             <span><i class="fas fa-quote-right text-red"></i></span>
                             <p class="text-title1 text-grey">
-                                <span style="color: #903749">Tim Website :</span>
-                                <br>
                                 - Alif Yanuar Aditya Subagyo <br>
                                 - Bagus Tri Atmaja <br>
                                 - Muhammad Ihsan Izzulhaq <br>
                                 - Muhammad Rezki Ananda <br>
                                 - Yanuar Taruna Lutfi <br>
-                                <br>
-                                <br>
-                                <span style="color: #903749">Tim Mobile :</span>
-                                <br>
-                                - Muhammad Rezki Ananda (Squad Soematera - GITS)
                             </p>
 
                         </div>
