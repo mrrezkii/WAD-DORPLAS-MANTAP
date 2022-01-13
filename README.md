@@ -27,7 +27,7 @@ Buka CMD atau Terminal kemudian lakukan instalasi package/library/plugin dibawah
 
 `php artisan migrate:fresh --seed`
 
-`pip artisan serve`
+`php artisan serve`
 <br />
 
 ##### Tech Stack
