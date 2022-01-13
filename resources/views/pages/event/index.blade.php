@@ -80,7 +80,7 @@
                                     $endTime = \Carbon\Carbon::parse($data->end_time_donor_events);
                                 @endphp
                                 <img class="img-fluid rounded"
-                                     src="{{ $datas[0]->thumbnail_donor_events ?? url('https://source.unsplash.com/350x200?blood') }}"
+                                     src="{{ $data->thumbnail_donor_events ?? url('https://source.unsplash.com/350x200?blood') }}"
                                      alt="image">
                                 <p class="ellipsis-2 text-blue text-title1 mt-2">{{ $data->name_donor_events }}</p>
                                 <p>
